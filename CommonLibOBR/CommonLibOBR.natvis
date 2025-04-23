@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+	<Type Name="REL::Relocation&lt;*&gt;">
+		<DisplayString>{($T1)_impl}</DisplayString>
+		<Expand>
+			<Item Name="[object]">($T1)_impl</Item>
+		</Expand>
+	</Type>
+	
+	<Type Name="OBSE::stl::enumeration&lt;*&gt;">
+		<DisplayString Optional="true">{static_cast&lt;$T1&gt;(_impl),en}</DisplayString>
+	</Type>
+
+	<Type Name="RE::RTTI::RVA&lt;*&gt;">
+		<Intrinsic Name="good" Expression="_rva != 0"/>
+		<DisplayString Condition="good()">{($T1*)(REL::Module::_natvis + _rva)}</DisplayString>
+		<DisplayString Condition="!good()">empty</DisplayString>
+		<Expand>
+			<Item Name="[object]" Condition="good()">($T1*)(REL::Module::_natvis + _rva)</Item>
+		</Expand>
+	</Type>
+</AutoVisualizer>

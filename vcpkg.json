@@ -1,0 +1,10 @@
+{
+  "name": "umbrella",
+  "version-string": "1",
+  "dependencies": [
+    "args",
+    "rsm-mmio",
+    "spdlog",
+    "xbyak"
+  ]
+}
