@@ -1,14 +1,13 @@
 set(SOURCES
 	include/OBSE/API.h
-	include/OBSE/OBSE.h
 	include/OBSE/Impl/PCH.h
-	include/OBSE/InputMap.h
 	include/OBSE/Interfaces.h
 	include/OBSE/Logger.h
+	include/OBSE/OBSE.h
 	include/OBSE/Trampoline.h
 	include/OBSE/Version.h
-	include/RE/Oblivion.h
 	include/RE/NiRTTI_IDs.h
+	include/RE/Oblivion.h
 	include/RE/RTTI.h
 	include/RE/RTTI_IDs.h
 	include/RE/VTABLE_IDs.h
@@ -67,7 +66,6 @@ set(SOURCES
 	include/REX/W32/XINPUT.h
 	src/OBSE/API.cpp
 	src/OBSE/Impl/PCH.cpp
-	src/OBSE/InputMap.cpp
 	src/OBSE/Interfaces.cpp
 	src/OBSE/Logger.cpp
 	src/RE/Oblivion.cpp

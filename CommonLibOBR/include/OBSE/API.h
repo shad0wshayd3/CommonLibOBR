@@ -49,4 +49,3 @@ namespace OBSE
 	[[nodiscard]] const TrampolineInterface*    GetTrampolineInterface() noexcept;
 }
 */
-
