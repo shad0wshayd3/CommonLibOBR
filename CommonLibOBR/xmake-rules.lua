@@ -1,4 +1,5 @@
 local PLUGIN_FILE = [[
+/*
 #include <OBSE/OBSE.h>
 OBSE_EXPORT constinit auto OBSEPlugin_Version = []() noexcept {
     OBSE::PluginVersionData v{};
@@ -12,6 +13,7 @@ OBSE_EXPORT constinit auto OBSEPlugin_Version = []() noexcept {
     v.CompatibleVersions({ OBSE::RUNTIME_LATEST });
     return v;
 }();
+*/
 ]]
 
 local PLUGIN_RC_FILE = [[
@@ -71,10 +73,10 @@ rule("commonlibobr.plugin")
         target:add("installfiles", target:targetfile(), { prefixdir = "OBSE/Plugins" })
         target:add("installfiles", target:symbolfile(), { prefixdir = "OBSE/Plugins" })
 
-        if os.getenv("XSE_FO4_MODS_PATH") then
-            target:set("installdir", path.join(os.getenv("XSE_FO4_MODS_PATH"), target:name()))
-        elseif os.getenv("XSE_FO4_GAME_PATH") then
-            target:set("installdir", path.join(os.getenv("XSE_FO4_GAME_PATH"), "Data"))
+        if os.getenv("XSE_OBR_MODS_PATH") then
+            target:set("installdir", path.join(os.getenv("XSE_OBR_MODS_PATH"), target:name()))
+        elseif os.getenv("XSE_OBR_GAME_PATH") then
+            target:set("installdir", path.join(os.getenv("XSE_OBR_GAME_PATH"), "Data"))
         end
 
         local conf = target:extraconf("rules", "commonlibobr.plugin")

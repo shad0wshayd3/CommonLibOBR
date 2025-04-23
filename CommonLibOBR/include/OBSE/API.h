@@ -1,5 +1,6 @@
 #pragma once
 
+/*
 namespace OBSE
 {
 	using PluginHandle = std::uint32_t;
@@ -47,12 +48,5 @@ namespace OBSE
 	[[nodiscard]] const ObjectInterface*        GetObjectInterface() noexcept;
 	[[nodiscard]] const TrampolineInterface*    GetTrampolineInterface() noexcept;
 }
+*/
 
-namespace OBSE
-{
-	// DEPRECATED
-	void Init(const LoadInterface* a_intfc, bool a_log) noexcept;
-
-	// DEPRECATED
-	void AllocTrampoline(std::size_t a_size) noexcept;
-}

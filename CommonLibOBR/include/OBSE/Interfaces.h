@@ -4,6 +4,7 @@
 
 #define OBSEAPI __cdecl
 
+/*
 namespace RE
 {
 	namespace BSScript
@@ -124,7 +125,7 @@ namespace OBSE
 
 	public:
 		[[nodiscard]] REL::Version     EditorVersion() const noexcept { return MakeVersion(GetProxy().editorVersion); }
-		[[nodiscard]] REL::Version     OBSEVersion() const noexcept { return MakeVersion(GetProxy().obseVersion); }
+		[[nodiscard]] REL::Version     OBSEVersion() const noexcept { return MakeVersion(GetProxy().obse64Version); }
 		[[nodiscard]] PluginHandle     GetPluginHandle() const { return GetProxy().GetPluginHandle(); }
 		[[nodiscard]] std::uint32_t    GetReleaseIndex() const { return GetProxy().GetReleaseIndex(); }
 		[[nodiscard]] std::string_view GetSaveFolderName() const { return GetProxy().GetSaveFolderName(); }
@@ -563,3 +564,4 @@ namespace OBSE
 #define OBSEPluginPreload OBSE_PLUGIN_PRELOAD
 #define OBSEPluginLoad OBSE_PLUGIN_LOAD
 #define OBSEPluginVersion OBSE_PLUGIN_VERSION
+*/

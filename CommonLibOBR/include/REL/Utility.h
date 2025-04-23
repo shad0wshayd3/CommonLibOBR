@@ -94,32 +94,3 @@ namespace REL
 		WriteSafe(a_dst.data(), std::addressof(a_src), a_dst.size_bytes());
 	}
 }
-
-namespace REL
-{
-	// DEPRECATED
-	inline void safe_write(std::uintptr_t a_dst, const void* a_src, std::size_t a_count)
-	{
-		WriteSafe(reinterpret_cast<void*>(a_dst), a_src, a_count);
-	}
-
-	// DEPRECATED
-	template <std::integral T>
-	void safe_write(std::uintptr_t a_dst, const T& a_data)
-	{
-		WriteSafe(reinterpret_cast<void*>(a_dst), std::addressof(a_data), sizeof(T));
-	}
-
-	// DEPRECATED
-	template <class T>
-	void safe_write(std::uintptr_t a_dst, std::span<T> a_data)
-	{
-		WriteSafe(a_dst, a_data.data(), a_data.size_bytes());
-	}
-
-	// DEPRECATED
-	inline void safe_fill(std::uintptr_t a_dst, std::uint8_t a_value, std::size_t a_count)
-	{
-		WriteSafeFill(a_dst, static_cast<std::byte>(a_value), a_count);
-	}
-}

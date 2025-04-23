@@ -4,6 +4,7 @@
 
 #include "REX/W32/KERNEL32.h"
 
+/*
 namespace OBSE
 {
 	bool MessagingInterface::RegisterListener(EventCallback* a_handler, stl::zstring a_sender) const
@@ -177,3 +178,4 @@ namespace OBSE
 		return reinterpret_cast<const PluginVersionData*>(REX::W32::GetProcAddress(REX::W32::GetCurrentModule(), "OBSEPlugin_Version"));
 	}
 }
+*/
