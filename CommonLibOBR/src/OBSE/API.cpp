@@ -33,8 +33,8 @@ namespace OBSE
 			std::function<const void*(OBSEAPI)(const char*)> pluginInfoAccessor;
 			std::string_view                                 saveFolderName{};
 
-			MessagingInterface*     messagingInterface{ nullptr };
-			TrampolineInterface*    trampolineInterface{ nullptr };
+			MessagingInterface*  messagingInterface{ nullptr };
+			TrampolineInterface* trampolineInterface{ nullptr };
 		};
 
 		void API::Init(InitInfo a_info, const OBSE::QueryInterface* a_intfc)

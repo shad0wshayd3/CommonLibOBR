@@ -35,6 +35,6 @@ namespace OBSE
 	[[nodiscard]] std::uint32_t     GetReleaseIndex() noexcept;
 	[[nodiscard]] std::string_view  GetSaveFolderName() noexcept;
 
-	[[nodiscard]] const MessagingInterface*     GetMessagingInterface() noexcept;
-	[[nodiscard]] const TrampolineInterface*    GetTrampolineInterface() noexcept;
+	[[nodiscard]] const MessagingInterface*  GetMessagingInterface() noexcept;
+	[[nodiscard]] const TrampolineInterface* GetTrampolineInterface() noexcept;
 }
