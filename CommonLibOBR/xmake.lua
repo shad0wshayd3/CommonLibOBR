@@ -54,7 +54,7 @@ target("commonlibobr", function()
     set_group("commonlibobr")
 
     -- add packages
-    add_packages("rsm-binary-io", "rsm-mmio", "spdlog", { public = true })
+    add_packages("rsm-mmio", "spdlog", { public = true })
 
     if has_config("obse_xbyak") then
         add_packages("xbyak", { public = true })
