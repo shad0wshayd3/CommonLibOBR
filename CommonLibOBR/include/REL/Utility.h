@@ -49,8 +49,8 @@ namespace REL
 
 	void WriteSafe(void* a_dst, const void* a_src, const std::size_t a_size);
 	void WriteSafe(const std::uintptr_t a_dst, const void* a_src, const std::size_t a_size);
-	void WriteSafeFill(void* a_dst, const std::byte a_value, const std::size_t a_size);
-	void WriteSafeFill(const std::uintptr_t a_dst, const std::byte a_value, const std::size_t a_size);
+	void WriteSafeFill(void* a_dst, const std::uint8_t a_value, const std::size_t a_size);
+	void WriteSafeFill(const std::uintptr_t a_dst, const std::uint8_t a_value, const std::size_t a_size);
 
 	template <class T>
 	void WriteSafe(void* a_dst, const std::span<T> a_src)
