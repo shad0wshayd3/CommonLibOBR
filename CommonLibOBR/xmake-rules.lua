@@ -1,19 +1,17 @@
 local PLUGIN_FILE = [[
-/*
 #include <OBSE/OBSE.h>
 OBSE_EXPORT constinit auto OBSEPlugin_Version = []() noexcept {
     OBSE::PluginVersionData v{};
     v.PluginVersion({ ${PLUGIN_VERSION_MAJOR}, ${PLUGIN_VERSION_MINOR}, ${PLUGIN_VERSION_PATCH}, 0 });
     v.PluginName("${PLUGIN_NAME}");
     v.AuthorName("${PLUGIN_AUTHOR}");
-    v.UsesAddressLibrary(true);
+    v.UsesAddressLibrary(false);
     v.UsesSigScanning(false);
     v.IsLayoutDependent(true);
     v.HasNoStructUse(false);
     v.CompatibleVersions({ OBSE::RUNTIME_LATEST });
     return v;
 }();
-*/
 ]]
 
 local PLUGIN_RC_FILE = [[

@@ -1,6 +1,5 @@
 #pragma once
 
-/*
 namespace OBSE
 {
 	using PluginHandle = std::uint32_t;
@@ -11,11 +10,6 @@ namespace OBSE
 	struct PluginInfo;
 
 	class MessagingInterface;
-	class ScaleformInterface;
-	class PapyrusInterface;
-	class SerializationInterface;
-	class TaskInterface;
-	class ObjectInterface;
 	class TrampolineInterface;
 
 	struct InitInfo
@@ -26,6 +20,7 @@ namespace OBSE
 		bool        trampoline{ false };
 		std::size_t trampolineSize{ 0 };
 		bool        hook{ true };
+		bool        iddb{ false };
 	};
 
 	void Init(const PreLoadInterface* a_intfc, InitInfo a_info = {}) noexcept;
@@ -41,11 +36,5 @@ namespace OBSE
 	[[nodiscard]] std::string_view  GetSaveFolderName() noexcept;
 
 	[[nodiscard]] const MessagingInterface*     GetMessagingInterface() noexcept;
-	[[nodiscard]] const ScaleformInterface*     GetScaleformInterface() noexcept;
-	[[nodiscard]] const PapyrusInterface*       GetPapyrusInterface() noexcept;
-	[[nodiscard]] const SerializationInterface* GetSerializationInterface() noexcept;
-	[[nodiscard]] const TaskInterface*          GetTaskInterface() noexcept;
-	[[nodiscard]] const ObjectInterface*        GetObjectInterface() noexcept;
 	[[nodiscard]] const TrampolineInterface*    GetTrampolineInterface() noexcept;
 }
-*/

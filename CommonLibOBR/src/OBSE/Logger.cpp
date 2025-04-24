@@ -17,7 +17,7 @@ namespace OBSE::log
 		}
 
 		std::filesystem::path path = knownPath.get();
-		path /= "My Games/Oblivion Remastered/OBSE64"sv;
+		path /= std::format("My Games/{}/OBSE/Logs", OBSE::GetSaveFolderName());
 		return path;
 	}
 }

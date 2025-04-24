@@ -74,27 +74,9 @@ namespace REL
 	IDDB::IDDB()
 	{
 		const auto version = Module::get().version();
-		const auto path = std::format("Data/OBSE/Plugins/version-{}.bin", version.string("-"sv));
+		const auto path = std::format("OBSE/Plugins/versionlib-{}.bin", version.string("-"sv));
 		if (!_mmap.open(path)) {
 			stl::report_and_fail(std::format("failed to open: {}", path));
-		}
-
-		if (version == Version{ 1, 10, 980 }) {
-			const auto sha = SHA512({ _mmap });
-			if (!sha) {
-				stl::report_and_fail(std::format("failed to hash: {}", path));
-			}
-			// Address bins are expected to be pre-sorted. This bin was released without being sorted, and will cause lookups to randomly fail.
-			if (*sha == "2AD60B95388F1B6E77A6F86F17BEB51D043CF95A341E91ECB2E911A393E45FE8156D585D2562F7B14434483D6E6652E2373B91589013507CABAE596C26A343F1"sv) {
-				stl::report_and_fail(std::format(
-					"The address bin you are using ({}) is corrupted. "
-					"Please go to the Nexus page for Address Library and redownload the file corresponding to version {}.{}.{}.{}",
-					path,
-					version[0],
-					version[1],
-					version[2],
-					version[3]));
-			}
 		}
 
 		_id2offset = std::span{

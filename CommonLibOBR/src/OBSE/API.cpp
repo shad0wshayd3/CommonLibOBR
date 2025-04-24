@@ -9,7 +9,6 @@
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/sinks/msvc_sink.h>
 
-/*
 namespace OBSE
 {
 	namespace Impl
@@ -35,11 +34,6 @@ namespace OBSE
 			std::string_view                                 saveFolderName{};
 
 			MessagingInterface*     messagingInterface{ nullptr };
-			ScaleformInterface*     scaleformInterface{ nullptr };
-			PapyrusInterface*       papyrusInterface{ nullptr };
-			SerializationInterface* serializationInterface{ nullptr };
-			TaskInterface*          taskInterface{ nullptr };
-			ObjectInterface*        objectInterface{ nullptr };
 			TrampolineInterface*    trampolineInterface{ nullptr };
 		};
 
@@ -48,7 +42,9 @@ namespace OBSE
 			info = a_info;
 
 			(void)REL::Module::get();
-			(void)REL::IDDB::get();
+			if (info.iddb) {
+				(void)REL::IDDB::get();
+			}
 
 			static std::once_flag once;
 			std::call_once(once, [&]() {
@@ -160,11 +156,6 @@ namespace OBSE
 			api->InitLog();
 
 			api->messagingInterface = a_intfc->QueryInterface<MessagingInterface>(LoadInterface::kMessaging);
-			api->scaleformInterface = a_intfc->QueryInterface<ScaleformInterface>(LoadInterface::kScaleform);
-			api->papyrusInterface = a_intfc->QueryInterface<PapyrusInterface>(LoadInterface::kPapyrus);
-			api->serializationInterface = a_intfc->QueryInterface<SerializationInterface>(LoadInterface::kSerialization);
-			api->taskInterface = a_intfc->QueryInterface<TaskInterface>(LoadInterface::kTask);
-			api->objectInterface = a_intfc->QueryInterface<ObjectInterface>(LoadInterface::kObject);
 			api->trampolineInterface = a_intfc->QueryInterface<TrampolineInterface>(LoadInterface::kTrampoline);
 
 			api->InitTrampoline();
@@ -225,31 +216,6 @@ namespace OBSE
 		return Impl::API::GetSingleton()->messagingInterface;
 	}
 
-	const ScaleformInterface* GetScaleformInterface() noexcept
-	{
-		return Impl::API::GetSingleton()->scaleformInterface;
-	}
-
-	const PapyrusInterface* GetPapyrusInterface() noexcept
-	{
-		return Impl::API::GetSingleton()->papyrusInterface;
-	}
-
-	const SerializationInterface* GetSerializationInterface() noexcept
-	{
-		return Impl::API::GetSingleton()->serializationInterface;
-	}
-
-	const TaskInterface* GetTaskInterface() noexcept
-	{
-		return Impl::API::GetSingleton()->taskInterface;
-	}
-
-	const ObjectInterface* GetObjectInterface() noexcept
-	{
-		return Impl::API::GetSingleton()->objectInterface;
-	}
-
 	const TrampolineInterface* GetTrampolineInterface() noexcept
 	{
 		return Impl::API::GetSingleton()->trampolineInterface;
@@ -271,4 +237,3 @@ namespace OBSE
 		api->InitTrampoline();
 	}
 }
-*/
