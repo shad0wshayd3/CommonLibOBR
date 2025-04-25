@@ -284,9 +284,9 @@ namespace OBSE
 
 		template <class... Args>
 		enumeration(Args...) -> enumeration<
-			std::common_type_t<Args...>,
-			std::underlying_type_t<
-				std::common_type_t<Args...>>>;
+								 std::common_type_t<Args...>,
+								 std::underlying_type_t<
+									 std::common_type_t<Args...>>>;
 	}
 }
 

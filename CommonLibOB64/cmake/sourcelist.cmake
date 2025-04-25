@@ -6,6 +6,7 @@ set(SOURCES
 	include/OBSE/OBSE.h
 	include/OBSE/Trampoline.h
 	include/OBSE/Version.h
+	include/RE/IDs.h
 	include/RE/NiRTTI_IDs.h
 	include/RE/Oblivion.h
 	include/RE/RTTI.h
