@@ -1,8 +1,8 @@
 {
-  "name": "commonlibobr",
+  "name": "commonlibob64",
   "version-string": "1.0.0",
   "description": "A reverse engineered resource for developing OBSE64 plugins for Oblivion Remastered",
-  "homepage": "https://github.com/shad0wshayd3/CommonLibOBR",
+  "homepage": "https://github.com/shad0wshayd3-TES4/CommonLibOB64",
   "license": "MIT",
   "supports": "windows & x64",
   "dependencies": [

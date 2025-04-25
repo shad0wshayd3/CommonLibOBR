@@ -6,7 +6,7 @@ option(REX_OPTION_JSON "Enables json config support for REX." OFF)
 option(REX_OPTION_TOML "Enables toml config support for REX." OFF)
 
 project(
-	CommonLibOBR
+	CommonLibOB64
 	LANGUAGES CXX
 )
 
@@ -31,7 +31,7 @@ add_library(
 	STATIC
 	${SOURCES}
 	../.clang-format
-	CommonLibOBR.natvis
+	CommonLibOB64.natvis
 )
 
 add_library("${PROJECT_NAME}::${PROJECT_NAME}" ALIAS "${PROJECT_NAME}")

@@ -49,15 +49,15 @@ BEGIN
 END]]
 
 -- git submodule usage:
--- add_deps("commonlibobr")
--- add_rules("commonlibobr.plugin", {
+-- add_deps("commonlibob64")
+-- add_rules("commonlibob64.plugin", {
 --     name = "PluginName",
 --     author = "Author Name",
 --     description = "Plugin Description"
 -- })
 
 -- define rules
-rule("commonlibobr.plugin")
+rule("commonlibob64.plugin")
     add_deps("win.sdk.resource")
 
     on_config(function(target)
@@ -77,8 +77,8 @@ rule("commonlibobr.plugin")
             target:set("installdir", path.join(os.getenv("XSE_OBR_GAME_PATH"), "Data"))
         end
 
-        local conf = target:extraconf("rules", "commonlibobr.plugin")
-        local conf_dir = path.join(target:autogendir(), "rules", "commonlibobr", "plugin")
+        local conf = target:extraconf("rules", "commonlibob64.plugin")
+        local conf_dir = path.join(target:autogendir(), "rules", "commonlibob64", "plugin")
 
         local conf_map = {
             PLUGIN_AUTHOR                = conf.author or "",

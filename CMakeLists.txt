@@ -22,4 +22,4 @@ include(CTest)
 
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 
-conditionally_add_subdirectory(CommonLibOBR)
+conditionally_add_subdirectory(CommonLibOB64)

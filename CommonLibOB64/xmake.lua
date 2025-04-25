@@ -44,14 +44,14 @@ if has_config("rex_toml") then
 end
 
 -- define targets
-target("commonlibobr", function()
+target("commonlibob64", function()
     set_kind("static")
 
     -- set build by default
     set_default(path.directory(os.scriptdir()) == os.projectdir())
 
     -- set build group
-    set_group("commonlibobr")
+    set_group("commonlibob64")
 
     -- add packages
     add_packages("rsm-mmio", "spdlog", { public = true })
