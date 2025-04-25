@@ -71,10 +71,10 @@ rule("commonlibob64.plugin")
         target:add("installfiles", target:targetfile(), { prefixdir = "OBSE/Plugins" })
         target:add("installfiles", target:symbolfile(), { prefixdir = "OBSE/Plugins" })
 
-        if os.getenv("XSE_OBR_MODS_PATH") then
-            target:set("installdir", path.join(os.getenv("XSE_OBR_MODS_PATH"), target:name()))
-        elseif os.getenv("XSE_OBR_GAME_PATH") then
-            target:set("installdir", path.join(os.getenv("XSE_OBR_GAME_PATH"), "Data"))
+        if os.getenv("XSE_TES4_MODS_PATH") then
+            target:set("installdir", path.join(os.getenv("XSE_TES4_MODS_PATH"), target:name()))
+        elseif os.getenv("XSE_TES4_GAME_PATH") then
+            target:set("installdir", path.join(os.getenv("XSE_TES4_GAME_PATH"), "Data"))
         end
 
         local conf = target:extraconf("rules", "commonlibob64.plugin")
