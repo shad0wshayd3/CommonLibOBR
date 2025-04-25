@@ -2,11 +2,6 @@
 
 namespace RE
 {
-	namespace msvc
-	{
-		class type_info;
-	}
-
 	namespace RTTI
 	{
 		template <class T>
@@ -37,7 +32,7 @@ namespace RE
 		};
 		static_assert(sizeof(RVA<void*>) == 0x4);
 
-		using TypeDescriptor = msvc::type_info;
+		using TypeDescriptor = std::type_info;
 
 		struct PMD
 		{
