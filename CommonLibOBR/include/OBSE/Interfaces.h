@@ -51,10 +51,10 @@ namespace OBSE
 		[[nodiscard]] constexpr static REL::Version MakeVersion(std::uint32_t a_version) noexcept
 		{
 			return {
-				static_cast<std::uint16_t>((a_version >> 8 * 3) & 0x0FF),
-				static_cast<std::uint16_t>((a_version >> 8 * 2) & 0x0FF),
-				static_cast<std::uint16_t>((a_version >> 8 / 2) & 0xFFF),
-				static_cast<std::uint16_t>((a_version >> 8 * 0) & 0x00F)
+				static_cast<std::uint16_t>((a_version >> 28) & 0x00F),
+				static_cast<std::uint16_t>((a_version >> 16) & 0xFFF),
+				static_cast<std::uint16_t>((a_version >> 4) & 0xFFF),
+				static_cast<std::uint16_t>((a_version >> 0) & 0x00F)
 			};
 		}
 

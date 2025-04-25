@@ -40,8 +40,8 @@ namespace REL
 		[[nodiscard]] constexpr std::uint32_t pack() const noexcept
 		{
 			return static_cast<std::uint32_t>(
-				(_impl[0] & 0x0FF) << 24u |
-				(_impl[1] & 0x0FF) << 16u |
+				(_impl[0] & 0x00F) << 28u |
+				(_impl[1] & 0xFFF) << 16u |
 				(_impl[2] & 0xFFF) << 4u |
 				(_impl[3] & 0x00F) << 0u);
 		}
@@ -76,8 +76,8 @@ namespace REL
 		[[nodiscard]] static constexpr Version unpack(const std::uint32_t a_packedVersion) noexcept
 		{
 			return Version{
-				static_cast<value_type>((a_packedVersion >> 24) & 0x0FF),
-				static_cast<value_type>((a_packedVersion >> 16) & 0x0FF),
+				static_cast<value_type>((a_packedVersion >> 28) & 0x00F),
+				static_cast<value_type>((a_packedVersion >> 16) & 0xFFF),
 				static_cast<value_type>((a_packedVersion >> 4) & 0xFFF),
 				static_cast<value_type>(a_packedVersion & 0x0F)
 			};
