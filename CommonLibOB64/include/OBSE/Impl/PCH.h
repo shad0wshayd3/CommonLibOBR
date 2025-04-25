@@ -284,9 +284,9 @@ namespace OBSE
 
 		template <class... Args>
 		enumeration(Args...) -> enumeration<
-								 std::common_type_t<Args...>,
-								 std::underlying_type_t<
-									 std::common_type_t<Args...>>>;
+			std::common_type_t<Args...>,
+			std::underlying_type_t<
+				std::common_type_t<Args...>>>;
 	}
 }
 
@@ -533,6 +533,7 @@ namespace REL
 
 #include "REL/REL.h"
 
+#include "RE/IDs.h"
 #include "RE/NiRTTI_IDs.h"
 #include "RE/RTTI_IDs.h"
 #include "RE/VTABLE_IDs.h"
