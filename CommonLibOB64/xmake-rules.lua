@@ -74,7 +74,7 @@ rule("commonlibob64.plugin")
         if os.getenv("XSE_TES4_MODS_PATH") then
             target:set("installdir", path.join(os.getenv("XSE_TES4_MODS_PATH"), target:name()))
         elseif os.getenv("XSE_TES4_GAME_PATH") then
-            target:set("installdir", path.join(os.getenv("XSE_TES4_GAME_PATH"), "Data"))
+            target:set("installdir", os.getenv("XSE_TES4_GAME_PATH"))
         end
 
         local conf = target:extraconf("rules", "commonlibob64.plugin")
