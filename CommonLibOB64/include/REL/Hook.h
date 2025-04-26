@@ -3,6 +3,7 @@
 #include "REL/ASM.h"
 #include "REL/HookObject.h"
 #include "REL/ID.h"
+#include "REL/Offset.h"
 #include "REL/Trampoline.h"
 #include "REL/Utility.h"
 
@@ -16,29 +17,57 @@ namespace REL
 		public HookObject
 	{
 	public:
-		explicit Hook(const ID a_id, const std::ptrdiff_t a_offset, R (*a_function)(T...)) :
-			HookObject(a_id.address() + a_offset)
+		explicit Hook(const ID a_id, const std::ptrdiff_t a_diff, R (*a_function)(T...)) :
+			HookObject(a_id.address() + a_diff)
 		{
 			m_function = reinterpret_cast<std::uintptr_t>(a_function);
 			Detect();
 		}
 
-		explicit Hook(const HOOK_STEP a_step, const ID a_id, const std::ptrdiff_t a_offset, R (*a_function)(T...)) :
-			HookObject(a_id.address() + a_offset, a_step)
+		explicit Hook(const Offset a_offset, const std::ptrdiff_t a_diff, R (*a_function)(T...)) :
+			HookObject(a_offset.address() + a_diff)
 		{
 			m_function = reinterpret_cast<std::uintptr_t>(a_function);
 			Detect();
 		}
 
-		explicit Hook(const char* a_name, const ID a_id, const std::ptrdiff_t a_offset, R (*a_function)(T...)) :
-			HookObject(a_id.address() + a_offset, a_name)
+		explicit Hook(const HOOK_STEP a_step, const ID a_id, const std::ptrdiff_t a_diff, R (*a_function)(T...)) :
+			HookObject(a_id.address() + a_diff, a_step)
 		{
 			m_function = reinterpret_cast<std::uintptr_t>(a_function);
 			Detect();
 		}
 
-		explicit Hook(const char* a_name, const HOOK_STEP a_step, const ID a_id, const std::ptrdiff_t a_offset, R (*a_function)(T...)) :
-			HookObject(a_id.address() + a_offset, a_name, a_step)
+		explicit Hook(const HOOK_STEP a_step, const Offset a_offset, const std::ptrdiff_t a_diff, R (*a_function)(T...)) :
+			HookObject(a_offset.address() + a_diff, a_step)
+		{
+			m_function = reinterpret_cast<std::uintptr_t>(a_function);
+			Detect();
+		}
+
+		explicit Hook(const char* a_name, const ID a_id, const std::ptrdiff_t a_diff, R (*a_function)(T...)) :
+			HookObject(a_id.address() + a_diff, a_name)
+		{
+			m_function = reinterpret_cast<std::uintptr_t>(a_function);
+			Detect();
+		}
+
+		explicit Hook(const char* a_name, const Offset a_offset, const std::ptrdiff_t a_diff, R (*a_function)(T...)) :
+			HookObject(a_offset.address() + a_diff, a_name)
+		{
+			m_function = reinterpret_cast<std::uintptr_t>(a_function);
+			Detect();
+		}
+
+		explicit Hook(const char* a_name, const HOOK_STEP a_step, const ID a_id, const std::ptrdiff_t a_diff, R (*a_function)(T...)) :
+			HookObject(a_id.address() + a_diff, a_name, a_step)
+		{
+			m_function = reinterpret_cast<std::uintptr_t>(a_function);
+			Detect();
+		}
+
+		explicit Hook(const char* a_name, const HOOK_STEP a_step, const Offset a_offset, const std::ptrdiff_t a_diff, R (*a_function)(T...)) :
+			HookObject(a_offset.address() + a_diff, a_name, a_step)
 		{
 			m_function = reinterpret_cast<std::uintptr_t>(a_function);
 			Detect();
@@ -160,13 +189,25 @@ namespace REL
 	Hook(const ID, const std::uint64_t, R (*)(T...)) -> Hook<R(T...)>;
 
 	template <class R, class... T>
+	Hook(const Offset, const std::uint64_t, R (*)(T...)) -> Hook<R(T...)>;
+
+	template <class R, class... T>
 	Hook(const HOOK_STEP, const ID, const std::uint64_t, R (*)(T...)) -> Hook<R(T...)>;
+
+	template <class R, class... T>
+	Hook(const HOOK_STEP, const Offset, const std::uint64_t, R (*)(T...)) -> Hook<R(T...)>;
 
 	template <class R, class... T>
 	Hook(const char*, const ID, const std::uint64_t, R (*)(T...)) -> Hook<R(T...)>;
 
 	template <class R, class... T>
+	Hook(const char*, const Offset, const std::uint64_t, R (*)(T...)) -> Hook<R(T...)>;
+
+	template <class R, class... T>
 	Hook(const char*, const HOOK_STEP, const ID, const std::uint64_t, R (*)(T...)) -> Hook<R(T...)>;
+
+	template <class R, class... T>
+	Hook(const char*, const HOOK_STEP, const Offset, const std::uint64_t, R (*)(T...)) -> Hook<R(T...)>;
 }
 
 namespace REL
@@ -186,8 +227,22 @@ namespace REL
 			m_functionOld = *reinterpret_cast<std::uintptr_t*>(m_address);
 		}
 
+		explicit HookVFT(const Offset a_offset, const std::size_t a_idx, R (*a_function)(T...)) :
+			HookObject(a_offset.address() + (sizeof(void*) * a_idx), HOOK_TYPE::VFT)
+		{
+			m_function = reinterpret_cast<std::uintptr_t>(a_function);
+			m_functionOld = *reinterpret_cast<std::uintptr_t*>(m_address);
+		}
+
 		explicit HookVFT(const HOOK_STEP a_step, const ID a_id, const std::size_t a_idx, R (*a_function)(T...)) :
 			HookObject(a_id.address() + (sizeof(void*) * a_idx), HOOK_TYPE::VFT, a_step)
+		{
+			m_function = reinterpret_cast<std::uintptr_t>(a_function);
+			m_functionOld = *reinterpret_cast<std::uintptr_t*>(m_address);
+		}
+
+		explicit HookVFT(const HOOK_STEP a_step, const Offset a_offset, const std::size_t a_idx, R (*a_function)(T...)) :
+			HookObject(a_offset.address() + (sizeof(void*) * a_idx), HOOK_TYPE::VFT, a_step)
 		{
 			m_function = reinterpret_cast<std::uintptr_t>(a_function);
 			m_functionOld = *reinterpret_cast<std::uintptr_t*>(m_address);
@@ -200,8 +255,22 @@ namespace REL
 			m_functionOld = *reinterpret_cast<std::uintptr_t*>(m_address);
 		}
 
+		explicit HookVFT(const char* a_name, const Offset a_offset, const std::size_t a_idx, R (*a_function)(T...)) :
+			HookObject(a_offset.address() + (sizeof(void*) * a_idx), a_name, HOOK_TYPE::VFT)
+		{
+			m_function = reinterpret_cast<std::uintptr_t>(a_function);
+			m_functionOld = *reinterpret_cast<std::uintptr_t*>(m_address);
+		}
+
 		explicit HookVFT(const char* a_name, const HOOK_STEP a_step, const ID a_id, const std::size_t a_idx, R (*a_function)(T...)) :
 			HookObject(a_id.address() + (sizeof(void*) * a_idx), a_name, HOOK_TYPE::VFT, a_step)
+		{
+			m_function = reinterpret_cast<std::uintptr_t>(a_function);
+			m_functionOld = *reinterpret_cast<std::uintptr_t*>(m_address);
+		}
+
+		explicit HookVFT(const char* a_name, const HOOK_STEP a_step, const Offset a_offset, const std::size_t a_idx, R (*a_function)(T...)) :
+			HookObject(a_offset.address() + (sizeof(void*) * a_idx), a_name, HOOK_TYPE::VFT, a_step)
 		{
 			m_function = reinterpret_cast<std::uintptr_t>(a_function);
 			m_functionOld = *reinterpret_cast<std::uintptr_t*>(m_address);
@@ -250,11 +319,23 @@ namespace REL
 	HookVFT(const ID, const std::size_t, R (*)(T...)) -> HookVFT<R(T...)>;
 
 	template <class R, class... T>
+	HookVFT(const Offset, const std::size_t, R (*)(T...)) -> HookVFT<R(T...)>;
+
+	template <class R, class... T>
 	HookVFT(const HOOK_STEP, const ID, const std::size_t, R (*)(T...)) -> HookVFT<R(T...)>;
+
+	template <class R, class... T>
+	HookVFT(const HOOK_STEP, const Offset, const std::size_t, R (*)(T...)) -> HookVFT<R(T...)>;
 
 	template <class R, class... T>
 	HookVFT(const char*, const ID, const std::size_t, R (*)(T...)) -> HookVFT<R(T...)>;
 
 	template <class R, class... T>
+	HookVFT(const char*, const Offset, const std::size_t, R (*)(T...)) -> HookVFT<R(T...)>;
+
+	template <class R, class... T>
 	HookVFT(const char*, const HOOK_STEP, const ID, const std::size_t, R (*)(T...)) -> HookVFT<R(T...)>;
+
+	template <class R, class... T>
+	HookVFT(const char*, const HOOK_STEP, const Offset, const std::size_t, R (*)(T...)) -> HookVFT<R(T...)>;
 }

@@ -4,11 +4,10 @@ namespace OBSE
 {
 	using PluginHandle = std::uint32_t;
 
-	class PreLoadInterface;
-	class LoadInterface;
-
 	struct PluginInfo;
 
+	class PreLoadInterface;
+	class LoadInterface;
 	class MessagingInterface;
 	class TrampolineInterface;
 

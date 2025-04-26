@@ -69,6 +69,6 @@ struct std::formatter<T>
 	template <class FormatContext>
 	constexpr auto format(const T& a_hook, FormatContext& a_ctx) const
 	{
-		return format_to(a_ctx.out(), "Hook({})", a_hook.GetName());
+		return format_to(a_ctx.out(), "Hook [{}]", a_hook.GetName());
 	}
 };

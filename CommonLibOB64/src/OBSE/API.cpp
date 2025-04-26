@@ -1,10 +1,11 @@
 #include "OBSE/API.h"
-
 #include "OBSE/Interfaces.h"
-#include "OBSE/Logger.h"
+
 #include "REL/Hook.h"
 #include "REL/Trampoline.h"
 #include "REX/REX/Singleton.h"
+#include "REX/W32/OLE32.h"
+#include "REX/W32/SHELL32.h"
 
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/sinks/msvc_sink.h>
@@ -31,7 +32,7 @@ namespace OBSE
 			PluginHandle                                     pluginHandle{ static_cast<PluginHandle>(-1) };
 			std::uint32_t                                    releaseIndex{ 0 };
 			std::function<const void*(OBSEAPI)(const char*)> pluginInfoAccessor;
-			std::string_view                                 saveFolderName{};
+			std::string                                      saveFolderName{};
 
 			MessagingInterface*  messagingInterface{ nullptr };
 			TrampolineInterface* trampolineInterface{ nullptr };
@@ -74,14 +75,22 @@ namespace OBSE
 			if (info.log) {
 				static std::once_flag once;
 				std::call_once(once, [&]() {
-					auto path = log::log_directory();
-					if (!path)
+					if (saveFolderName.empty())
 						return;
 
-					*path /= std::format("{}.log", info.logName ? info.logName : OBSE::GetPluginName());
+					wchar_t*                                                       knownBuffer{ nullptr };
+					const auto                                                     knownResult = REX::W32::SHGetKnownFolderPath(REX::W32::FOLDERID_Documents, REX::W32::KF_FLAG_DEFAULT, nullptr, std::addressof(knownBuffer));
+					std::unique_ptr<wchar_t[], decltype(&REX::W32::CoTaskMemFree)> knownPath(knownBuffer, REX::W32::CoTaskMemFree);
+					if (!knownPath || knownResult != 0) {
+						REX::ERROR("failed to get known folder path");
+						return;
+					}
+
+					std::filesystem::path path = knownPath.get();
+					path /= std::format("My Games/{}/OBSE/Logs/{}.log", GetSaveFolderName(), info.logName ? info.logName : GetPluginName());
 
 					std::vector<spdlog::sink_ptr> sinks{
-						std::make_shared<spdlog::sinks::basic_file_sink_mt>(path->string(), true),
+						std::make_shared<spdlog::sinks::basic_file_sink_mt>(path.string(), true),
 						std::make_shared<spdlog::sinks::msvc_sink_mt>()
 					};
 
@@ -219,21 +228,5 @@ namespace OBSE
 	const TrampolineInterface* GetTrampolineInterface() noexcept
 	{
 		return Impl::API::GetSingleton()->trampolineInterface;
-	}
-}
-
-namespace OBSE
-{
-	void Init(const LoadInterface* a_intfc, const bool a_log) noexcept
-	{
-		Init(a_intfc, { .log = a_log });
-	}
-
-	void AllocTrampoline(std::size_t a_size) noexcept
-	{
-		auto api = Impl::API::GetSingleton();
-		api->info.trampoline = true;
-		api->info.trampolineSize = a_size;
-		api->InitTrampoline();
 	}
 }
