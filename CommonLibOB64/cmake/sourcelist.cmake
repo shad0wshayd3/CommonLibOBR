@@ -2,7 +2,6 @@ set(SOURCES
 	include/OBSE/API.h
 	include/OBSE/Impl/PCH.h
 	include/OBSE/Interfaces.h
-	include/OBSE/Logger.h
 	include/OBSE/OBSE.h
 	include/OBSE/Trampoline.h
 	include/OBSE/Version.h
@@ -68,7 +67,6 @@ set(SOURCES
 	src/OBSE/API.cpp
 	src/OBSE/Impl/PCH.cpp
 	src/OBSE/Interfaces.cpp
-	src/OBSE/Logger.cpp
 	src/RE/Oblivion.cpp
 	src/REL/HookObject.cpp
 	src/REL/HookStore.cpp
