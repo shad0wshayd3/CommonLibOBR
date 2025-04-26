@@ -16,21 +16,21 @@ namespace RE
 			return Type::kUnknown;
 		} else {
 			switch (name[0]) {
-			case 'b':
-				return Type::kBool;
-			case 'f':
-				return Type::kFloat;
-			case 'i':
-				return Type::kSignedInteger;
-			case 'r':
-				return Type::kColor;
-			case 'S':
-			case 's':
-				return Type::kString;
-			case 'u':
-				return Type::kUnsignedInteger;
-			default:
-				return Type::kUnknown;
+				case 'b':
+					return Type::kBool;
+				case 'f':
+					return Type::kFloat;
+				case 'i':
+					return Type::kSignedInteger;
+				case 'r':
+					return Type::kColor;
+				case 'S':
+				case 's':
+					return Type::kString;
+				case 'u':
+					return Type::kUnsignedInteger;
+				default:
+					return Type::kUnknown;
 			}
 		}
 	}
