@@ -5,11 +5,22 @@ set(SOURCES
 	include/OBSE/OBSE.h
 	include/OBSE/Trampoline.h
 	include/OBSE/Version.h
+	include/RE/B/BSTCaseInsensitiveStringMap.h
+	include/RE/G/GameSettingCollection.h
 	include/RE/IDs.h
+	include/RE/M/MemoryManager.h
+	include/RE/N/NiTDefaultAllocator.h
+	include/RE/N/NiTMap.h
+	include/RE/N/NiTMapBase.h
+	include/RE/N/NiTStringMap.h
 	include/RE/NiRTTI_IDs.h
 	include/RE/Oblivion.h
 	include/RE/RTTI.h
 	include/RE/RTTI_IDs.h
+	include/RE/S/Setting.h
+	include/RE/S/SettingCollection.h
+	include/RE/S/SettingCollectionMap.h
+	include/RE/S/SettingT.h
 	include/RE/VTABLE_IDs.h
 	include/REL/ASM.h
 	include/REL/Hook.h
@@ -68,6 +79,7 @@ set(SOURCES
 	src/OBSE/Impl/PCH.cpp
 	src/OBSE/Interfaces.cpp
 	src/RE/Oblivion.cpp
+	src/RE/S/Setting.cpp
 	src/REL/HookObject.cpp
 	src/REL/HookStore.cpp
 	src/REL/IAT.cpp
