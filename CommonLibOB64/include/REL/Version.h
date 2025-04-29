@@ -2,7 +2,7 @@
 
 namespace REL
 {
-	template<typename T>
+	template <typename T>
 	class VersionBase
 	{
 	public:
