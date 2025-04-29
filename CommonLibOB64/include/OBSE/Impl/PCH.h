@@ -533,6 +533,23 @@ namespace REL
 
 #include "REL/REL.h"
 
+namespace OBSE
+{
+	struct VersionPackInfo
+	{
+		static constexpr auto AND_MAJOR{ 0x00F };
+		static constexpr auto AND_MINOR{ 0xFFF };
+		static constexpr auto AND_PATCH{ 0xFFF };
+		static constexpr auto AND_BUILD{ 0x00F };
+		static constexpr auto SHL_MAJOR{ 28 };
+		static constexpr auto SHL_MINOR{ 16 };
+		static constexpr auto SHL_PATCH{ 4 };
+		static constexpr auto SHL_BUILD{ 0 };
+	};
+
+	using Version = REL::VersionBase<VersionPackInfo>;
+}
+
 #include "RE/IDs.h"
 #include "RE/NiRTTI_IDs.h"
 #include "RE/RTTI_IDs.h"

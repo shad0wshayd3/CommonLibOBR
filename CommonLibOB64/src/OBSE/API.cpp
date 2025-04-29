@@ -24,11 +24,11 @@ namespace OBSE
 
 			InitInfo info;
 
-			std::string  pluginName{};
-			std::string  pluginAuthor{};
-			REL::Version pluginVersion{};
+			std::string   pluginName{};
+			std::string   pluginAuthor{};
+			OBSE::Version pluginVersion{};
 
-			REL::Version                                     obse64Version{};
+			OBSE::Version                                    obse64Version{};
 			PluginHandle                                     pluginHandle{ static_cast<PluginHandle>(-1) };
 			std::uint32_t                                    releaseIndex{ 0 };
 			std::function<const void*(OBSEAPI)(const char*)> pluginInfoAccessor;
@@ -172,7 +172,7 @@ namespace OBSE
 		});
 	}
 
-	REL::Version GetOBSEVersion() noexcept
+	OBSE::Version GetOBSEVersion() noexcept
 	{
 		return Impl::API::GetSingleton()->obse64Version;
 	}
@@ -187,7 +187,7 @@ namespace OBSE
 		return Impl::API::GetSingleton()->pluginAuthor;
 	}
 
-	REL::Version GetPluginVersion() noexcept
+	OBSE::Version GetPluginVersion() noexcept
 	{
 		return Impl::API::GetSingleton()->pluginVersion;
 	}

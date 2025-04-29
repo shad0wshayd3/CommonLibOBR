@@ -48,7 +48,7 @@ namespace OBSE
 		}
 
 	private:
-		[[nodiscard]] constexpr static REL::Version MakeVersion(std::uint32_t a_version) noexcept
+		[[nodiscard]] constexpr static OBSE::Version MakeVersion(std::uint32_t a_version) noexcept
 		{
 			return {
 				static_cast<std::uint16_t>((a_version >> 28) & 0x00F),
@@ -59,14 +59,14 @@ namespace OBSE
 		}
 
 	public:
-		[[nodiscard]] REL::Version     EditorVersion() const noexcept { return MakeVersion(GetProxy().editorVersion); }
+		[[nodiscard]] OBSE::Version    EditorVersion() const noexcept { return MakeVersion(GetProxy().editorVersion); }
 		[[nodiscard]] PluginHandle     GetPluginHandle() const { return GetProxy().GetPluginHandle(); }
 		[[nodiscard]] std::uint32_t    GetReleaseIndex() const { return GetProxy().GetReleaseIndex(); }
 		[[nodiscard]] std::string_view GetSaveFolderName() const { return GetProxy().GetSaveFolderName(); }
-		[[nodiscard]] REL::Version     InterfaceVersion() const noexcept { return MakeVersion(GetProxy().interfaceVersion); }
+		[[nodiscard]] OBSE::Version    InterfaceVersion() const noexcept { return MakeVersion(GetProxy().interfaceVersion); }
 		[[nodiscard]] bool             IsEditor() const noexcept { return GetProxy().isEditor != 0; }
-		[[nodiscard]] REL::Version     OBSEVersion() const noexcept { return MakeVersion(GetProxy().obse64Version); }
-		[[nodiscard]] REL::Version     RuntimeVersion() const noexcept { return MakeVersion(GetProxy().runtimeVersion); }
+		[[nodiscard]] OBSE::Version    OBSEVersion() const noexcept { return MakeVersion(GetProxy().obse64Version); }
+		[[nodiscard]] OBSE::Version    RuntimeVersion() const noexcept { return MakeVersion(GetProxy().runtimeVersion); }
 	};
 
 	class PreLoadInterface :
@@ -191,9 +191,9 @@ namespace OBSE
 			kVersion = 1
 		};
 
-		constexpr void PluginVersion(const REL::Version a_version) noexcept { pluginVersion = a_version.pack(); }
+		constexpr void PluginVersion(const OBSE::Version a_version) noexcept { pluginVersion = a_version.pack(); }
 
-		[[nodiscard]] constexpr REL::Version GetPluginVersion() const noexcept { return REL::Version::unpack(pluginVersion); }
+		[[nodiscard]] constexpr OBSE::Version GetPluginVersion() const noexcept { return OBSE::Version::unpack(pluginVersion); }
 
 		constexpr void PluginName(const std::string_view a_plugin) noexcept { SetCharBuffer(a_plugin, std::span{ pluginName }); }
 
@@ -213,16 +213,16 @@ namespace OBSE
 		// 1 << 1 is for runtime 0.411.140 and later
 		constexpr void IsLayoutDependent(const bool a_value) noexcept { SetOrClearBit(structureIndependence, 1 << 1, a_value); }
 
-		constexpr void CompatibleVersions(std::initializer_list<REL::Version> a_versions) noexcept
+		constexpr void CompatibleVersions(std::initializer_list<OBSE::Version> a_versions) noexcept
 		{
 			// must be zero-terminated
 			assert(a_versions.size() < std::size(compatibleVersions) - 1);
-			std::ranges::transform(a_versions, std::begin(compatibleVersions), [](const REL::Version& a_version) noexcept {
+			std::ranges::transform(a_versions, std::begin(compatibleVersions), [](const OBSE::Version& a_version) noexcept {
 				return a_version.pack();
 			});
 		}
 
-		constexpr void MinimumRequiredXSEVersion(const REL::Version a_version) noexcept { xseMinimum = a_version.pack(); }
+		constexpr void MinimumRequiredXSEVersion(const OBSE::Version a_version) noexcept { xseMinimum = a_version.pack(); }
 
 		[[nodiscard]] static const PluginVersionData* GetSingleton() noexcept;
 
