@@ -42,8 +42,10 @@ namespace OBSE
 		{
 			info = a_info;
 
+			REL::Module::set_info(L"OBSE_RUNTIME"sv, L"OblivionRemastered-Win64-Shipping.exe"sv);
 			(void)REL::Module::get();
 			if (info.iddb) {
+				REL::IDDB::set_info("OBSE/Plugins/versionlib-{}.bin"sv);
 				(void)REL::IDDB::get();
 			}
 
