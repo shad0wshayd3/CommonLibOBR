@@ -39,7 +39,7 @@ option("obse_xbyak", function()
 end)
 
 -- require packages
-add_requires("commonlib-shared", { configs = {
+add_requires("commonlib-shared d72a3d06def7cbcb960c5a15db0e7c4fceb36463", { configs = {
     rex_ini = has_config("rex_ini"),
     rex_json = has_config("rex_json"),
     rex_toml = has_config("rex_toml"),

@@ -42,15 +42,16 @@ namespace OBSE
 		{
 			info = a_info;
 
-			REL::Module::set_info(L"OBSE_RUNTIME"sv, L"OblivionRemastered-Win64-Shipping.exe"sv);
-			(void)REL::Module::get();
-			if (info.iddb) {
-				REL::IDDB::set_info("OBSE/Plugins/versionlib-{}.bin"sv);
-				(void)REL::IDDB::get();
-			}
-
 			static std::once_flag once;
 			std::call_once(once, [&]() {
+				const auto mod = REL::Module::GetSingleton();
+				mod->load(L"OblivionRemastered-Win64-Shipping.exe"sv, L"OBSE_RUNTIME"sv);
+
+				if (info.iddb) {
+					const auto iddb = REL::IDDB::GetSingleton();
+					iddb->load("OBSE/Plugins/versionlib-{}.bin"sv);
+				}
+
 				if (const auto data = PluginVersionData::GetSingleton()) {
 					pluginName = data->GetPluginName();
 					pluginAuthor = data->GetAuthorName();
