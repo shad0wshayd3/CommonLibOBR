@@ -5,6 +5,7 @@
 #include "RE/B/BSTCaseInsensitiveStringMap.h"
 #include "RE/G/GameSettingCollection.h"
 #include "RE/M/MemoryManager.h"
+#include "RE/N/NiRTTI.h"
 #include "RE/N/NiTDefaultAllocator.h"
 #include "RE/N/NiTMap.h"
 #include "RE/N/NiTMapBase.h"
