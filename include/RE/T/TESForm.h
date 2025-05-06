@@ -22,11 +22,62 @@ namespace RE
 		inline static constexpr auto VTABLE = VTABLE::TESForm;
 		inline static constexpr auto FORMTYPE = FormType::None;
 
+		// taken from SSE, needs correcting
 		struct RecordFlags
 		{
 			enum RecordFlag : std::uint32_t
 			{
-				kDeleted = 1 << 5
+				kDestructible = 1 << 0,
+				kMaster = 1 << 0,
+				kUnlocked = 1 << 0,
+
+				kAltered = 1 << 1,
+				kPlayable = 1 << 2,
+				kInitialized = 1 << 3,
+				kNonOccluder = 1 << 4,
+				kDeleted = 1 << 5,
+
+				kBorderRegion = 1 << 6,
+				kGlobalConstant = 1 << 6,
+				kHasSpokenFlag = 1 << 6,
+				kKnown = 1 << 6,
+				kInPlaceableWater = 1 << 6,
+
+				kFireOff = 1 << 7,
+				kMustUpdate = 1 << 8,
+				kOnLocalMap = 1 << 9,
+				kPersistent = 1 << 10,
+
+				kDisabled = 1 << 11,
+				kUsedAsMovingPlatform = 1 << 11,
+
+				kIgnored = 1 << 12,
+
+				kEmpty = 1 << 13,
+				kResetDestruction = 1 << 13,
+
+				kTemporary = 1 << 14,
+				kMustBeVisibleDistant = 1 << 15,
+				kRandomAnim = 1 << 16,
+				kDangerous = 1 << 17,
+				kHasCurrents = 1 << 19,
+				kIgnoreFriendlyHits = 1 << 20,
+				kStillLoading = 1 << 21,
+				kFormRetainsID = 1 << 22,
+				kDestroyed = 1 << 23,
+
+				kUnk24 = 1 << 24,
+
+				kNoAIAcquire = 1 << 25,
+				kObstacle = 1 << 25,
+
+				kVATSTargetOverride = 1 << 26,
+				kDisableFade = 1 << 27,
+
+				kReflectedByAutoWater = 1 << 28,
+				kShowOnWorldMap = 1 << 28,
+
+				kChildCanUse = 1 << 29
 			};
 		};
 
