@@ -333,6 +333,19 @@ namespace OBSE
 		static_assert(atomic_ref<std::int64_t>::is_always_lock_free);
 		static_assert(atomic_ref<std::uint64_t>::is_always_lock_free);
 
+		template <class T>
+		struct ssizeof
+		{
+			[[nodiscard]] constexpr operator std::ptrdiff_t() const noexcept { return value; }
+
+			[[nodiscard]] constexpr std::ptrdiff_t operator()() const noexcept { return value; }
+
+			static constexpr auto value = static_cast<std::ptrdiff_t>(sizeof(T));
+		};
+
+		template <class T>
+		inline constexpr auto ssizeof_v = ssizeof<T>::value;
+
 		template <class T, class U>
 		[[nodiscard]] auto adjust_pointer(U* a_ptr, std::ptrdiff_t a_adjust) noexcept
 		{
@@ -554,3 +567,5 @@ namespace OBSE
 #include "RE/NiRTTI_IDs.h"
 #include "RE/RTTI_IDs.h"
 #include "RE/VTABLE_IDs.h"
+
+#include "RE/B/BSCoreTypes.h"
