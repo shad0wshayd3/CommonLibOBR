@@ -5,7 +5,14 @@ set(SOURCES
 	include/OBSE/OBSE.h
 	include/OBSE/Trampoline.h
 	include/OBSE/Version.h
+	include/RE/B/BSCoreTypes.h
+	include/RE/B/BSStringT.h
 	include/RE/B/BSTCaseInsensitiveStringMap.h
+	include/RE/B/BSTList.h
+	include/RE/B/BaseFormComponent.h
+	include/RE/F/FORM.h
+	include/RE/F/FORM_ENUM_STRING.h
+	include/RE/F/FormTypes.h
 	include/RE/G/GameSettingCollection.h
 	include/RE/IDs.h
 	include/RE/M/MemoryManager.h
@@ -13,6 +20,8 @@ set(SOURCES
 	include/RE/N/NiTDefaultAllocator.h
 	include/RE/N/NiTMap.h
 	include/RE/N/NiTMapBase.h
+	include/RE/N/NiTPointerAllocator.h
+	include/RE/N/NiTPointerMap.h
 	include/RE/N/NiTStringMap.h
 	include/RE/NiRTTI_IDs.h
 	include/RE/Oblivion.h
@@ -22,6 +31,7 @@ set(SOURCES
 	include/RE/S/SettingCollection.h
 	include/RE/S/SettingCollectionMap.h
 	include/RE/S/SettingT.h
+	include/RE/T/TESForm.h
 	include/RE/VTABLE_IDs.h
 	include/REL/ASM.h
 	include/REL/Hook.h
@@ -79,6 +89,7 @@ set(SOURCES
 	src/OBSE/API.cpp
 	src/OBSE/Impl/PCH.cpp
 	src/OBSE/Interfaces.cpp
+	src/RE/F/FormTypes.cpp
 	src/RE/Oblivion.cpp
 	src/RE/S/Setting.cpp
 	src/REL/HookObject.cpp

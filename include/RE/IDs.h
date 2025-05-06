@@ -6,7 +6,7 @@ namespace RE::ID
 	{
 		inline constexpr REL::Offset FormEnumString{ 0x8FDD6A0 };
 	}
-	
+
 	namespace GameSettingCollection
 	{
 		inline constexpr REL::Offset Singleton{ 0x8FE1E10 };
