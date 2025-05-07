@@ -1,7 +1,7 @@
 #pragma once
 
-#include "RE/B/BSTList.h"
 #include "RE/B/BSStringT.h"
+#include "RE/B/BSTList.h"
 #include "RE/C/CompilerName.h"
 #include "RE/S/ScriptError.h"
 #include "RE/S/ScriptHeader.h"

@@ -5,11 +5,14 @@ set(SOURCES
 	include/OBSE/OBSE.h
 	include/OBSE/Trampoline.h
 	include/OBSE/Version.h
+	include/RE/A/ActionObject.h
 	include/RE/B/BSCoreTypes.h
 	include/RE/B/BSStringT.h
 	include/RE/B/BSTCaseInsensitiveStringMap.h
 	include/RE/B/BSTList.h
 	include/RE/B/BaseFormComponent.h
+	include/RE/C/CompilerName.h
+	include/RE/E/ExpressionOperators.h
 	include/RE/F/FORM.h
 	include/RE/F/FORM_ENUM_STRING.h
 	include/RE/F/FormTypes.h
@@ -32,6 +35,25 @@ set(SOURCES
 	include/RE/Oblivion.h
 	include/RE/RTTI.h
 	include/RE/RTTI_IDs.h
+	include/RE/S/Script.h
+	include/RE/S/ScriptBlock.h
+	include/RE/S/ScriptCompileData.h
+	include/RE/S/ScriptCompiler.h
+	include/RE/S/ScriptEffectData.h
+	include/RE/S/ScriptError.h
+	include/RE/S/ScriptFunction.h
+	include/RE/S/ScriptHeader.h
+	include/RE/S/ScriptLine.h
+	include/RE/S/ScriptLocal.h
+	include/RE/S/ScriptLocals.h
+	include/RE/S/ScriptOperator.h
+	include/RE/S/ScriptOutput.h
+	include/RE/S/ScriptParamType.h
+	include/RE/S/ScriptParameter.h
+	include/RE/S/ScriptParameterDef.h
+	include/RE/S/ScriptReferencedObject.h
+	include/RE/S/ScriptVariable.h
+	include/RE/S/ScriptWord.h
 	include/RE/S/Setting.h
 	include/RE/S/SettingCollection.h
 	include/RE/S/SettingCollectionMap.h
