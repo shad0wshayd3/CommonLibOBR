@@ -6,6 +6,7 @@ namespace RE
 {
 	class BipedAnim;
 	class NiAVObject;
+	class TESObjectList;
 
 	class TESObject : public TESForm
 	{
@@ -36,5 +37,5 @@ namespace RE
 		TESObject*     prev;        // 38
 		TESObject*     next;        // 40
 	};
-	static_assert(sizeof(TESObject) == 0x30);
+	static_assert(sizeof(TESObject) == 0x48);
 }
