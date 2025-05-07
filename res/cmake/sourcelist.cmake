@@ -95,6 +95,62 @@ set(SOURCES
 	include/REX/W32/USER32.h
 	include/REX/W32/VERSION.h
 	include/REX/W32/XINPUT.h
+	include/UE/B/BaseKeyFuncs.h
+	include/UE/D/DefaultKeyFuncs.h
+	include/UE/F/FDefaultBitArrayAllocator.h
+	include/UE/F/FDefaultSetAllocator.h
+	include/UE/F/FDefaultSparseArrayAllocator.h
+	include/UE/F/FExec.h
+	include/UE/F/FName.h
+	include/UE/F/FNameEntryId.h
+	include/UE/F/FNetworkNotify.h
+	include/UE/F/FObjectPostSaveContext.h
+	include/UE/F/FObjectPostSaveRootContext.h
+	include/UE/F/FObjectPreSaveContext.h
+	include/UE/F/FObjectPreSaveRootContext.h
+	include/UE/F/FObjectPtr.h
+	include/UE/F/FPathGridPointData.h
+	include/UE/F/FPathGridPointDataArray.h
+	include/UE/F/FSetElementId.h
+	include/UE/F/FString.h
+	include/UE/F/FStructuredArchiveRecord.h
+	include/UE/F/FURL.h
+	include/UE/S/SharedPointerInternals.h
+	include/UE/T/TAlignedBytes.h
+	include/UE/T/TArray.h
+	include/UE/T/TBitArray.h
+	include/UE/T/TDefaultMapHashableKeyFuncs.h
+	include/UE/T/TDefaultMapKeyFuncs.h
+	include/UE/T/TIntegerSequence.h
+	include/UE/T/TMap.h
+	include/UE/T/TMapBase.h
+	include/UE/T/TObjectPtr.h
+	include/UE/T/TRotator.h
+	include/UE/T/TSet.h
+	include/UE/T/TSetAllocator.h
+	include/UE/T/TSetElement.h
+	include/UE/T/TSetElementBase.h
+	include/UE/T/TSharedPtr.h
+	include/UE/T/TSizedDefaultAllocator.h
+	include/UE/T/TSizedHeapAllocator.h
+	include/UE/T/TSizedInlineAllocator.h
+	include/UE/T/TSortableMapBase.h
+	include/UE/T/TSparseArray.h
+	include/UE/T/TSparseArrayAllocator.h
+	include/UE/T/TSparseArrayElementOrFreeListLink.h
+	include/UE/T/TSubclassOf.h
+	include/UE/T/TTuple.h
+	include/UE/T/TTypeCompatibleBytes.h
+	include/UE/T/TVector.h
+	include/UE/U/UBlueprintFunctionLibrary.h
+	include/UE/U/UCheatManager.h
+	include/UE/U/UEngine.h
+	include/UE/U/UGameplayStatics.h
+	include/UE/U/UObject.h
+	include/UE/U/UObjectBase.h
+	include/UE/U/UObjectBaseUtility.h
+	include/UE/U/UWorld.h
+	include/UE/Unreal.h
 	src/OBSE/API.cpp
 	src/OBSE/Impl/PCH.cpp
 	src/OBSE/Interfaces.cpp
@@ -111,4 +167,5 @@ set(SOURCES
 	src/REL/Version.cpp
 	src/REX/REX.cpp
 	src/REX/W32.cpp
+	src/UE/Unreal.cpp
 )

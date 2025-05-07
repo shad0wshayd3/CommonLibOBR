@@ -103,7 +103,8 @@ target("commonlibob64", function()
         "include/(OBSE/**.h)",
         "include/(RE/**.h)",
         "include/(REL/**.h)",
-        "include/(REX/**.h)"
+        "include/(REX/**.h)",
+        "include/(UE/**.h)"
     )
 
     -- add extra files
@@ -126,7 +127,7 @@ target("commonlibob64", function()
         "cl::/guard:cf-",
         "cl::/Zc:preprocessor",
         "cl::/Zc:templateScope"
-    ) 
+    )
 
     -- add flags (cl: disable warnings)
     add_cxxflags(

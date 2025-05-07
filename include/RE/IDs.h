@@ -34,3 +34,17 @@ namespace RE::ID
 
 	inline constexpr REL::Offset RTDynamicCast{ 0x6C23656 };
 }
+
+namespace UE::ID
+{
+	namespace UEngine
+	{
+		inline constexpr REL::Offset GetSingleton{ 0x92B0E48 };
+		inline constexpr REL::Offset GetCurrentPlayWorld{ 0x37F0A20 };
+	}
+
+	namespace UGameplayStatics
+	{
+		inline constexpr REL::Offset GetPlayerController{ 0x31B6B80 };
+	}
+}

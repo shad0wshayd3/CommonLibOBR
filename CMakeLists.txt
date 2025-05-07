@@ -147,5 +147,6 @@ install(
 		"include/RE"
 		"include/REL"
 		"include/REX"
+		"include/UE"
 	DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
 )
