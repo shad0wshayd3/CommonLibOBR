@@ -12,6 +12,12 @@ namespace RE::ID
 		inline constexpr REL::Offset Singleton{ 0x8FE1E10 };
 	}
 
+	namespace MenuConsole
+	{
+		inline constexpr REL::Offset Instance{ 0x665C360 };
+		inline constexpr REL::Offset PrintLine{ 0x665C580 };
+	}
+
 	namespace Setting
 	{
 		inline constexpr REL::Offset SetString{ 0x6710B70 };

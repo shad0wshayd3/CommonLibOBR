@@ -4,90 +4,15 @@
 
 namespace RE
 {
-	template <class T, std::uint32_t N>
-	class DynamicMemoryManagementPol
-	{
-	public:
-		using value_type = T;
-
-		constexpr DynamicMemoryManagementPol() noexcept = default;
-		DynamicMemoryManagementPol(const DynamicMemoryManagementPol&) = default;
-		DynamicMemoryManagementPol(DynamicMemoryManagementPol&&) = default;
-		~DynamicMemoryManagementPol() = default;
-
-		DynamicMemoryManagementPol& operator=(const DynamicMemoryManagementPol&) = default;
-		DynamicMemoryManagementPol& operator=(DynamicMemoryManagementPol&&) = default;
-
-		[[nodiscard]] value_type* allocate(std::uint32_t a_num)
-		{
-			if (a_num > N) {
-				return 0;
-			}
-
-			auto size = a_num * sizeof(value_type);
-			auto mem = malloc<value_type>(size);
-			std::memset(mem, 0, size);
-			return mem;
-		}
-
-		void deallocate(value_type* a_ptr) { free(a_ptr); }
-	};
-
-	template <class T, std::uint32_t N>
-	class FixedLengthMemoryManagementPol
-	{
-	public:
-		using value_type = T;
-
-		constexpr FixedLengthMemoryManagementPol() noexcept = default;
-
-		FixedLengthMemoryManagementPol(const FixedLengthMemoryManagementPol& a_rhs) { copy_from(a_rhs); }
-		FixedLengthMemoryManagementPol(FixedLengthMemoryManagementPol&& a_rhs) { copy_from(a_rhs); }
-
-		~FixedLengthMemoryManagementPol() = default;
-
-		FixedLengthMemoryManagementPol& operator=(const FixedLengthMemoryManagementPol& a_rhs)
-		{
-			if (this != std::addressof(a_rhs)) {
-				copy_from(a_rhs);
-			}
-			return *this;
-		}
-
-		FixedLengthMemoryManagementPol& operator=(FixedLengthMemoryManagementPol&& a_rhs)
-		{
-			if (this != std::addressof(a_rhs)) {
-				copy_from(a_rhs);
-			}
-			return *this;
-		}
-
-		[[nodiscard]] value_type* allocate(std::uint32_t a_num)
-		{
-			return a_num > N ? 0 : _buffer;
-		}
-
-		void deallocate(value_type*) { return; }
-
-	private:
-		void copy_from(const FixedLengthMemoryManagementPol& a_rhs)
-		{
-			std::memcpy(_buffer, a_rhs._buffer, sizeof(value_type) * N);
-		}
-
-		value_type _buffer[N]{ 0 };  // 00
-	};
-
-	template <class CharT, std::uint32_t N, template <class, std::uint32_t> class Allocator>
-	class BSStringT : public Allocator<CharT, N>
+	template <class CharT>
+	class BSStringT
 	{
 	private:
-		static constexpr auto MAX = static_cast<std::uint16_t>(N);
+		static constexpr auto MAX{ static_cast<std::uint16_t>(-1) };
 
 	public:
 		using value_type = CharT;
 		using traits_type = std::char_traits<value_type>;
-		using allocator_type = Allocator<value_type, N>;
 		using size_type = std::uint16_t;
 		using reference = value_type&;
 		using const_reference = const value_type&;
@@ -99,14 +24,12 @@ namespace RE
 			clear();
 		}
 
-		BSStringT(const BSStringT& a_rhs) :
-			allocator_type(a_rhs)
+		BSStringT(const BSStringT& a_rhs)
 		{
 			set_cstr(a_rhs.c_str());
 		}
 
 		BSStringT(BSStringT&& a_rhs) :
-			allocator_type(std::move(a_rhs)),
 			_data(a_rhs._data),
 			_size(a_rhs._size),
 			_capacity(a_rhs._capacity)
@@ -135,7 +58,6 @@ namespace RE
 		BSStringT& operator=(const BSStringT& a_rhs)
 		{
 			if (this != std::addressof(a_rhs)) {
-				static_cast<allocator_type&>(*this) = a_rhs;
 				set_cstr(a_rhs.c_str());
 			}
 			return *this;
@@ -144,8 +66,6 @@ namespace RE
 		BSStringT& operator=(BSStringT&& a_rhs)
 		{
 			if (this != std::addressof(a_rhs)) {
-				static_cast<allocator_type&>(*this) = std::move(a_rhs);
-
 				_data = a_rhs._data;
 				a_rhs._data = nullptr;
 
@@ -225,19 +145,29 @@ namespace RE
 
 		[[nodiscard]] static int strnicmp(const wchar_t* a_lhs, const wchar_t* a_rhs, std::size_t len) { return _wcsnicmp(a_lhs, a_rhs, len); }
 
-		[[nodiscard]] pointer allocate(std::uint32_t a_num) { return allocator_type::allocate(a_num); }
-
-		void deallocate(pointer a_ptr) { allocator_type::deallocate(a_ptr); }
-
-		bool set_cstr(const_pointer a_str, std::uint32_t a_len = 0)
+		[[nodiscard]] pointer allocate(size_type a_num)
 		{
-			auto len = static_cast<std::uint16_t>(a_len);
+			if (a_num > MAX) {
+				return 0;
+			}
+
+			auto size = a_num * sizeof(value_type);
+			auto mem = malloc<value_type>(size);
+			std::memset(mem, 0, size);
+			return mem;
+		}
+
+		void deallocate(pointer a_ptr) { free(a_ptr); }
+
+		bool set_cstr(const_pointer a_str, size_type a_len = 0)
+		{
+			auto len = static_cast<size_type>(a_len);
 			if (_data == a_str) {
 				return true;
 			}
 
 			if (len == 0) {
-				len = static_cast<std::uint16_t>(traits_type::length(a_str));
+				len = static_cast<size_type>(traits_type::length(a_str));
 			}
 
 			const size_type newSize = len > MAX ? MAX : len;
@@ -269,12 +199,18 @@ namespace RE
 		static constexpr value_type EMPTY[]{ 0 };
 
 		// members
-		pointer       _data{ nullptr };  // ?? (00)
-		size_type     _size{ 0 };        // ?? (08)
-		size_type     _capacity{ 0 };    // ?? (0A)
-		std::uint32_t _pad0C{ 0 };       // ?? (0C)
+		pointer       _data{ nullptr };  // 00
+		size_type     _size{ 0 };        // 08
+		size_type     _capacity{ 0 };    // 0A
+		std::uint32_t _pad0C{ 0 };       // 0C
 	};
 
-	using BSString = BSStringT<char, static_cast<std::uint32_t>(-1), DynamicMemoryManagementPol>;
+	using BSString = BSStringT<char>;
 	static_assert(sizeof(BSString) == 0x10);
+
+	using BSStringC = BSStringT<char>;
+	static_assert(sizeof(BSStringC) == 0x10);
+
+	using BSStringW = BSStringT<wchar_t>;
+	static_assert(sizeof(BSStringW) == 0x10);
 }
