@@ -35,7 +35,7 @@ namespace RE::ID
 	inline constexpr REL::Offset RTDynamicCast{ 0x6C23656 };
 }
 
-namespace RE::UE::ID
+namespace UE::ID
 {
 	namespace UEngine
 	{
