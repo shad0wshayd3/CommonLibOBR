@@ -18,6 +18,12 @@ namespace RE::ID
 		inline constexpr REL::Offset PrintLine{ 0x665C580 };
 	}
 
+	namespace SCRIPT_FUNCTION
+	{
+		inline constexpr REL::Offset ConsoleFunctions{ 0x8FF3C40 };
+		inline constexpr REL::Offset ScriptFunctions{ 0x8FEC850 };
+	}
+
 	namespace Setting
 	{
 		inline constexpr REL::Offset SetString{ 0x6710B70 };

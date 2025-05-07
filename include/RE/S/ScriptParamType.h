@@ -1,0 +1,46 @@
+#pragma once
+
+namespace RE
+{
+	enum class SCRIPT_PARAM_TYPE : std::int32_t
+	{
+		kChar,
+		kInt,
+		kFloat,
+		kInventoryObject,
+		kObjectRef,
+		kActorValue,
+		kActor,
+		kSpellItem,
+		kAxis,
+		kCell,
+		kAnimGroup,
+		kMagicItem,
+		kSound,
+		kTopic,
+		kQuest,
+		kRace,
+		kClass,
+		kFaction,
+		kSex,
+		kGlobal,
+		kFurniture,
+		kObject,
+		kScriptVar,
+		kStage,
+		kMapMarker,
+		kActorBase,
+		kContainerRef,
+		kWorld,
+		kCrimeType,
+		kPackage,
+		kCombatStyle,
+		kMagicEffect,
+		kBirth,
+		kFormType,
+		kWeather,
+		kNPC,
+		kOwner,
+		kShaderEffect,
+	};
+}
