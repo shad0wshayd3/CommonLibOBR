@@ -5,7 +5,7 @@
 
 namespace RE
 {
-    template <class T>
+	template <class T>
 	class NiTList :
 		public NiTPointerListBase<NiTDefaultAllocator<T>, T>
 	{

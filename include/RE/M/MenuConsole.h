@@ -19,7 +19,7 @@ namespace RE
 
 		void PrintLine(const char* a_string, va_list a_args)
 		{
-			using func_t = void(MenuConsole::*)(const char*, va_list);
+			using func_t = void (MenuConsole::*)(const char*, va_list);
 			static REL::Relocation<func_t> func{ ID::MenuConsole::PrintLine };
 			return func(this, a_string, a_args);
 		}
@@ -33,15 +33,15 @@ namespace RE
 		}
 
 		// members
-		ScriptCompiler* consoleCompiler;
+		ScriptCompiler*   consoleCompiler;
 		NiTList<BSString> strings;
 		NiTList<BSString> inputs;
-		std::int32_t inputsPos;
-		std::int32_t numStrings;
-		std::int32_t lastString;
-		bool lastMenuMode;
-		std::uint8_t visible;
-		bool isActive;
+		std::int32_t      inputsPos;
+		std::int32_t      numStrings;
+		std::int32_t      lastString;
+		bool              lastMenuMode;
+		std::uint8_t      visible;
+		bool              isActive;
 	};
 	static_assert(sizeof(MenuConsole) == 0x58);
 }

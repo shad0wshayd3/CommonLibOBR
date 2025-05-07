@@ -5,7 +5,7 @@
 
 namespace RE
 {
-    template <class Allocator, class T>
+	template <class Allocator, class T>
 	class NiTListBase
 	{
 	public:
@@ -18,13 +18,13 @@ namespace RE
 		static_assert(sizeof(AntiBloatAllocator) == 0x04);
 
 		// add
-		virtual ~NiTListBase();                        // 00
-		virtual NiTListItem<T>* NewItem() = 0;         // 01
-		virtual void DeleteItem(NiTListItem<T>*) = 0;  // 02
+		virtual ~NiTListBase();                                   // 00
+		virtual NiTListItem<T>* NewItem() = 0;                    // 01
+		virtual void            DeleteItem(NiTListItem<T>*) = 0;  // 02
 
 		// members
-		NiTListItem<T>* head;                       // 08
-		NiTListItem<T>* tail;                       // 10
+		NiTListItem<T>*                 head;       // 08
+		NiTListItem<T>*                 tail;       // 10
 		NiTListBase::AntiBloatAllocator allocator;  // 18
 	};
 	static_assert(sizeof(NiTListBase<NiTDefaultAllocator<void*>, void*>) == 0x20);

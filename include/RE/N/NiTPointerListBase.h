@@ -6,15 +6,15 @@
 
 namespace RE
 {
-    template <class Allocator, class T>
+	template <class Allocator, class T>
 	class NiTPointerListBase :
 		public NiTListBase<Allocator, T>
 	{
 	public:
 		// override
-		virtual ~NiTPointerListBase();                      // 00
-		virtual NiTListItem<T>* NewItem() override;         // 01
-		virtual void DeleteItem(NiTListItem<T>*) override;  // 02
+		virtual ~NiTPointerListBase();                                 // 00
+		virtual NiTListItem<T>* NewItem() override;                    // 01
+		virtual void            DeleteItem(NiTListItem<T>*) override;  // 02
 	};
 	static_assert(sizeof(NiTPointerListBase<NiTDefaultAllocator<void*>, void*>) == 0x20);
 }

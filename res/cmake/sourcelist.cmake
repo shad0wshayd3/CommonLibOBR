@@ -16,11 +16,16 @@ set(SOURCES
 	include/RE/G/GameSettingCollection.h
 	include/RE/IDs.h
 	include/RE/M/MemoryManager.h
+	include/RE/M/MenuConsole.h
 	include/RE/N/NiRTTI.h
 	include/RE/N/NiTDefaultAllocator.h
+	include/RE/N/NiTList.h
+	include/RE/N/NiTListBase.h
+	include/RE/N/NiTListItem.h
 	include/RE/N/NiTMap.h
 	include/RE/N/NiTMapBase.h
 	include/RE/N/NiTPointerAllocator.h
+	include/RE/N/NiTPointerListBase.h
 	include/RE/N/NiTPointerMap.h
 	include/RE/N/NiTStringMap.h
 	include/RE/NiRTTI_IDs.h
