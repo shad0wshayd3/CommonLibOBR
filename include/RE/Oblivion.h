@@ -29,4 +29,8 @@
 #include "RE/S/SettingCollection.h"
 #include "RE/S/SettingCollectionMap.h"
 #include "RE/S/SettingT.h"
+#include "RE/T/TESBoundAnimObject.h"
+#include "RE/T/TESBoundObject.h"
 #include "RE/T/TESForm.h"
+#include "RE/T/TESObject.h"
+#include "RE/T/TESObjectList.h"
