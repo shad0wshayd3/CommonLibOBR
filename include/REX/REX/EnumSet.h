@@ -180,3 +180,13 @@ namespace REX
 						 std::underlying_type_t<
 							 std::common_type_t<Args...>>>;
 }
+
+#define REX_DEFINE_ENUM_CLASS_FLAGS(E)                                                                                                     \
+	inline constexpr E&   operator|=(E& a_lhs, E a_rhs) { return a_lhs = (E)((__underlying_type(E))a_lhs | (__underlying_type(E))a_rhs); } \
+	inline constexpr E&   operator&=(E& a_lhs, E a_rhs) { return a_lhs = (E)((__underlying_type(E))a_lhs & (__underlying_type(E))a_rhs); } \
+	inline constexpr E&   operator^=(E& a_lhs, E a_rhs) { return a_lhs = (E)((__underlying_type(E))a_lhs ^ (__underlying_type(E))a_rhs); } \
+	inline constexpr E    operator|(E a_lhs, E a_rhs) { return (E)((__underlying_type(E))a_lhs | (__underlying_type(E))a_rhs); }           \
+	inline constexpr E    operator&(E a_lhs, E a_rhs) { return (E)((__underlying_type(E))a_lhs & (__underlying_type(E))a_rhs); }           \
+	inline constexpr E    operator^(E a_lhs, E a_rhs) { return (E)((__underlying_type(E))a_lhs ^ (__underlying_type(E))a_rhs); }           \
+	inline constexpr bool operator!(E a_lhs) { return !(__underlying_type(E))a_lhs; }                                                      \
+	inline constexpr E    operator~(E a_lhs) { return (E) ~(__underlying_type(E))a_lhs; }
