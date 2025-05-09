@@ -1,7 +1,7 @@
 #pragma once
 
 #include "RE/B/BSTList.h"
-#include "RE/S/ScriptHeader.h"
+#include "RE/S/SCRIPT_HEADER.h"
 #include "RE/T/TESForm.h"
 
 namespace RE

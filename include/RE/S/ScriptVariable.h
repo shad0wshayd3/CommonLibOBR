@@ -1,7 +1,7 @@
 #pragma once
 
 #include "RE/B/BSStringT.h"
-#include "RE/S/ScriptLocal.h"
+#include "RE/S/SCRIPT_LOCAL.h"
 
 namespace RE
 {

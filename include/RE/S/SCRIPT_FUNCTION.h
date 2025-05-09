@@ -1,7 +1,7 @@
 #pragma once
 
-#include "RE/S/ScriptOutput.h"
-#include "RE/S/ScriptParameter.h"
+#include "RE/S/SCRIPT_OUTPUT.h"
+#include "RE/S/SCRIPT_PARAMETER.h"
 
 namespace RE
 {

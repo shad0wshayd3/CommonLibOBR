@@ -3,8 +3,8 @@
 #include "RE/B/BSStringT.h"
 #include "RE/B/BSTList.h"
 #include "RE/C/CompilerName.h"
-#include "RE/S/ScriptError.h"
-#include "RE/S/ScriptHeader.h"
+#include "RE/S/SCRIPT_ERROR.h"
+#include "RE/S/SCRIPT_HEADER.h"
 
 namespace RE
 {

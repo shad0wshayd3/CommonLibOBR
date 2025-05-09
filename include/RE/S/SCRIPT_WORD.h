@@ -1,6 +1,6 @@
 #pragma once
 
-#include "RE/S/ScriptOutput.h"
+#include "RE/S/SCRIPT_OUTPUT.h"
 
 namespace RE
 {

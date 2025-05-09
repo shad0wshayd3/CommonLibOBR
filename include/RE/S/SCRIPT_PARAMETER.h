@@ -1,6 +1,6 @@
 #pragma once
 
-#include "RE/S/ScriptParamType.h"
+#include "RE/S/SCRIPT_PARAM_TYPE.h"
 
 namespace RE
 {
