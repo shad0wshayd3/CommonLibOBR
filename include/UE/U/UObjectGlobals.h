@@ -25,17 +25,17 @@ namespace UE
 	}
 
 
-	UObject* FindObjectFast(FString a_name, EClassCastFlags a_type);
-	UObject* FindObject(FString a_name, EClassCastFlags a_type);
+	UObject* FindObjectFast(FName a_name, EClassCastFlags a_type);
+	UObject* FindObject(FName a_name, EClassCastFlags a_type);
 
 	template <class T>
-	inline T* FindObjectFast(FString a_name, EClassCastFlags a_type)
+	inline T* FindObjectFast(FName a_name, EClassCastFlags a_type)
 	{
 		return (T*)FindObjectFast(a_name, a_type);
 	}
 
 	template <class T>
-	inline T* FindObject(FString a_name, EClassCastFlags a_type)
+	inline T* FindObject(FName a_name, EClassCastFlags a_type)
 	{
 		return (T*)FindObject(a_name, a_type);
 	}
