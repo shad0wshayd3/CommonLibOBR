@@ -5,7 +5,7 @@ namespace UE
 	struct FNameEntryHeader
 	{
 		std::uint16_t wide: 1;
-		std::uint16_t lowercase : 5;
+		std::uint16_t lowercase: 5;
 		std::uint16_t length: 10;
 	};
 

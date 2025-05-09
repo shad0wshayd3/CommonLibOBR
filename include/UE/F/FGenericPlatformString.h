@@ -4,6 +4,5 @@ namespace UE
 {
 	struct FGenericPlatformString
 	{
-
 	};
 }

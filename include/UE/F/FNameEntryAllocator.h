@@ -8,7 +8,6 @@ namespace UE
 	class FNameEntryAllocator
 	{
 	public:
-
 	public:
 		FNameEntry& Resolve(FNameEntryHandle a_handle) const
 		{

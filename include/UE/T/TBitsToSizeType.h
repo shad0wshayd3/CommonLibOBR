@@ -16,7 +16,9 @@ namespace UE
 
 	template <>
 	struct TBitsToSizeType<16>
-	{ using Type = std::int16_t; };
+	{
+		using Type = std::int16_t;
+	};
 
 	template <>
 	struct TBitsToSizeType<32>

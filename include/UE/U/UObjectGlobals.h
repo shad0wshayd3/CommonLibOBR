@@ -24,7 +24,6 @@ namespace UE
 		return func(a_class, a_objectPackage, a_name, a_exactClass);
 	}
 
-
 	UObject* FindObjectFast(FName a_name, EClassCastFlags a_type);
 	UObject* FindObject(FName a_name, EClassCastFlags a_type);
 

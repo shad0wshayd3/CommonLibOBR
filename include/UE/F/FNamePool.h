@@ -1,8 +1,8 @@
 #pragma once
 
 #include "UE/F/FNameEntry.h"
-#include "UE/F/FNameEntryHandle.h"
 #include "UE/F/FNameEntryAllocator.h"
+#include "UE/F/FNameEntryHandle.h"
 
 namespace UE
 {

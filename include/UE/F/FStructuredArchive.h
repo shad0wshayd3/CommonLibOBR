@@ -17,11 +17,11 @@ namespace UE
 		friend FStructuredArchiveMap;
 
 	public:
-		using FSlot   = FStructuredArchiveSlot;
+		using FSlot = FStructuredArchiveSlot;
 		using FRecord = FStructuredArchiveRecord;
-		using FArray  = FStructuredArchiveArray;
+		using FArray = FStructuredArchiveArray;
 		using FStream = FStructuredArchiveStream;
-		using FMap    = FStructuredArchiveMap;
+		using FMap = FStructuredArchiveMap;
 
 		// members
 		// FBinaryArchiveFormatter* formatter;

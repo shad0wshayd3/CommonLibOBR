@@ -8,7 +8,6 @@ namespace UE
 	class FFieldVariant
 	{
 	public:
-
 		// members
 		union FFieldObjectUnion
 		{

@@ -12,7 +12,7 @@ namespace UE
 
 		FString(const char* a_str)
 		{
-			using func_t = void(*)(FString*, const char*);
+			using func_t = void (*)(FString*, const char*);
 			static REL::Relocation<func_t> func{ ID::FString::Ctor1 };
 			func(this, a_str);
 		}

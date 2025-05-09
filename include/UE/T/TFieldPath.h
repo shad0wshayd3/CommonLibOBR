@@ -9,7 +9,6 @@ namespace UE
 		public FFieldPath
 	{
 	public:
-
 	};
 	static_assert(sizeof(TFieldPath<FField>) == 0x20);
 }
