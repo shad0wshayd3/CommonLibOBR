@@ -9,6 +9,7 @@
 #include "UE/T/TArray.h"
 #include "UE/T/TMap.h"
 #include "UE/U/UObjectBaseUtility.h"
+#include "UE/U/UObjectGlobals.h"
 
 namespace UE
 {

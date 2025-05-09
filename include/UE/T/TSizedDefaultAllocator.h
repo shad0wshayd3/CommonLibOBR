@@ -6,9 +6,9 @@ namespace UE
 {
 	class FMemory;
 
-	template <std::size_t N>
+	template <std::int32_t N>
 	class TSizedDefaultAllocator :
-		public TSizedHeapAllocator<N, FMemory>
+		public TSizedHeapAllocator<N>
 	{
 	public:
 	};

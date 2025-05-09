@@ -496,6 +496,7 @@ namespace REX::W32
 	void                  GetSystemInfo(SYSTEM_INFO* a_info) noexcept;
 	bool                  IMAGE_SNAP_BY_ORDINAL64(std::uint64_t a_ordinal) noexcept;
 	IMAGE_SECTION_HEADER* IMAGE_FIRST_SECTION(const IMAGE_NT_HEADERS64* a_header) noexcept;
+	void                  InitializeCriticalSection(CRITICAL_SECTION* a_criticalSection);
 	bool                  InitializeCriticalSectionAndSpinCount(CRITICAL_SECTION* a_criticalSection, std::uint32_t a_spinCount);
 	std::uint32_t         InterlockedCompareExchange(volatile std::uint32_t* a_target, std::uint32_t a_value, std::uint32_t a_compare) noexcept;
 	std::uint64_t         InterlockedCompareExchange64(volatile std::uint64_t* a_target, std::uint64_t a_value, std::uint64_t a_compare) noexcept;
@@ -520,12 +521,14 @@ namespace REX::W32
 	bool                  QueryPerformanceCounter(std::int64_t* a_counter) noexcept;
 	bool                  QueryPerformanceFrequency(std::int64_t* a_frequency) noexcept;
 	std::uint32_t         ResumeThread(HANDLE a_handle) noexcept;
+	std::uint32_t         SetCriticalSectionSpinCount(CRITICAL_SECTION* a_criticalSection, std::uint32_t a_spinCount) noexcept;
 	bool                  SetEnvironmentVariableA(const char* a_name, const char* a_value) noexcept;
 	bool                  SetEnvironmentVariableW(const wchar_t* a_name, const wchar_t* a_value) noexcept;
 	void                  Sleep(std::uint32_t a_milliseconds) noexcept;
 	bool                  TerminateProcess(HANDLE a_process, std::uint32_t a_exitCode) noexcept;
 	void*                 TlsGetValue(std::uint32_t a_index) noexcept;
 	bool                  TlsSetValue(std::uint32_t a_index, void* a_value) noexcept;
+	bool                  TryEnterCriticalSection(CRITICAL_SECTION* a_criticalSection) noexcept;
 	bool                  UnmapViewOfFile(const void* a_baseAddress) noexcept;
 	void*                 VirtualAlloc(void* a_address, std::size_t a_size, std::uint32_t a_type, std::uint32_t a_protect) noexcept;
 	void*                 VirtualAllocEx(HANDLE a_process, void* a_address, std::size_t a_size, std::uint32_t a_type, std::uint32_t a_protect) noexcept;

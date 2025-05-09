@@ -328,6 +328,7 @@ REX_W32_IMPORT(std::uint32_t, GetPrivateProfileStringA, const char*, const char*
 REX_W32_IMPORT(std::uint32_t, GetPrivateProfileStringW, const wchar_t*, const wchar_t*, const wchar_t*, wchar_t*, std::uint32_t, const wchar_t*);
 REX_W32_IMPORT(void*, GetProcAddress, REX::W32::HMODULE, const char*);
 REX_W32_IMPORT(void, GetSystemInfo, REX::W32::SYSTEM_INFO*);
+REX_W32_IMPORT(void, InitializeCriticalSection, REX::W32::CRITICAL_SECTION*);
 REX_W32_IMPORT(REX::W32::BOOL, InitializeCriticalSectionAndSpinCount, REX::W32::CRITICAL_SECTION*, std::uint32_t);
 REX_W32_IMPORT(REX::W32::BOOL, IsDebuggerPresent);
 REX_W32_IMPORT(std::int32_t, LCMapStringEx, const wchar_t*, std::uint32_t, const wchar_t*, std::int32_t, wchar_t*, std::int32_t, REX::W32::NLSVERSIONINFO*, void*, std::intptr_t);
@@ -344,12 +345,14 @@ REX_W32_IMPORT(void, OutputDebugStringW, const wchar_t*);
 REX_W32_IMPORT(REX::W32::BOOL, QueryPerformanceCounter, std::int64_t*);
 REX_W32_IMPORT(REX::W32::BOOL, QueryPerformanceFrequency, std::int64_t*);
 REX_W32_IMPORT(std::uint32_t, ResumeThread, REX::W32::HANDLE);
+REX_W32_IMPORT(std::uint32_t, SetCriticalSectionSpinCount, REX::W32::CRITICAL_SECTION*, std::uint32_t);
 REX_W32_IMPORT(REX::W32::BOOL, SetEnvironmentVariableA, const char*, const char*);
 REX_W32_IMPORT(REX::W32::BOOL, SetEnvironmentVariableW, const wchar_t*, const wchar_t*);
 REX_W32_IMPORT(void, Sleep, std::uint32_t);
 REX_W32_IMPORT(REX::W32::BOOL, TerminateProcess, REX::W32::HANDLE, std::uint32_t);
 REX_W32_IMPORT(void*, TlsGetValue, std::uint32_t);
 REX_W32_IMPORT(REX::W32::BOOL, TlsSetValue, std::uint32_t, void*);
+REX_W32_IMPORT(REX::W32::BOOL, TryEnterCriticalSection, REX::W32::CRITICAL_SECTION*);
 REX_W32_IMPORT(REX::W32::BOOL, UnmapViewOfFile, const void*);
 REX_W32_IMPORT(void*, VirtualAlloc, void*, std::size_t, std::uint32_t, std::uint32_t);
 REX_W32_IMPORT(void*, VirtualAllocEx, REX::W32::HANDLE, void*, std::size_t, std::uint32_t, std::uint32_t);
@@ -581,6 +584,11 @@ namespace REX::W32
 		return reinterpret_cast<IMAGE_SECTION_HEADER*>(section);
 	}
 
+	void InitializeCriticalSection(CRITICAL_SECTION* a_criticalSection)
+	{
+		::W32_IMPL_InitializeCriticalSection(a_criticalSection);
+	}
+
 	bool InitializeCriticalSectionAndSpinCount(CRITICAL_SECTION* a_criticalSection, std::uint32_t a_spinCount)
 	{
 		return ::W32_IMPL_InitializeCriticalSectionAndSpinCount(a_criticalSection, a_spinCount);
@@ -701,6 +709,11 @@ namespace REX::W32
 		return ::W32_IMPL_ResumeThread(a_handle);
 	}
 
+	std::uint32_t SetCriticalSectionSpinCount(CRITICAL_SECTION* a_criticalSection, std::uint32_t a_spinCount) noexcept
+	{
+		return ::W32_IMPL_SetCriticalSectionSpinCount(a_criticalSection, a_spinCount);
+	}
+
 	bool SetEnvironmentVariableA(const char* a_name, const char* a_value) noexcept
 	{
 		return ::W32_IMPL_SetEnvironmentVariableA(a_name, a_value);
@@ -729,6 +742,11 @@ namespace REX::W32
 	bool TlsSetValue(std::uint32_t a_index, void* a_value) noexcept
 	{
 		return ::W32_IMPL_TlsSetValue(a_index, a_value);
+	}
+
+	bool TryEnterCriticalSection(CRITICAL_SECTION* a_criticalSection) noexcept
+	{
+		return ::W32_IMPL_TryEnterCriticalSection(a_criticalSection);
 	}
 
 	bool UnmapViewOfFile(const void* a_baseAddress) noexcept

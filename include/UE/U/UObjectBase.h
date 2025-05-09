@@ -1,11 +1,10 @@
 #pragma once
 
+#include "UE/E/EObjectFlags.h"
 #include "UE/F/FName.h"
 
 namespace UE
 {
-	enum class EObjectFlags : std::int32_t;
-
 	class UClass;
 	class UObject;
 
@@ -17,6 +16,21 @@ namespace UE
 		virtual void   RegisterDependencies();                                     // 01
 		virtual void   DeferredRegister(UClass*, const wchar_t*, const wchar_t*);  // 02
 		virtual FName* GetFNameForStatID();                                        // 03
+
+		UClass* GetClass() const
+		{
+			return classPrivate;
+		}
+
+		FName GetFName() const
+		{
+			return namePrivate;
+		}
+
+		UObject* GetOuter() const
+		{
+			return outerPrivate;
+		}
 
 		// members
 		EObjectFlags objectFlags;    // 08

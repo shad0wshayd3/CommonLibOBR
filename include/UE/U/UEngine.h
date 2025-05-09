@@ -152,6 +152,12 @@ namespace UE
 			return *singleton;
 		}
 
+		static UClass* StaticClass()
+		{
+			static auto ptr{ FindObject<UClass>("Class /Script/Engine.Engine", EClassCastFlags::UClass) };
+			return ptr;
+		}
+
 		UWorld* GetCurrentPlayWorld(UWorld* a_possiblePlayWorld)
 		{
 			using func_t = decltype(&UEngine::GetCurrentPlayWorld);
