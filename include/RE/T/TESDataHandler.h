@@ -8,7 +8,7 @@ namespace RE
 {
 	class BirthSign;
 	class EnchantmentItem;
-	class InventoryChanges;  // TODO
+	class InventoryChanges;
 	class Script;
 	class SpellItem;
 	class TESClass;

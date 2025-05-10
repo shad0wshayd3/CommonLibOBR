@@ -4,14 +4,14 @@
 
 namespace RE
 {
-	class TESFile;                 // TODO
-	class TESRegionData;           // TODO
-	class TESRegionDataGrass;      // TODO
-	class TESRegionDataLandscape;  // TODO
-	class TESRegionDataMap;        // TODO
-	class TESRegionDataObjects;    // TODO
-	class TESRegionDataSound;      //TODO
-	class TESRegionDataWeather;    // TODO
+	class TESFile;
+	class TESRegionData;
+	class TESRegionDataGrass;
+	class TESRegionDataLandscape;
+	class TESRegionDataMap;
+	class TESRegionDataObjects;
+	class TESRegionDataSound;
+	class TESRegionDataWeather;
 	class TESRegion;
 
 	class TESRegionDataManager
