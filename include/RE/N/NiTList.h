@@ -11,7 +11,7 @@ namespace RE
 	{
 	public:
 		// override
-		virtual ~NiTList();  // 00
+		virtual ~NiTList() override;  // 00
 	};
 	static_assert(sizeof(NiTList<void*>) == 0x20);
 }

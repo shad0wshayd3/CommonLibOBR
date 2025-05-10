@@ -8,13 +8,18 @@ namespace RE
 	class NiNode;
 	class NiPoint3;
 
-	class TESBoundObject : public TESObject
+	class TESBoundObject :
+		public TESObject
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI::TESBoundObject;
 		inline static constexpr auto VTABLE = VTABLE::TESBoundObject;
 
-		~TESBoundObject() override;  // 04
+		// override (TESObject)
+		virtual ~TESBoundObject() override;                                                                                                                                     // 04
+		virtual bool        Activate(TESObjectREFR* a_targetRef, TESObjectREFR* a_activatorRef, bool a_idFlag, TESBoundObject* a_object, std::int32_t a_targetCount) override;  // 33
+		virtual NiAVObject* Clone3D(TESObjectREFR* a_ref, bool a_deepCopy) override;                                                                                            // 40
+		virtual bool        ReplaceModel() override;                                                                                                                            // 44
 
 		// add
 		virtual NiAVObject** Clone3D(TESObjectREFR* a_ref);                                                                                                                                                                   // 4A

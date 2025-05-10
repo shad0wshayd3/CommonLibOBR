@@ -8,13 +8,17 @@ namespace RE
 	class NiAVObject;
 	class TESObjectList;
 
-	class TESObject : public TESForm
+	class TESObject :
+		public TESForm
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI::TESObject;
 		inline static constexpr auto VTABLE = VTABLE::TESObject;
 
-		~TESObject() override;  // 04
+		// override (TESForm)
+		virtual ~TESObject() override;                                              // 04
+		virtual void FillExportForm(bool a_gameplayOnly) override;                  // 38
+		virtual void UpdateFormValues(const ExportTESForm* a_exportForm) override;  // 39
 
 		// add
 		virtual NiAVObject*  Load3D();                                        // 3C

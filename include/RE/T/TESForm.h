@@ -15,7 +15,8 @@ namespace RE
 	struct FORM;
 	struct FORM_GROUP;
 
-	class TESForm : public BaseFormComponent
+	class TESForm :
+		public BaseFormComponent
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI::TESForm;
@@ -50,64 +51,67 @@ namespace RE
 			};
 		};
 
-		// add
-		virtual ~TESForm();  // 04
+		// override (BaseFormComponent)
+		virtual void CopyComponent(BaseFormComponent* a_rhs) override;     // 02
+		virtual bool CompareComponent(BaseFormComponent* a_rhs) override;  // 03
 
-		virtual void            InitializeData();                                                                                                                          // 05
-		virtual void            ClearData();                                                                                                                               // 06
-		virtual bool            Load(TESFile* a_file);                                                                                                                     // 07
-		virtual bool            Save(TESFile* a_file);                                                                                                                     // 08
-		virtual void            Save();                                                                                                                                    // 09
-		virtual bool            LoadEdit(TESFile* a_file);                                                                                                                 // 0A
-		virtual bool            SaveEdit(TESFile* a_file);                                                                                                                 // 0B
-		virtual bool            SavesBefore(FORM* a_group);                                                                                                                // 0C
-		virtual bool            SavesBefore(TESForm* a_form);                                                                                                              // 0D
-		virtual TESForm*        CreateDuplicateForm(bool a_createEditorID, NiTPointerMap<TESForm*, TESForm*>* a_copyMap);                                                  // 0E
-		virtual void            PostDuplicateProcess(NiTPointerMap<TESForm*, TESForm*>* a_copyMap);                                                                        // 0F
-		virtual void            AddChange(std::uint32_t a_changeFlags);                                                                                                    // 10
-		virtual void            RemoveChange(std::uint32_t a_changeFlags);                                                                                                 // 11
-		virtual void            ForceChange(std::uint32_t a_changeFlags);                                                                                                  // 12
-		virtual std::uint16_t   GetSaveSize(std::uint32_t a_changeFlags);                                                                                                  // 13
-		virtual void            SaveGame(std::uint32_t a_changeFlags);                                                                                                     // 14
-		virtual void            LoadGame(std::uint32_t a_flags, std::uint32_t a_currentFlags);                                                                             // 15
-		virtual void            InitLoadGame(std::uint32_t a_flags, std::uint32_t a_oldFlags);                                                                             // 16
-		virtual void            FinishInitLoadGame(std::uint32_t a_flags, std::uint32_t a_oldFlags);                                                                       // 17
-		virtual void            Revert(std::uint32_t a_flags);                                                                                                             // 18
-		virtual void            LoadQueuedFormData(std::uint16_t a_arg01);                                                                                                 // 19
-		virtual bool            FindInFileFast(TESFile* a_file);                                                                                                           // 1A
-		virtual void            InitItem();                                                                                                                                // 1B
-		virtual FormType        GetSavedFormType();                                                                                                                        // 1C
-		virtual void            GetFormDetailedString(BSString& a_strOut);                                                                                                 // 1D
-		virtual bool            GetQuestObject();                                                                                                                          // 1E
-		virtual bool            GetHasSpokenFlag();                                                                                                                        // 1F
-		virtual bool            GetHavokDeath();                                                                                                                           // 20
-		virtual bool            GetNeedtoChangeProcess();                                                                                                                  // 21
-		virtual bool            GetDangerous();                                                                                                                            // 22
-		virtual void            SetDelete(bool a_set);                                                                                                                     // 23
-		virtual void            SetAltered(bool a_set);                                                                                                                    // 24
-		virtual void            SetQuestObject(bool a_set);                                                                                                                // 25
-		virtual void            SetHasSpokenFlag(bool a_set);                                                                                                              // 26
-		virtual void            SetHavokDeath(bool a_set);                                                                                                                 // 27
-		virtual void            SetNeedToChangeProcess(bool a_set);                                                                                                        // 28
-		virtual bool            IsBoundObject();                                                                                                                           // 29
-		virtual bool            IsObject();                                                                                                                                // 2A
-		virtual bool            IsMagicItem();                                                                                                                             // 2B
-		virtual std::uint32_t   GetRefCount();                                                                                                                             // 2C
-		virtual void            Copy(TESForm* a_srcForm);                                                                                                                  // 2D
-		virtual bool            Compare(TESForm* a_copyForm);                                                                                                              // 2E
-		virtual bool            BelongsInGroup(FORM* a_form, bool a_allowParentGroups, bool a_currentOnly);                                                                // 2F
-		virtual void            CreateGroupData(FORM* a_form, FORM_GROUP* a_group);                                                                                        // 30
-		virtual bool            IsParentForm();                                                                                                                            // 31
-		virtual bool            IsFormTypeChild(FormType a_type);                                                                                                          // 32
-		virtual bool            Activate(TESObjectREFR* a_targetRef, TESObjectREFR* a_activatorRef, bool a_idFlag, TESBoundObject* a_object, std::int32_t a_targetCount);  // 33
-		virtual char*           GetObjectTypeName();                                                                                                                       // 34
-		virtual const char*     GetFormEditorID();                                                                                                                         // 35
-		virtual bool            SetFormEditorID(const char* a_editorID);                                                                                                   // 36
-		virtual unsigned __int8 GetLastLoadFileIndex();                                                                                                                    // 37
-		virtual void            FillExportForm(bool a_gameplayOnly);                                                                                                       // 38
-		virtual void            UpdateFormValues(const ExportTESForm* a_exportForm);                                                                                       // 39
-		virtual ExportTESForm*  GetExportForm(bool a_fullLoad);                                                                                                            // 3A
-		virtual bool            HasDifferentFormValues(const ExportTESForm* a_exportForm);                                                                                 // 3B
+		// add
+		virtual ~TESForm();                                                                                                                                               // 04
+		virtual void           InitializeData();                                                                                                                          // 05
+		virtual void           ClearData();                                                                                                                               // 06
+		virtual bool           Load(TESFile* a_file);                                                                                                                     // 07
+		virtual bool           Save(TESFile* a_file);                                                                                                                     // 08
+		virtual void           Save();                                                                                                                                    // 09
+		virtual bool           LoadEdit(TESFile* a_file);                                                                                                                 // 0A
+		virtual bool           SaveEdit(TESFile* a_file);                                                                                                                 // 0B
+		virtual bool           SavesBefore(FORM* a_group);                                                                                                                // 0C
+		virtual bool           SavesBefore(TESForm* a_form);                                                                                                              // 0D
+		virtual TESForm*       CreateDuplicateForm(bool a_createEditorID, NiTPointerMap<TESForm*, TESForm*>* a_copyMap);                                                  // 0E
+		virtual void           PostDuplicateProcess(NiTPointerMap<TESForm*, TESForm*>* a_copyMap);                                                                        // 0F
+		virtual void           AddChange(std::uint32_t a_changeFlags);                                                                                                    // 10
+		virtual void           RemoveChange(std::uint32_t a_changeFlags);                                                                                                 // 11
+		virtual void           ForceChange(std::uint32_t a_changeFlags);                                                                                                  // 12
+		virtual std::uint16_t  GetSaveSize(std::uint32_t a_changeFlags);                                                                                                  // 13
+		virtual void           SaveGame(std::uint32_t a_changeFlags);                                                                                                     // 14
+		virtual void           LoadGame(std::uint32_t a_flags, std::uint32_t a_currentFlags);                                                                             // 15
+		virtual void           InitLoadGame(std::uint32_t a_flags, std::uint32_t a_oldFlags);                                                                             // 16
+		virtual void           FinishInitLoadGame(std::uint32_t a_flags, std::uint32_t a_oldFlags);                                                                       // 17
+		virtual void           Revert(std::uint32_t a_flags);                                                                                                             // 18
+		virtual void           LoadQueuedFormData(std::uint16_t a_arg01);                                                                                                 // 19
+		virtual bool           FindInFileFast(TESFile* a_file);                                                                                                           // 1A
+		virtual void           InitItem();                                                                                                                                // 1B
+		virtual FormType       GetSavedFormType();                                                                                                                        // 1C
+		virtual void           GetFormDetailedString(BSString& a_strOut);                                                                                                 // 1D
+		virtual bool           GetQuestObject();                                                                                                                          // 1E
+		virtual bool           GetHasSpokenFlag();                                                                                                                        // 1F
+		virtual bool           GetHavokDeath();                                                                                                                           // 20
+		virtual bool           GetNeedtoChangeProcess();                                                                                                                  // 21
+		virtual bool           GetDangerous();                                                                                                                            // 22
+		virtual void           SetDelete(bool a_set);                                                                                                                     // 23
+		virtual void           SetAltered(bool a_set);                                                                                                                    // 24
+		virtual void           SetQuestObject(bool a_set);                                                                                                                // 25
+		virtual void           SetHasSpokenFlag(bool a_set);                                                                                                              // 26
+		virtual void           SetHavokDeath(bool a_set);                                                                                                                 // 27
+		virtual void           SetNeedToChangeProcess(bool a_set);                                                                                                        // 28
+		virtual bool           IsBoundObject();                                                                                                                           // 29
+		virtual bool           IsObject();                                                                                                                                // 2A
+		virtual bool           IsMagicItem();                                                                                                                             // 2B
+		virtual std::uint32_t  GetRefCount();                                                                                                                             // 2C
+		virtual void           Copy(TESForm* a_srcForm);                                                                                                                  // 2D
+		virtual bool           Compare(TESForm* a_copyForm);                                                                                                              // 2E
+		virtual bool           BelongsInGroup(FORM* a_form, bool a_allowParentGroups, bool a_currentOnly);                                                                // 2F
+		virtual void           CreateGroupData(FORM* a_form, FORM_GROUP* a_group);                                                                                        // 30
+		virtual bool           IsParentForm();                                                                                                                            // 31
+		virtual bool           IsFormTypeChild(FormType a_type);                                                                                                          // 32
+		virtual bool           Activate(TESObjectREFR* a_targetRef, TESObjectREFR* a_activatorRef, bool a_idFlag, TESBoundObject* a_object, std::int32_t a_targetCount);  // 33
+		virtual char*          GetObjectTypeName();                                                                                                                       // 34
+		virtual const char*    GetFormEditorID();                                                                                                                         // 35
+		virtual bool           SetFormEditorID(const char* a_editorID);                                                                                                   // 36
+		virtual std::uint8_t   GetLastLoadFileIndex();                                                                                                                    // 37
+		virtual void           FillExportForm(bool a_gameplayOnly);                                                                                                       // 38
+		virtual void           UpdateFormValues(const ExportTESForm* a_exportForm);                                                                                       // 39
+		virtual ExportTESForm* GetExportForm(bool a_fullLoad);                                                                                                            // 3A
+		virtual bool           HasDifferentFormValues(const ExportTESForm* a_exportForm);                                                                                 // 3B
 
 		[[nodiscard]] static auto GetAllForms()
 			-> NiTPointerMap<TESFormID, TESForm*>*

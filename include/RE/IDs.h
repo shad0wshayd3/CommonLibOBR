@@ -18,6 +18,11 @@ namespace RE::ID
 		inline constexpr REL::Offset PrintLine{ 0x665C580 };
 	}
 
+	namespace PlayerCharacter
+	{
+		inline constexpr REL::Offset Singleton{ 0x9455388 };
+	}
+
 	namespace SCRIPT_FUNCTION
 	{
 		inline constexpr REL::Offset ConsoleFunctions{ 0x8FF3C40 };
@@ -35,8 +40,10 @@ namespace RE::ID
 		inline constexpr REL::Offset AllFormsByEditorID{ 0x8FDDD70 };
 	}
 
-	inline constexpr REL::Offset malloc{ 0x472FD40 };
-	inline constexpr REL::Offset free{ 0x0E30580 };
+	namespace TESObjectREFR
+	{
+		inline constexpr REL::Offset GetInterior{ 0x65A8400 };
+	}
 
 	inline constexpr REL::Offset RTDynamicCast{ 0x6C23656 };
 }

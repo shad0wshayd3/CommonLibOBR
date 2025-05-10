@@ -12,7 +12,7 @@ namespace RE
 	{
 	public:
 		// override
-		virtual ~NiTPointerListBase();                                 // 00
+		virtual ~NiTPointerListBase() override;                        // 00
 		virtual NiTListItem<T>* NewItem() override;                    // 01
 		virtual void            DeleteItem(NiTListItem<T>*) override;  // 02
 	};

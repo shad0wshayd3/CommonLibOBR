@@ -5,22 +5,71 @@ set(SOURCES
 	include/OBSE/OBSE.h
 	include/OBSE/Trampoline.h
 	include/OBSE/Version.h
+	include/RE/A/ACTION_FLAGS.h
+	include/RE/A/ACTOR_BASE_DATA.h
+	include/RE/A/ACTOR_LIFE_STATE.h
+	include/RE/A/ACTOR_TYPE.h
+	include/RE/A/AIDATA.h
+	include/RE/A/AMMO_DATA.h
 	include/RE/A/ActionObject.h
+	include/RE/A/Actor.h
+	include/RE/A/ActorDeathInfos.h
+	include/RE/A/ActorValue.h
+	include/RE/A/AlchemyItem.h
+	include/RE/A/AlchemyItemData.h
+	include/RE/B/BIPED_MODEL.h
 	include/RE/B/BSCoreTypes.h
 	include/RE/B/BSStringT.h
 	include/RE/B/BSTCaseInsensitiveStringMap.h
 	include/RE/B/BSTList.h
+	include/RE/B/BaseExtraList.h
 	include/RE/B/BaseFormComponent.h
+	include/RE/B/BirthSign.h
+	include/RE/C/CELL_MUSIC_TYPE.h
+	include/RE/C/CHUNK_ID.h
+	include/RE/C/CLASS_DATA.h
+	include/RE/C/CREATURE_DATA.h
+	include/RE/C/Character.h
+	include/RE/C/CombatStyleData.h
 	include/RE/C/CompilerName.h
+	include/RE/C/Creature.h
+	include/RE/D/DIALOGUE_DATA.h
+	include/RE/D/DIALOGUE_EMOTION.h
+	include/RE/E/EVUnpairingState.h
+	include/RE/E/EffectItemList.h
+	include/RE/E/EffectSetting.h
+	include/RE/E/EffectShaderData.h
+	include/RE/E/EnchantmentItem.h
+	include/RE/E/EnchantmentItemData.h
 	include/RE/E/ExpressionOperators.h
+	include/RE/E/ExtraDataList.h
+	include/RE/F/FACTION_DATA.h
 	include/RE/F/FORM.h
 	include/RE/F/FORM_ENUM_STRING.h
+	include/RE/F/FR2MatrixVTC.h
 	include/RE/F/FormTypes.h
 	include/RE/G/GameSettingCollection.h
+	include/RE/I/IVPairableItem.h
+	include/RE/I/IngredientItem.h
+	include/RE/I/IngredientItemData.h
 	include/RE/IDs.h
+	include/RE/M/MATERIAL_TYPE.h
+	include/RE/M/MagicCaster.h
+	include/RE/M/MagicItem.h
+	include/RE/M/MagicItemForm.h
+	include/RE/M/MagicItemObject.h
+	include/RE/M/MagicSystem.h
+	include/RE/M/MagicTarget.h
 	include/RE/M/MemoryManager.h
 	include/RE/M/MenuConsole.h
+	include/RE/M/MobileObject.h
+	include/RE/M/ModifierList.h
+	include/RE/N/NPC_DATA.h
+	include/RE/N/NiPoint2.h
+	include/RE/N/NiPoint3.h
+	include/RE/N/NiPointer.h
 	include/RE/N/NiRTTI.h
+	include/RE/N/NiTArray.h
 	include/RE/N/NiTDefaultAllocator.h
 	include/RE/N/NiTList.h
 	include/RE/N/NiTListBase.h
@@ -32,7 +81,24 @@ set(SOURCES
 	include/RE/N/NiTPointerMap.h
 	include/RE/N/NiTStringMap.h
 	include/RE/NiRTTI_IDs.h
+	include/RE/O/OBJ_APPA.h
+	include/RE/O/OBJ_ARMO.h
+	include/RE/O/OBJ_BOOK.h
+	include/RE/O/OBJ_LAND.h
+	include/RE/O/OBJ_LIGH.h
+	include/RE/O/OBJ_REFR.h
+	include/RE/O/OBJ_TREE.h
+	include/RE/O/OBJ_WEAP.h
 	include/RE/Oblivion.h
+	include/RE/P/PACKAGE_DATA.h
+	include/RE/P/PACKAGE_PROCEDURE_TYPE.h
+	include/RE/P/PACK_SCHED_DATA.h
+	include/RE/P/PackageList.h
+	include/RE/P/PackageSchedule.h
+	include/RE/P/PlayerCharacter.h
+	include/RE/P/PlayerDeathInfos.h
+	include/RE/Q/QUEST_DATA.h
+	include/RE/R/RACE_DATA.h
 	include/RE/RTTI.h
 	include/RE/RTTI_IDs.h
 	include/RE/S/SCRIPT_BLOCK.h
@@ -49,6 +115,11 @@ set(SOURCES
 	include/RE/S/SCRIPT_PARAM_TYPE.h
 	include/RE/S/SCRIPT_REFERENCED_OBJECT.h
 	include/RE/S/SCRIPT_WORD.h
+	include/RE/S/SIT_SLEEP_STATE.h
+	include/RE/S/SKILL_ACTION.h
+	include/RE/S/SKILL_BONUS.h
+	include/RE/S/SKILL_DATA.h
+	include/RE/S/SPECIALIZATION.h
 	include/RE/S/Script.h
 	include/RE/S/ScriptCompileData.h
 	include/RE/S/ScriptCompiler.h
@@ -58,12 +129,115 @@ set(SOURCES
 	include/RE/S/SettingCollection.h
 	include/RE/S/SettingCollectionMap.h
 	include/RE/S/SettingT.h
+	include/RE/S/SkillLevel.h
+	include/RE/S/SpellItem.h
+	include/RE/S/SpellItemData.h
+	include/RE/T/TESAIForm.h
+	include/RE/T/TESActorBase.h
+	include/RE/T/TESActorBaseData.h
+	include/RE/T/TESAmmo.h
+	include/RE/T/TESAnimation.h
+	include/RE/T/TESAttackDamageForm.h
+	include/RE/T/TESAttributes.h
+	include/RE/T/TESBipedModelForm.h
 	include/RE/T/TESBoundAnimObject.h
 	include/RE/T/TESBoundObject.h
+	include/RE/T/TESBoundTreeObject.h
+	include/RE/T/TESChildCell.h
+	include/RE/T/TESClass.h
+	include/RE/T/TESClimate.h
+	include/RE/T/TESCombatStyle.h
+	include/RE/T/TESCondition.h
+	include/RE/T/TESContainer.h
+	include/RE/T/TESCreature.h
+	include/RE/T/TESDescription.h
+	include/RE/T/TESEffectShader.h
+	include/RE/T/TESEnchantableForm.h
+	include/RE/T/TESEyes.h
+	include/RE/T/TESFaction.h
+	include/RE/T/TESFlora.h
 	include/RE/T/TESForm.h
+	include/RE/T/TESFullName.h
+	include/RE/T/TESFurniture.h
+	include/RE/T/TESGlobal.h
+	include/RE/T/TESGrass.h
+	include/RE/T/TESHair.h
+	include/RE/T/TESHealthForm.h
+	include/RE/T/TESIcon.h
+	include/RE/T/TESIconTree.h
+	include/RE/T/TESIdleForm.h
+	include/RE/T/TESKey.h
+	include/RE/T/TESLandTexture.h
+	include/RE/T/TESLevCreature.h
+	include/RE/T/TESLevItem.h
+	include/RE/T/TESLevSpell.h
+	include/RE/T/TESLeveledList.h
+	include/RE/T/TESLoadScreen.h
+	include/RE/T/TESMagicCasterForm.h
+	include/RE/T/TESMagicTargetForm.h
+	include/RE/T/TESMemContextForm.h
+	include/RE/T/TESModel.h
+	include/RE/T/TESModelAnim.h
+	include/RE/T/TESModelList.h
+	include/RE/T/TESModelTree.h
+	include/RE/T/TESNPC.h
 	include/RE/T/TESObject.h
+	include/RE/T/TESObjectACTI.h
+	include/RE/T/TESObjectANIO.h
+	include/RE/T/TESObjectAPPA.h
+	include/RE/T/TESObjectARMO.h
+	include/RE/T/TESObjectBOOK.h
+	include/RE/T/TESObjectCELL.h
+	include/RE/T/TESObjectCLOT.h
+	include/RE/T/TESObjectCONT.h
+	include/RE/T/TESObjectDOOR.h
+	include/RE/T/TESObjectLAND.h
+	include/RE/T/TESObjectLIGH.h
 	include/RE/T/TESObjectList.h
+	include/RE/T/TESObjectMISC.h
+	include/RE/T/TESObjectREFR.h
+	include/RE/T/TESObjectSTAT.h
+	include/RE/T/TESObjectTREE.h
+	include/RE/T/TESObjectWEAP.h
+	include/RE/T/TESPackage.h
+	include/RE/T/TESPathGrid.h
+	include/RE/T/TESProduceForm.h
+	include/RE/T/TESQualityForm.h
+	include/RE/T/TESQuest.h
+	include/RE/T/TESRace.h
+	include/RE/T/TESRaceForm.h
+	include/RE/T/TESReactionForm.h
+	include/RE/T/TESRegion.h
+	include/RE/T/TESRoad.h
+	include/RE/T/TESScriptableForm.h
+	include/RE/T/TESSigilStone.h
+	include/RE/T/TESSkill.h
+	include/RE/T/TESSoulGem.h
+	include/RE/T/TESSound.h
+	include/RE/T/TESSoundFile.h
+	include/RE/T/TESSpellList.h
+	include/RE/T/TESSubSpace.h
+	include/RE/T/TESTerrainLODManager.h
+	include/RE/T/TESTexture.h
+	include/RE/T/TESTextureList.h
+	include/RE/T/TESTextureListArray.h
+	include/RE/T/TESTopic.h
+	include/RE/T/TESTopicInfo.h
+	include/RE/T/TESUsesForm.h
+	include/RE/T/TESValueForm.h
+	include/RE/T/TESWaterForm.h
+	include/RE/T/TESWeather.h
+	include/RE/T/TESWeatherList.h
+	include/RE/T/TESWeightForm.h
+	include/RE/T/TESWorldSpace.h
+	include/RE/T/TEXTURE_HAVOK_DATA.h
+	include/RE/T/TOPIC_INFO_DATA.h
+	include/RE/V/VAnimationPairingComponentHandlers.h
+	include/RE/V/VPreloadAssetsHandlers.h
 	include/RE/VTABLE_IDs.h
+	include/RE/W/WEAPON_TYPE.h
+	include/RE/W/WORLD_MAP_DATA.h
+	include/RE/W/WaterShaderData.h
 	include/REL/ASM.h
 	include/REL/Hook.h
 	include/REL/HookObject.h
@@ -229,6 +403,8 @@ set(SOURCES
 	src/OBSE/Impl/PCH.cpp
 	src/OBSE/Interfaces.cpp
 	src/RE/F/FormTypes.cpp
+	src/RE/N/NiPoint2.cpp
+	src/RE/N/NiPoint3.cpp
 	src/RE/Oblivion.cpp
 	src/RE/S/Setting.cpp
 	src/REL/HookObject.cpp
