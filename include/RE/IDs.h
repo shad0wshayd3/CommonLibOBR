@@ -34,6 +34,11 @@ namespace RE::ID
 		inline constexpr REL::Offset SetString{ 0x6710B70 };
 	}
 
+	namespace TESDataHandler
+	{
+		inline constexpr REL::Offset Singleton{ 0x94B5C98 };
+	}
+
 	namespace TESForm
 	{
 		inline constexpr REL::Offset AllForms{ 0x8FDDD30 };
@@ -43,6 +48,12 @@ namespace RE::ID
 	namespace TESObjectREFR
 	{
 		inline constexpr REL::Offset GetInterior{ 0x65A8400 };
+	}
+
+	namespace Tile
+	{
+		inline constexpr REL::Offset GetMenuByClass{ 0x671B0C0 };
+		inline constexpr REL::Offset GetMenu{ 0x671B070 };
 	}
 
 	inline constexpr REL::Offset RTDynamicCast{ 0x6C23656 };
