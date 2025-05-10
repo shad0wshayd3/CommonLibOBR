@@ -3,8 +3,8 @@
 #include "RE/C/CREATURE_DATA.h"
 #include "RE/T/TESActorBase.h"
 #include "RE/T/TESAttackDamageForm.h"
-#include "RE/T/TESModelList.h"
 #include "RE/T/TESModel.h"
+#include "RE/T/TESModelList.h"
 #include "RE/T/TESTexture.h"
 
 namespace RE

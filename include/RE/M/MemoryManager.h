@@ -26,7 +26,7 @@ namespace RE
 		return UE::FMemory::Malloc(a_size, a_alignment);
 	}
 
-		template <class T>
+	template <class T>
 	inline T* aligned_alloc(std::uint32_t a_alignment, std::size_t a_size)
 	{
 		return static_cast<T*>(aligned_alloc(a_alignment, a_size));

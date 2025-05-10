@@ -35,7 +35,7 @@ namespace RE
 		virtual void InitItem() override;                    // 1B
 		virtual void Copy(TESForm* a_srcForm) override;      // 2D
 		virtual bool Compare(TESForm* a_copyForm) override;  // 2E
-		
+
 		// members
 		OBJ_APPA data;  // F0
 	};

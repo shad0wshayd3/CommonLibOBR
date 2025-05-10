@@ -1,7 +1,7 @@
 #pragma once
 
-#include "RE/B/BaseFormComponent.h"
 #include "RE/B/BIPED_MODEL.h"
+#include "RE/B/BaseFormComponent.h"
 #include "RE/T/TESIcon.h"
 #include "RE/T/TESModel.h"
 

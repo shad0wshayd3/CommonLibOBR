@@ -1,12 +1,11 @@
 #pragma once
 
 #include "RE/F/FR2MatrixVTC.h"
+#include "RE/N/NPC_DATA.h"
 #include "RE/N/NiPointer.h"
 #include "RE/N/NiTArray.h"
-#include "RE/N/NPC_DATA.h"
 #include "RE/T/TESActorBase.h"
 #include "RE/T/TESRaceForm.h"
-
 
 namespace RE
 {
