@@ -12,10 +12,12 @@ namespace UE
 	{
 	public:
 		// add
-		virtual ~UObjectBase();                                                    // 00
-		virtual void   RegisterDependencies();                                     // 01
-		virtual void   DeferredRegister(UClass*, const wchar_t*, const wchar_t*);  // 02
-		virtual FName* GetFNameForStatID();                                        // 03
+		virtual ~UObjectBase();  // 00
+
+		// add
+		virtual void  RegisterDependencies();                                                                  // 01
+		virtual void  DeferredRegister(UClass* a_class, const wchar_t* a_packageName, const wchar_t* a_name);  // 02
+		virtual FName GetFNameForStatID() const;                                                               // 03
 
 		UClass* GetClass() const
 		{

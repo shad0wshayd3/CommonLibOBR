@@ -22,6 +22,8 @@ namespace UE
 		public FStructBaseChain
 	{
 	public:
+		UE_DEFINE_OBJECT("/Script/CoreUObject", "Struct");
+
 		// override
 		virtual ~UStruct();
 
@@ -45,6 +47,17 @@ namespace UE
 		virtual FName          FindPropertyNameFromGuid(const FGuid& a_guid) const;                                                                                                                                                 // 69
 		virtual FGuid          FindPropertyGuidFromName(const FName a_name) const;                                                                                                                                                  // 6A
 		virtual bool           ArePropertyGuidsAvailable() const;                                                                                                                                                                   // 6B
+
+		bool IsChildOf(const UStruct* a_base) const
+		{
+			return a_base ? IsChildOfUsingStructArray(*a_base) : false;
+		}
+
+		template <class T>
+		bool IsChildOf() const
+		{
+			return IsChildOf(FindClass<T>());
+		}
 
 		// members
 		UStruct*                                          superStruct;                        // 40

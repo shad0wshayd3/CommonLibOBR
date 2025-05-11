@@ -15,11 +15,7 @@ namespace UE
 		public UObject
 	{
 	public:
-		static UClass* StaticClass()
-		{
-			static auto ptr{ FindObject<UClass>("Class /Script/CoreUObject.Package", EClassCastFlags::UClass) };
-			return ptr;
-		}
+		UE_DEFINE_OBJECT("/Script/CoreUObject", "Package");
 
 		// members
 		std::uint8_t            dirty: 1;               // 28

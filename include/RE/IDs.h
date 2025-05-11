@@ -60,6 +60,7 @@ namespace UE::ID
 	namespace FName
 	{
 		inline constexpr REL::Offset Ctor1{ 0x0F45900 };
+		inline constexpr REL::Offset Ctor2{ 0x0F45A70 };
 		inline constexpr REL::Offset AppendString{ 0x0F4B710 };
 		inline constexpr REL::Offset ToString{ 0x0F61010 };
 	}
@@ -103,5 +104,7 @@ namespace UE::ID
 	}
 
 	inline constexpr REL::Offset StaticFindObjectFast{ 0x112C350 };
+	inline constexpr REL::Offset StaticFindObjectFastSafe{ 0x112CC40 };
 	inline constexpr REL::Offset StaticFindObject{ 0x112C0F0 };
+	inline constexpr REL::Offset StaticFindObjectSafe{ 0x112CCE0 };
 }

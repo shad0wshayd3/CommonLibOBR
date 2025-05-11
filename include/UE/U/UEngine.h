@@ -51,6 +51,8 @@ namespace UE
 		public FExec
 	{
 	public:
+		UE_DEFINE_OBJECT("/Script/Engine", "Engine");
+
 		// override
 		virtual ~UEngine();  // 00
 
@@ -150,12 +152,6 @@ namespace UE
 			using func_t = decltype(&UEngine::GetSingleton);
 			static REL::Relocation<UEngine**> singleton{ ID::UEngine::GetSingleton };
 			return *singleton;
-		}
-
-		static UClass* StaticClass()
-		{
-			static auto ptr{ FindObject<UClass>("Class /Script/Engine.Engine", EClassCastFlags::UClass) };
-			return ptr;
 		}
 
 		UWorld* GetCurrentPlayWorld(UWorld* a_possiblePlayWorld)

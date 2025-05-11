@@ -2,6 +2,7 @@
 
 #include "UE/T/TRotator.h"
 #include "UE/T/TSubclassOf.h"
+#include "UE/U/UClass.h"
 #include "UE/U/UObject.h"
 
 namespace UE
@@ -17,6 +18,8 @@ namespace UE
 		public UObject
 	{
 	public:
+		UE_DEFINE_OBJECT("/Script/Engine", "CheatManager");
+
 		// override
 		virtual ~UCheatManager();  // 00
 

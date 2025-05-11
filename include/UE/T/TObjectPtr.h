@@ -10,6 +10,31 @@ namespace UE
 	class TObjectPtr
 	{
 	public:
+		T* Get() const
+		{
+			return static_cast<T*>(objectPtr.Get());
+		}
+
+		explicit operator bool() const
+		{
+			return objectPtr.operator bool();
+		}
+
+		operator T*() const
+		{
+			return Get();
+		}
+
+		T* operator->() const
+		{
+			return Get();
+		}
+
+		T& operator*() const
+		{
+			return *Get();
+		}
+
 		// members
 		union
 		{

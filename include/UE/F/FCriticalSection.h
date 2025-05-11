@@ -2,16 +2,19 @@
 
 namespace UE
 {
-	class FCriticalSection
+	class FWindowsCriticalSection
 	{
 	public:
-		FCriticalSection()
+		FWindowsCriticalSection(const FWindowsCriticalSection&) = delete;
+		FWindowsCriticalSection& operator=(const FWindowsCriticalSection&) = delete;
+
+		FWindowsCriticalSection()
 		{
 			REX::W32::InitializeCriticalSection(&criticalSection);
 			REX::W32::SetCriticalSectionSpinCount(&criticalSection, 4000);
 		}
 
-		~FCriticalSection()
+		~FWindowsCriticalSection()
 		{
 			REX::W32::DeleteCriticalSection(&criticalSection);
 		}
@@ -34,5 +37,7 @@ namespace UE
 		// members
 		REX::W32::CRITICAL_SECTION criticalSection;
 	};
-	static_assert(sizeof(FCriticalSection) == 0x28);
+	static_assert(sizeof(FWindowsCriticalSection) == 0x28);
+
+	using FCriticalSection = FWindowsCriticalSection;
 }

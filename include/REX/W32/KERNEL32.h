@@ -347,6 +347,12 @@ namespace REX::W32
 	};
 	static_assert(sizeof(PROCESS_INFORMATION) == 0x18);
 
+	struct SRWLOCK
+	{
+		void* ptr;
+	};
+	static_assert(sizeof(SRWLOCK) == 0x08);
+
 	struct STARTUPINFOA
 	{
 		std::uint32_t size;
@@ -454,6 +460,8 @@ namespace REX::W32
 
 namespace REX::W32
 {
+	void                  AcquireSRWLockShared(SRWLOCK* a_lock) noexcept;
+	void                  AcquireSRWLockExclusive(SRWLOCK* a_lock) noexcept;
 	bool                  CloseHandle(HANDLE a_handle) noexcept;
 	HANDLE                CreateFileA(const char* a_fileName, std::uint32_t a_desiredAccess, std::uint32_t a_shareMode, SECURITY_ATTRIBUTES* a_attributes, std::uint32_t a_creationDisposition, std::uint32_t a_flags, HANDLE a_templateFile);
 	HANDLE                CreateFileW(const wchar_t* a_fileName, std::uint32_t a_desiredAccess, std::uint32_t a_shareMode, SECURITY_ATTRIBUTES* a_attributes, std::uint32_t a_creationDisposition, std::uint32_t a_flags, HANDLE a_templateFile);
@@ -496,8 +504,9 @@ namespace REX::W32
 	void                  GetSystemInfo(SYSTEM_INFO* a_info) noexcept;
 	bool                  IMAGE_SNAP_BY_ORDINAL64(std::uint64_t a_ordinal) noexcept;
 	IMAGE_SECTION_HEADER* IMAGE_FIRST_SECTION(const IMAGE_NT_HEADERS64* a_header) noexcept;
-	void                  InitializeCriticalSection(CRITICAL_SECTION* a_criticalSection);
-	bool                  InitializeCriticalSectionAndSpinCount(CRITICAL_SECTION* a_criticalSection, std::uint32_t a_spinCount);
+	void                  InitializeCriticalSection(CRITICAL_SECTION* a_criticalSection) noexcept;
+	bool                  InitializeCriticalSectionAndSpinCount(CRITICAL_SECTION* a_criticalSection, std::uint32_t a_spinCount) noexcept;
+	void                  InitializeSRWLock(SRWLOCK* a_lock) noexcept;
 	std::uint32_t         InterlockedCompareExchange(volatile std::uint32_t* a_target, std::uint32_t a_value, std::uint32_t a_compare) noexcept;
 	std::uint64_t         InterlockedCompareExchange64(volatile std::uint64_t* a_target, std::uint64_t a_value, std::uint64_t a_compare) noexcept;
 	std::uint32_t         InterlockedDecrement(volatile std::uint32_t* a_target) noexcept;
@@ -520,6 +529,8 @@ namespace REX::W32
 	void                  OutputDebugStringW(const wchar_t* a_str) noexcept;
 	bool                  QueryPerformanceCounter(std::int64_t* a_counter) noexcept;
 	bool                  QueryPerformanceFrequency(std::int64_t* a_frequency) noexcept;
+	void                  ReleaseSRWLockShared(SRWLOCK* a_lock) noexcept;
+	void                  ReleaseSRWLockExclusive(SRWLOCK* a_lock) noexcept;
 	std::uint32_t         ResumeThread(HANDLE a_handle) noexcept;
 	std::uint32_t         SetCriticalSectionSpinCount(CRITICAL_SECTION* a_criticalSection, std::uint32_t a_spinCount) noexcept;
 	bool                  SetEnvironmentVariableA(const char* a_name, const char* a_value) noexcept;
@@ -528,6 +539,8 @@ namespace REX::W32
 	bool                  TerminateProcess(HANDLE a_process, std::uint32_t a_exitCode) noexcept;
 	void*                 TlsGetValue(std::uint32_t a_index) noexcept;
 	bool                  TlsSetValue(std::uint32_t a_index, void* a_value) noexcept;
+	bool                  TryAcquireSRWLockExclusive(SRWLOCK* a_lock) noexcept;
+	bool                  TryAcquireSRWLockShared(SRWLOCK* a_lock) noexcept;
 	bool                  TryEnterCriticalSection(CRITICAL_SECTION* a_criticalSection) noexcept;
 	bool                  UnmapViewOfFile(const void* a_baseAddress) noexcept;
 	void*                 VirtualAlloc(void* a_address, std::size_t a_size, std::uint32_t a_type, std::uint32_t a_protect) noexcept;

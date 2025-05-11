@@ -9,7 +9,11 @@
 #include "UE/T/TArray.h"
 #include "UE/T/TMap.h"
 #include "UE/U/UObjectBaseUtility.h"
-#include "UE/U/UObjectGlobals.h"
+
+#define UE_DEFINE_OBJECT(a_package, a_name)                       \
+	static constexpr auto UE_PACKAGE{ L##a_package };             \
+	static constexpr auto UE_NAME{ L##a_name };                   \
+	static constexpr auto UE_CLASS{ L##a_package L"." L##a_name };
 
 namespace UE
 {
@@ -47,6 +51,8 @@ namespace UE
 		public UObjectBaseUtility
 	{
 	public:
+		UE_DEFINE_OBJECT("/Script/CoreUObject", "Object");
+
 		class FAssetRegistryTag
 		{
 		public:
@@ -64,7 +70,7 @@ namespace UE
 		virtual ~UObject();  // 00
 
 		// add
-		virtual FString*                     GetDetailedInfoInternal(FString* result);                                                           // 08
+		virtual FString                      GetDetailedInfoInternal();                                                                          // 08
 		virtual void                         PostInitProperties();                                                                               // 09
 		virtual void                         PostReinitProperties();                                                                             // 0A
 		virtual void                         PostCDOContruct();                                                                                  // 0B
@@ -104,45 +110,45 @@ namespace UE
 		virtual void                         PostEditImport();                                                                                   // 2D
 		virtual void                         PostReloadConfig(FProperty*);                                                                       // 2E
 		virtual bool                         Rename(const wchar_t*, UObject*, unsigned int);                                                     // 2F
-		virtual FString*                     GetDesc();                                                                                          // 30
+		virtual FString                      GetDesc();                                                                                          // 30
 		virtual UWorld*                      GetWorld();                                                                                         // 31
 		virtual bool                         GetNativePropertyValues(TMap<FString, FString>*, unsigned int);                                     // 32
 		virtual void                         GetResourceSizeEx(FResourceSizeEx*);                                                                // 33
-		virtual FName*                       GetExporterName();                                                                                  // 34
+		virtual FName                        GetExporterName();                                                                                  // 34
 		virtual FRestoreForUObjectOverwrite* GetRestoreForUObjectOverwrite();                                                                    // 35
-		virtual bool                         AreNativePropertiesIdenticalTo(UObject*);                                                           // 36
-		virtual void                         GetAssetRegistryTags(TArray<UObject::FAssetRegistryTag>*);                                          // 37
-		virtual void                         GetExternalActorExtendedAssetRegistryTags(TArray<UObject::FAssetRegistryTag>*);                     // 38
-		virtual bool                         IsAsset();                                                                                          // 39
-		virtual FPrimaryAssetId*             GetPrimaryAssetId();                                                                                // 3A
-		virtual bool                         IsLocalizedResource();                                                                              // 3B
-		virtual bool                         IsSafeForRootSet();                                                                                 // 3C
+		virtual bool                         AreNativePropertiesIdenticalTo(UObject* a_other) const;                                             // 36
+		virtual void                         GetAssetRegistryTags(TArray<UObject::FAssetRegistryTag>*) const;                                    // 37
+		virtual void                         GetExternalActorExtendedAssetRegistryTags(TArray<UObject::FAssetRegistryTag>*) const;               // 38
+		virtual bool                         IsAsset() const;                                                                                    // 39
+		virtual FPrimaryAssetId*             GetPrimaryAssetId() const;                                                                          // 3A
+		virtual bool                         IsLocalizedResource() const;                                                                        // 3B
+		virtual bool                         IsSafeForRootSet() const;                                                                           // 3C
 		virtual void                         TagSubobjects(EObjectFlags);                                                                        // 3D
-		virtual void                         GetLifetimeReplicatedProps(TArray<FLifetimeProperty>*);                                             // 3E
-		virtual void                         GetReplicatedCustomConditionState(FCustomPropertyConditionState*);                                  // 3F
+		virtual void                         GetLifetimeReplicatedProps(TArray<FLifetimeProperty>*) const;                                       // 3E
+		virtual void                         GetReplicatedCustomConditionState(FCustomPropertyConditionState*) const;                            // 3F
 		virtual void                         RegisterReplicationFragments(Net::FFragmentRegistrationContext*, Net::EFragmentRegistrationFlags);  // 40
-		virtual bool                         IsNameStableForNetworking();                                                                        // 41
-		virtual bool                         IsFullNameStableForNetworking();                                                                    // 42
-		virtual bool                         IsSupportedForNetworking();                                                                         // 43
+		virtual bool                         IsNameStableForNetworking() const;                                                                  // 41
+		virtual bool                         IsFullNameStableForNetworking() const;                                                              // 42
+		virtual bool                         IsSupportedForNetworking() const;                                                                   // 43
 		virtual void                         GetSubobjectsWithStableNamesForNetworking(TArray<UObject*>*);                                       // 44
 		virtual void                         PreNetReceive();                                                                                    // 45
 		virtual void                         PostNetReceive();                                                                                   // 46
 		virtual void                         PostRepNotifies();                                                                                  // 47
 		virtual void                         PreDestroyFromReplication();                                                                        // 48
-		virtual void                         BuildSubobjectMapping(UObject*, TMap<UObject*, UObject*>*);                                         // 49
-		virtual const wchar_t*               GetConfigOverridePlatform();                                                                        // 4A
-		virtual void                         OverrideConfigSection(FString*);                                                                    // 4B
-		virtual void                         OverridePerObjectConfigSection(FString*);                                                           // 4C
-		virtual void                         ProcessEvent(UFunction*, void*);                                                                    // 4D
-		virtual int                          GetFunctionCallspace(UFunction*, FFrame*);                                                          // 4E
+		virtual void                         BuildSubobjectMapping(UObject*, TMap<UObject*, UObject*>*) const;                                   // 49
+		virtual const wchar_t*               GetConfigOverridePlatform() const;                                                                  // 4A
+		virtual void                         OverrideConfigSection(FString&);                                                                    // 4B
+		virtual void                         OverridePerObjectConfigSection(FString&);                                                           // 4C
+		virtual void                         ProcessEvent(UFunction* a_function, void* a_params);                                                // 4D
+		virtual int                          GetFunctionCallspace(UFunction* a_function, FFrame* a_stack);                                       // 4E
 		virtual bool                         CallRemoteFunction(UFunction*, void*, FOutParmRec*, FFrame*);                                       // 4F
-		virtual bool                         ProcessConsoleExec(const wchar_t*, FOutputDevice*, UObject*);                                       // 50
+		virtual bool                         ProcessConsoleExec(const wchar_t* a_cmd, FOutputDevice* a_ar, UObject* a_executor);                 // 50
 		virtual UClass*                      RegenerateClass(UClass*, UObject*);                                                                 // 51
 		virtual void                         MarkAsEditorOnlySubobject();                                                                        // 52
-		virtual bool                         CheckDefaultSubobjectsInternal();                                                                   // 53
-		virtual void                         ValidateGeneratedRepEnums(const TArray<FRepRecord>*);                                               // 54
-		virtual void                         SetNetPushIdDynamic(const std::uint64_t);                                                           // 55
-		virtual std::uint64_t                GetNetPushIdDynamic();                                                                              // 56
+		virtual bool                         CheckDefaultSubobjectsInternal() const;                                                             // 53
+		virtual void                         ValidateGeneratedRepEnums(const TArray<FRepRecord>*) const;                                         // 54
+		virtual void                         SetNetPushIdDynamic(const std::uint64_t a_id);                                                      // 55
+		virtual std::uint64_t                GetNetPushIdDynamic() const;                                                                        // 56
 	};
 	static_assert(sizeof(UObject) == 0x28);
 }

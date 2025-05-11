@@ -7,6 +7,16 @@ namespace UE
 	class FObjectPtr
 	{
 	public:
+		UObject* Get() const
+		{
+			return handle;
+		}
+
+		explicit operator bool() const
+		{
+			return handle;
+		}
+
 		// members
 		union
 		{

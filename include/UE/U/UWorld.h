@@ -10,6 +10,8 @@ namespace UE
 		public FNetworkNotify
 	{
 	public:
+		UE_DEFINE_OBJECT("/Script/Engine", "World");
+
 		// override
 		virtual ~UWorld();  // 00
 

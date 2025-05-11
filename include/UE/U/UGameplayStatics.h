@@ -11,6 +11,8 @@ namespace UE
 		public UBlueprintFunctionLibrary
 	{
 	public:
+		UE_DEFINE_OBJECT("/Script/Engine", "GameplayStatics");
+
 		// override
 		virtual ~UGameplayStatics();  // 00
 

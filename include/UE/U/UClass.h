@@ -1,12 +1,17 @@
 #pragma once
 
 #include "UE/E/EClassCastFlags.h"
+#include "UE/E/EClassFlags.h"
+#include "UE/F/FRWLock.h"
 #include "UE/U/UStruct.h"
 
 namespace UE
 {
+	class FImplementedInterface;
+	class FNativeFunctionLookup;
 	class FObjectInitializer;
 	class FVTableHelper;
+	class UScriptStruct;
 
 	enum class EIncludeSuperFlag : std::int32_t
 	{
@@ -14,10 +19,14 @@ namespace UE
 		IncludeSuper
 	};
 
+	using FUClassFuncLock = FRWLock;
+
 	class UClass :
 		public UStruct
 	{
 	public:
+		UE_DEFINE_OBJECT("/Script/CoreUObject", "Class");
+
 		// override
 		virtual ~UClass();
 
@@ -49,6 +58,20 @@ namespace UE
 			return func(this, a_name, a_includeSuper);
 		}
 
+		UObject* GetDefaultObject(bool a_create = true) const
+		{
+			if (!classDefaultObject && a_create)
+				const_cast<UClass*>(this)->CreateDefaultObject();
+
+			return classDefaultObject;
+		}
+
+		template <class T>
+		T* GetDefaultObject(bool a_create = true) const
+		{
+			return static_cast<T*>(GetDefaultObject(a_create));
+		}
+
 		bool HasAnyCastFlag(EClassCastFlags a_flag) const
 		{
 			return !!(classCastFlags & a_flag);
@@ -59,8 +82,30 @@ namespace UE
 			return (classCastFlags & a_flag) == a_flag;
 		}
 
-		// memebers
-		std::byte       unk[0x28];
-		EClassCastFlags classCastFlags;
+		// members
+		std::uintptr_t                     classConstructor;             // 0B0
+		std::uintptr_t                     classVTableHelperCtorCaller;  // 0B8
+		std::byte                          unkC0[0x8];                   // 0C0
+		mutable std::int32_t               classUnique;                  // 0C8
+		std::int32_t                       firstOwnedClassRep;           // 0CC
+		bool                               cooked;                       // 0D0
+		bool                               layoutChanging;               // 0D1
+		EClassFlags                        classFlags;                   // 0D4
+		EClassCastFlags                    classCastFlags;               // 0D8
+		TObjectPtr<UClass>                 classWithin;                  // 0E0
+		FName                              classConfigName;              // 0E8
+		TArray<FRepRecord>                 classReps;                    // 0F0
+		TArray<UField*>                    netFields;                    // 100
+		TObjectPtr<UObject>                classDefaultObject;           // 110
+		void*                              sparseClassData;              // 118
+		TObjectPtr<UScriptStruct>          sparseClassDataStruct;        // 120
+		TMap<FName, TObjectPtr<UFunction>> funcMap;                      // 128
+		mutable FUClassFuncLock            funcMapLock;                  // 178
+		mutable TMap<FName, UFunction*>    allFunctionsCache;            // 180
+		mutable FUClassFuncLock            allFunctionsCacheLock;        // 1D0
+		TArray<FImplementedInterface>      interfaces;                   // 1D8
+		std::uint64_t                      referenceSchema;              // 1E8 - GC::FSchemaOwner
+		TArray<FNativeFunctionLookup>      nativeFunctionLookupTable;    // 1F0
 	};
+	static_assert(sizeof(UClass) == 0x200);
 }

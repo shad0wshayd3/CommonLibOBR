@@ -2,14 +2,14 @@
 
 namespace UE::Math
 {
-	template <typename T>
+	template <class T>
 	class TVector
 	{
 	public:
 		// members
 		union
 		{
-			union
+			struct
 			{
 				T x;
 				T y;
@@ -19,4 +19,11 @@ namespace UE::Math
 		};
 	};
 	static_assert(sizeof(TVector<double>) == 0x18);
+}
+
+namespace UE
+{
+	using FVector = Math::TVector<double>;
+	using FVector3d = Math::TVector<double>;
+	using FVector3f = Math::TVector<float>;
 }

@@ -70,6 +70,11 @@ namespace UE
 				return index;
 			}
 
+			const FUObjectArray& GetIteratedArray() const
+			{
+				return array;
+			}
+
 			FUObjectItem* GetObject() const
 			{
 				return current;
