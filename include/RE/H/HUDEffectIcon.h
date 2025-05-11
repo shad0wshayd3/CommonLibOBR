@@ -4,14 +4,15 @@
 
 namespace RE
 {
+	class ActiveEffect;
 	class Tile;
 
 	class HUDEffectIcon
 	{
 	public:
 		// members
-		Tile*                tile;    // 00
-		BSSimpleList<void*>* fxList;  // 08 - BSSimpleList<ActiveEffect*>*
+		Tile*                        tile;    // 00
+		BSSimpleList<ActiveEffect*>* fxList;  // 08
 	};
 	static_assert(sizeof(HUDEffectIcon) == 0x10);
 }

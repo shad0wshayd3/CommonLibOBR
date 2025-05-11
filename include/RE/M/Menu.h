@@ -4,10 +4,10 @@
 #include "RE/G/GAMEPAD_BUTTON.h"
 #include "RE/I/IVPairableItem.h"
 #include "RE/M/MENU_CLASS.h"
+#include "RE/T/Tile.h"
 
 namespace RE
 {
-	class Tile;
 	class TileMenu;
 
 	class Menu :
@@ -52,7 +52,7 @@ namespace RE
 
 		// members
 		TileMenu*                           tileMenu;         // 18
-		BSSimpleList<void*>                 templates;        // 20 - BSSimpleList<Tile::TileTemplate*>
+		BSSimpleList<Tile::TileTemplate*>   templates;        // 20
 		Tile*                               lastTile;         // 30
 		std::int32_t                        isModal;          // 38
 		std::int32_t                        menuThickness;    // 3C
