@@ -9,7 +9,6 @@ namespace UE
 		public FSparseDelegate
 	{
 	public:
-
 	};
 	static_assert(sizeof(TSparseDynamicDelegate<void, void, void>) == 0x01);
 }

@@ -18,7 +18,7 @@ namespace UE
 
 		return a_internalExclusionFlags;
 	}
-	
+
 	template <EObjectIteratorThreadSafetyOptions E>
 	class TObjectIteratorBase :
 		public FUObjectArray::TIterator
