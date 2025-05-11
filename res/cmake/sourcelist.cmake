@@ -44,23 +44,33 @@ set(SOURCES
 	include/RE/E/ExpressionOperators.h
 	include/RE/E/ExtraDataList.h
 	include/RE/F/FACTION_DATA.h
+	include/RE/F/FILE_HEADER.h
 	include/RE/F/FORM.h
 	include/RE/F/FORM_ENUM_STRING.h
 	include/RE/F/FR2MatrixVTC.h
 	include/RE/F/FormTypes.h
+	include/RE/G/GAMEPAD_BUTTON.h
 	include/RE/G/GameSettingCollection.h
+	include/RE/H/HUDEffectIcon.h
+	include/RE/H/HUDInfoMenu.h
+	include/RE/H/HUDMainMenu.h
+	include/RE/H/HUDReticle.h
 	include/RE/I/IVPairableItem.h
+	include/RE/I/IconArray.h
 	include/RE/I/IngredientItem.h
 	include/RE/I/IngredientItemData.h
 	include/RE/IDs.h
 	include/RE/M/MATERIAL_TYPE.h
+	include/RE/M/MENU_CLASS.h
 	include/RE/M/MagicCaster.h
 	include/RE/M/MagicItem.h
 	include/RE/M/MagicItemForm.h
 	include/RE/M/MagicItemObject.h
 	include/RE/M/MagicSystem.h
 	include/RE/M/MagicTarget.h
+	include/RE/M/MapMenu.h
 	include/RE/M/MemoryManager.h
+	include/RE/M/Menu.h
 	include/RE/M/MenuConsole.h
 	include/RE/M/MobileObject.h
 	include/RE/M/ModifierList.h
@@ -99,6 +109,7 @@ set(SOURCES
 	include/RE/P/PlayerDeathInfos.h
 	include/RE/Q/QUEST_DATA.h
 	include/RE/R/RACE_DATA.h
+	include/RE/R/REGION_DATA_ID.h
 	include/RE/RTTI.h
 	include/RE/RTTI_IDs.h
 	include/RE/S/SCRIPT_BLOCK.h
@@ -150,11 +161,13 @@ set(SOURCES
 	include/RE/T/TESCondition.h
 	include/RE/T/TESContainer.h
 	include/RE/T/TESCreature.h
+	include/RE/T/TESDataHandler.h
 	include/RE/T/TESDescription.h
 	include/RE/T/TESEffectShader.h
 	include/RE/T/TESEnchantableForm.h
 	include/RE/T/TESEyes.h
 	include/RE/T/TESFaction.h
+	include/RE/T/TESFile.h
 	include/RE/T/TESFlora.h
 	include/RE/T/TESForm.h
 	include/RE/T/TESFullName.h
@@ -204,10 +217,13 @@ set(SOURCES
 	include/RE/T/TESProduceForm.h
 	include/RE/T/TESQualityForm.h
 	include/RE/T/TESQuest.h
+	include/RE/T/TESQuestTarget.h
 	include/RE/T/TESRace.h
 	include/RE/T/TESRaceForm.h
 	include/RE/T/TESReactionForm.h
 	include/RE/T/TESRegion.h
+	include/RE/T/TESRegionDataManager.h
+	include/RE/T/TESRegionList.h
 	include/RE/T/TESRoad.h
 	include/RE/T/TESScriptableForm.h
 	include/RE/T/TESSigilStone.h
@@ -230,8 +246,12 @@ set(SOURCES
 	include/RE/T/TESWeatherList.h
 	include/RE/T/TESWeightForm.h
 	include/RE/T/TESWorldSpace.h
+	include/RE/T/TES_RETURN_CODE.h
 	include/RE/T/TEXTURE_HAVOK_DATA.h
 	include/RE/T/TOPIC_INFO_DATA.h
+	include/RE/T/Tile.h
+	include/RE/T/TileMenu.h
+	include/RE/T/TileRect.h
 	include/RE/V/VAnimationPairingComponentHandlers.h
 	include/RE/V/VPreloadAssetsHandlers.h
 	include/RE/VTABLE_IDs.h
@@ -399,26 +419,6 @@ set(SOURCES
 	include/UE/U/UStruct.h
 	include/UE/U/UWorld.h
 	include/UE/Unreal.h
-	include/RE/F/FILE_HEADER.h
-	include/RE/G/GAMEPAD_BUTTON.h
-	include/RE/H/HUDEffectIcon.h
-	include/RE/H/HUDInfoMenu.h
-	include/RE/H/HUDMainMenu.h
-	include/RE/H/HUDReticle.h
-	include/RE/I/IconArray.h
-	include/RE/M/MENU_CLASS.h
-	include/RE/M/MapMenu.h
-	include/RE/M/Menu.h
-	include/RE/R/REGION_DATA_ID.h
-	include/RE/T/TESDataHandler.h
-	include/RE/T/TESFile.h
-	include/RE/T/TESQuestTarget.h
-	include/RE/T/TESRegionDataManager.h
-	include/RE/T/TESRegionList.h
-	include/RE/T/TES_RETURN_CODE.h
-	include/RE/T/Tile.h
-	include/RE/T/TileMenu.h
-	include/RE/T/TileRect.h
 	src/OBSE/API.cpp
 	src/OBSE/Impl/PCH.cpp
 	src/OBSE/Interfaces.cpp
