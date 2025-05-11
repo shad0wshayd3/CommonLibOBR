@@ -1,0 +1,17 @@
+#pragma once
+
+namespace RE
+{
+	enum class REGION_DATA_ID : std::int32_t
+	{
+		kREGION_DATA_NONE = 0x0,
+		kREGION_DATA_GENERAL_ID = 0x1,
+		kREGION_DATA_OBJECTS_ID = 0x2,
+		kREGION_DATA_WEATHER_ID = 0x3,
+		kREGION_DATA_MAP_ID = 0x4,
+		kREGION_DATA_LANDSCAPE_ID = 0x5,
+		kREGION_DATA_GRASS_ID = 0x6,
+		kREGION_DATA_SOUND_ID = 0x7,
+		kREGION_DATA_COUNT = 0x8,
+	};
+}

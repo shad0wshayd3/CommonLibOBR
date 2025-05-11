@@ -399,6 +399,26 @@ set(SOURCES
 	include/UE/U/UStruct.h
 	include/UE/U/UWorld.h
 	include/UE/Unreal.h
+	include/RE/F/FILE_HEADER.h
+	include/RE/G/GAMEPAD_BUTTON.h
+	include/RE/H/HUDEffectIcon.h
+	include/RE/H/HUDInfoMenu.h
+	include/RE/H/HUDMainMenu.h
+	include/RE/H/HUDReticle.h
+	include/RE/I/IconArray.h
+	include/RE/M/MENU_CLASS.h
+	include/RE/M/MapMenu.h
+	include/RE/M/Menu.h
+	include/RE/R/REGION_DATA_ID.h
+	include/RE/T/TESDataHandler.h
+	include/RE/T/TESFile.h
+	include/RE/T/TESQuestTarget.h
+	include/RE/T/TESRegionDataManager.h
+	include/RE/T/TESRegionList.h
+	include/RE/T/TES_RETURN_CODE.h
+	include/RE/T/Tile.h
+	include/RE/T/TileMenu.h
+	include/RE/T/TileRect.h
 	src/OBSE/API.cpp
 	src/OBSE/Impl/PCH.cpp
 	src/OBSE/Interfaces.cpp
@@ -407,6 +427,7 @@ set(SOURCES
 	src/RE/N/NiPoint3.cpp
 	src/RE/Oblivion.cpp
 	src/RE/S/Setting.cpp
+	src/RE/T/Tile.cpp
 	src/REL/HookObject.cpp
 	src/REL/HookStore.cpp
 	src/REL/IAT.cpp
