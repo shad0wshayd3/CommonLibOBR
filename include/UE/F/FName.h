@@ -24,6 +24,13 @@ namespace UE
 			func(this, a_name, a_type);
 		}
 
+		FName(const wchar_t* a_name, EFindName a_type = EFindName::Add)
+		{
+			using func_t = void (FName::*)(const wchar_t*, EFindName);
+			static REL::Relocation<func_t> func{ ID::FName::Ctor2 };
+			func(this, a_name, a_type);
+		}
+
 		bool IsNone() const
 		{
 			return ToUnstableInt() == 0;

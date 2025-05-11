@@ -1,6 +1,7 @@
 #pragma once
 
 #include "UE/E/EFunctionFlags.h"
+#include "UE/U/UInterface.h"
 #include "UE/U/UStruct.h"
 
 namespace UE
@@ -11,6 +12,11 @@ namespace UE
 		public UStruct
 	{
 	public:
+		UE_DEFINE_OBJECT("/Script/CoreUObject", "Function");
+
+		// override
+		virtual ~UFunction();
+
 		// members
 		EFunctionFlags functionFlags;
 		std::uint8_t   numParms;

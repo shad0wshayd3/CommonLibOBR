@@ -2,10 +2,10 @@
 
 namespace UE
 {
-	template <class T, class U, std::size_t N>
+	template <class T, class U, bool D>
 	class BaseKeyFuncs
 	{
 	public:
 	};
-	static_assert(std::is_empty_v<BaseKeyFuncs<void*, void*, 0>>);
+	static_assert(std::is_empty_v<BaseKeyFuncs<void*, void*, false>>);
 }

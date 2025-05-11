@@ -1,5 +1,7 @@
 #pragma once
 
+#include "UE/E/EInternalObjectFlags.h"
+
 namespace UE
 {
 	class UObjectBase;
@@ -7,6 +9,21 @@ namespace UE
 	class FUObjectItem
 	{
 	public:
+		EInternalObjectFlags GetFlags() const
+		{
+			return EInternalObjectFlags(GetFlagsInternal());
+		}
+
+		std::int32_t GetFlagsInternal() const
+		{
+			return flags;
+		}
+
+		bool HasAnyFlags(EInternalObjectFlags a_flags) const
+		{
+			return !!(GetFlagsInternal() & std::int32_t(a_flags));
+		}
+
 		// members
 		UObjectBase* object;            // 00
 		std::int32_t flags;             // 08

@@ -12,14 +12,14 @@ namespace UE
 			FUObjectArray::TIterator(*FUObjectArray::GetSingleton(), a_onlyGCedObjects)
 		{}
 
-		FUObjectItem* operator*() const
+		UObject* operator*() const
 		{
-			return GetObject();
+			return reinterpret_cast<UObject*>(GetObject()->object);
 		}
 
-		FUObjectItem* operator->() const
+		UObject* operator->() const
 		{
-			return GetObject();
+			return reinterpret_cast<UObject*>(GetObject()->object);
 		}
 	};
 }

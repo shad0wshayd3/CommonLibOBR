@@ -4,11 +4,11 @@
 
 namespace UE
 {
-	template <class T, std::size_t N>
+	template <class T, bool D = false>
 	class DefaultKeyFuncs :
-		public BaseKeyFuncs<T, T, N>
+		public BaseKeyFuncs<T, T, D>
 	{
 	public:
 	};
-	static_assert(std::is_empty_v<DefaultKeyFuncs<void*, 0>>);
+	static_assert(std::is_empty_v<DefaultKeyFuncs<void*>>);
 }

@@ -311,16 +311,27 @@ set(SOURCES
 	include/REX/W32/USER32.h
 	include/REX/W32/VERSION.h
 	include/REX/W32/XINPUT.h
+	include/UE/A/AActor.h
 	include/UE/B/BaseKeyFuncs.h
 	include/UE/D/DefaultKeyFuncs.h
+	include/UE/E/EAutoReceiveInput.h
 	include/UE/E/EClassCastFlags.h
+	include/UE/E/EClassFlags.h
 	include/UE/E/EExprToken.h
 	include/UE/E/EFunctionFlags.h
 	include/UE/E/EInternalObjectFlags.h
+	include/UE/E/ELevelTick.h
+	include/UE/E/ENamedThreads.h
+	include/UE/E/ENetDormancy.h
+	include/UE/E/ENetRole.h
 	include/UE/E/EObjectFlags.h
 	include/UE/E/EObjectFullNameFlags.h
 	include/UE/E/EPackageExtension.h
+	include/UE/E/EPhysicsReplicationMode.h
 	include/UE/E/ESearchCase.h
+	include/UE/E/ESpawnActorCollisionHandlingMethod.h
+	include/UE/E/ETickingGroup.h
+	include/UE/F/FActorTickFunction.h
 	include/UE/F/FChunkedFixedUObjectArray.h
 	include/UE/F/FCriticalSection.h
 	include/UE/F/FCustomVersion.h
@@ -334,6 +345,7 @@ set(SOURCES
 	include/UE/F/FFieldPath.h
 	include/UE/F/FFieldVariant.h
 	include/UE/F/FGenericPlatformString.h
+	include/UE/F/FGraphEvent.h
 	include/UE/F/FGuid.h
 	include/UE/F/FMemory.h
 	include/UE/F/FMicrosoftPlatformString.h
@@ -354,8 +366,13 @@ set(SOURCES
 	include/UE/F/FPathGridPointData.h
 	include/UE/F/FPathGridPointDataArray.h
 	include/UE/F/FPlatformString.h
+	include/UE/F/FRWLock.h
 	include/UE/F/FRawObjectIterator.h
+	include/UE/F/FRenderCommandFence.h
+	include/UE/F/FRepAttachment.h
+	include/UE/F/FRepMovement.h
 	include/UE/F/FSetElementId.h
+	include/UE/F/FSparseDelegate.h
 	include/UE/F/FString.h
 	include/UE/F/FStructBaseChain.h
 	include/UE/F/FStructuredArchive.h
@@ -366,10 +383,13 @@ set(SOURCES
 	include/UE/F/FStructuredArchiveSlotBase.h
 	include/UE/F/FStructuredArchiveStream.h
 	include/UE/F/FThreadSafeCounter.h
+	include/UE/F/FTickFunction.h
+	include/UE/F/FTimerHandle.h
 	include/UE/F/FTopLevelAssetPath.h
 	include/UE/F/FUObjectArray.h
 	include/UE/F/FUObjectItem.h
 	include/UE/F/FURL.h
+	include/UE/F/FVector_NetQuantize.h
 	include/UE/F/FWeakObjectPtr.h
 	include/UE/S/SharedPointerInternals.h
 	include/UE/T/TAlignedBytes.h
@@ -377,13 +397,17 @@ set(SOURCES
 	include/UE/T/TBitArray.h
 	include/UE/T/TBitsToSizeType.h
 	include/UE/T/TChooseClass.h
+	include/UE/T/TDefaultDelete.h
 	include/UE/T/TDefaultMapHashableKeyFuncs.h
 	include/UE/T/TDefaultMapKeyFuncs.h
+	include/UE/T/TEnumAsByte.h
 	include/UE/T/TFieldPath.h
 	include/UE/T/TIntegerSequence.h
 	include/UE/T/TMap.h
 	include/UE/T/TMapBase.h
+	include/UE/T/TObjectIteratorBase.h
 	include/UE/T/TObjectPtr.h
+	include/UE/T/TRefCountPtr.h
 	include/UE/T/TRotator.h
 	include/UE/T/TSet.h
 	include/UE/T/TSetAllocator.h
@@ -397,12 +421,15 @@ set(SOURCES
 	include/UE/T/TSparseArray.h
 	include/UE/T/TSparseArrayAllocator.h
 	include/UE/T/TSparseArrayElementOrFreeListLink.h
+	include/UE/T/TSparseDynamicDelegate.h
 	include/UE/T/TStringBuilder.h
 	include/UE/T/TSubclassOf.h
 	include/UE/T/TTuple.h
 	include/UE/T/TTypeCompatibleBytes.h
+	include/UE/T/TUniquePtr.h
 	include/UE/T/TVector.h
 	include/UE/T/TWeakObjectPtr.h
+	include/UE/U/UAltarCheatManager.h
 	include/UE/U/UBlueprintFunctionLibrary.h
 	include/UE/U/UCheatManager.h
 	include/UE/U/UClass.h
@@ -410,6 +437,7 @@ set(SOURCES
 	include/UE/U/UField.h
 	include/UE/U/UFunction.h
 	include/UE/U/UGameplayStatics.h
+	include/UE/U/UInterface.h
 	include/UE/U/UObject.h
 	include/UE/U/UObjectBase.h
 	include/UE/U/UObjectBaseUtility.h
@@ -438,6 +466,5 @@ set(SOURCES
 	src/REL/Version.cpp
 	src/REX/REX.cpp
 	src/REX/W32.cpp
-	src/UE/U/UObjectGlobals.cpp
 	src/UE/Unreal.cpp
 )
