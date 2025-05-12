@@ -26,4 +26,5 @@ namespace UE
 		FName packageName;
 		FName assetName;
 	};
+	static_assert(sizeof(FTopLevelAssetPath) == 0x10);
 }
