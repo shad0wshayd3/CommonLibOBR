@@ -59,4 +59,6 @@ namespace UE
 		static_assert(sizeof(ForElementType<void*>) == 0x08);
 	};
 	static_assert(std::is_empty_v<TSizedHeapAllocator<32, FMemory>>);
+
+	using FHeapAllocator = TSizedHeapAllocator<32>;
 }

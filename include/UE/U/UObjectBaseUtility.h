@@ -81,7 +81,7 @@ namespace UE
 		template <class T>
 		bool IsA() const
 		{
-			return IsA(FindClassSafe<T>());
+			return IsA(FindClass<T>());
 		}
 	};
 	static_assert(sizeof(UObjectBaseUtility) == 0x28);

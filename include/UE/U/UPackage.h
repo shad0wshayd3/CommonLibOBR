@@ -18,9 +18,9 @@ namespace UE
 		UE_DEFINE_OBJECT("/Script/CoreUObject", "Package");
 
 		// members
-		std::uint8_t            dirty: 1;               // 28
-		std::uint8_t            hasBeenFullyLoaded: 1;  // 29
-		std::uint8_t            canBeImported: 1;       // 2A
+		std::uint8_t            dirty: 1;               // 28:0
+		std::uint8_t            hasBeenFullyLoaded: 1;  // 28:1
+		std::uint8_t            canBeImported: 1;       // 28:2
 		FGuid                   guid;                   // 2C
 		std::uint32_t           packageFlagsPrivate;    // 3C
 		std::uint64_t           packageId;              // 40 - FPackageId

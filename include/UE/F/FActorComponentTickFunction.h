@@ -4,14 +4,14 @@
 
 namespace UE
 {
-	class AActor;
+	class UActorComponent;
 
-	class FActorTickFunction :
+	class FActorComponentTickFunction :
 		public FTickFunction
 	{
 	public:
 		// override
-		virtual ~FActorTickFunction();  // 00
+		virtual ~FActorComponentTickFunction();  // 00
 
 		// override (FTickFunction)
 		virtual void    ExecuteTick(float a_deltaTime, ELevelTick a_tickType, ENamedThreads a_currentThread, const FGraphEventRef& a_completionGraphEvent) override;  // 01
@@ -19,7 +19,7 @@ namespace UE
 		virtual FName   DiagnosticContext(bool a_detailed) override;                                                                                                  // 03
 
 		// members
-		AActor* target;  // 028
+		UActorComponent* target;  // 028
 	};
-	static_assert(sizeof(FActorTickFunction) == 0x30);
+	static_assert(sizeof(FActorComponentTickFunction) == 0x30);
 }

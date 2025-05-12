@@ -10,9 +10,12 @@ namespace UE
 	enum class ECollisionChannel : std::int32_t;
 
 	class AActor;
+	class ADebugCameraController;
 	class APawn;
 	class APlayerController;
+	class FDebugTraceInfo;
 	class FHitResult;
+	class UCheatManagerExtension;
 
 	class UCheatManager :
 		public UObject
@@ -81,7 +84,21 @@ namespace UE
 		virtual AActor* GetTarget(APlayerController*, FHitResult*);                                              // 8D
 
 		// members
-		std::byte unk28[0x60];  // 28
+		TObjectPtr<ADebugCameraController>         debugCameraControllerRef;    // 028
+		TSubclassOf<ADebugCameraController>        debugCameraControllerClass;  // 030
+		std::uint32_t                              debugCapsuleSweep: 1;        // 038:0
+		std::uint32_t                              debugCapsuleTraceComplex: 1; // 038:1
+		std::uint32_t                              toggleAILogging: 1;          // 038:2
+		float                                      debugTraceDistance;          // 03C
+		float                                      debugCapsuleHalfHeight;      // 040
+		float                                      debugCapsuleRadius;          // 044
+		float                                      debugTraceDrawNormalLength;  // 048
+		TEnumAsByte<ECollisionChannel>             debugTraceChannel;           // 04C
+		TArray<FDebugTraceInfo>                    debugTraceInfoList;          // 050
+		TArray<FDebugTraceInfo>                    debugTracePawnInfoList;      // 060
+		std::int32_t                               currentTraceIndex;           // 070
+		std::int32_t                               currentTracePawnIndex;       // 074
+		TArray<TObjectPtr<UCheatManagerExtension>> cheatManagerExtensions;      // 078
 	};
 	static_assert(sizeof(UCheatManager) == 0x88);
 }

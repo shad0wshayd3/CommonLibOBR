@@ -4,6 +4,8 @@
 
 namespace UE
 {
+	class UUserWidget;
+
 	class UAltarCheatManager :
 		public UCheatManager
 	{
@@ -12,5 +14,12 @@ namespace UE
 
 		// override
 		virtual ~UAltarCheatManager();  // 00
+
+		// members
+		TWeakObjectPtr<AActor>   selectedActor;               // 088
+		TSubclassOf<UUserWidget> graphicsDebugWidget;         // 090
+		bool                     isGraphicsDebugWidgetShown;  // 098
+		bool                     allowSetStage;               // 09C
 	};
+	static_assert(sizeof(UAltarCheatManager) == 0xA0);
 }
