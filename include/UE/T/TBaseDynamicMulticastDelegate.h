@@ -9,6 +9,5 @@ namespace UE
 		public TMulticastScriptDelegate<InThreadSafetyMode>
 	{
 	public:
-
 	};
 }

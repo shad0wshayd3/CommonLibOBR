@@ -6,7 +6,7 @@ namespace UE
 	{
 	public:
 		// members
-		std::uint8_t flags; // 00
+		std::uint8_t flags;  // 00
 	};
 	static_assert(sizeof(FRootMotionSourceSettings) == 0x1);
 }

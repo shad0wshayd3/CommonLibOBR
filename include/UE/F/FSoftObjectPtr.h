@@ -9,7 +9,6 @@ namespace UE
 		public TPersistentObjectPtr<FSoftObjectPath>
 	{
 	public:
-
 	};
 	static_assert(sizeof(FSoftObjectPtr) == 0x28);
 }

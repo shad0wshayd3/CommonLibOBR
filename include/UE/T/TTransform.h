@@ -19,7 +19,7 @@ namespace UE::Math
 	using PersistentVectorRegister4Float = VectorRegister4Float;
 	using PersistentVectorRegister4Double = VectorRegister4Double;
 
-	template<typename T>
+	template <typename T>
 	using TPersistentVectorRegisterType = std::conditional_t<std::is_same_v<T, float>, PersistentVectorRegister4Float, std::conditional_t<std::is_same_v<T, double>, PersistentVectorRegister4Double, void>>;
 
 	template <class T>
