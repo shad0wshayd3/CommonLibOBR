@@ -10,7 +10,7 @@ namespace UE
 		public UCheatManager
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/Altar", "AltarCheatManager");
+		UE_DEFINE_UOBJECT("Altar", "AltarCheatManager");
 
 		// override
 		virtual ~UAltarCheatManager();  // 00

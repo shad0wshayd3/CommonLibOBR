@@ -5,13 +5,13 @@
 
 namespace UE
 {
-	template <class T, class Allocator = TSizedDefaultAllocator<32>>
+	template <class T, class A = TSizedDefaultAllocator<32>>
 	class TArray
 	{
 	public:
-		using SizeType = Allocator::SizeType;
+		using SizeType = A::SizeType;
 		using ElementAllocatorType = TChooseClass<
-			Allocator::NeedsElementType, typename Allocator::template ForElementType<T>, typename Allocator::ForAnyElementType>::Result;
+			A::NeedsElementType, typename A::template ForElementType<T>, typename A::ForAnyElementType>::Result;
 
 		TArray() :
 			arrayMax(allocatorInstance.GetInitialCapacity())

@@ -6,11 +6,11 @@
 
 namespace UE
 {
-	template <class T, class U, class Allocator = FDefaultSetAllocator, class HashableKeyFuncs = TDefaultMapHashableKeyFuncs<T, U, 0>>
+	template <class T, class U, class A = FDefaultSetAllocator, class H = TDefaultMapHashableKeyFuncs<T, U, 0>>
 	class TMap :
-		public TSortableMapBase<T, U, Allocator, HashableKeyFuncs>
+		public TSortableMapBase<T, U, A, H>
 	{
 	public:
 	};
-	static_assert(sizeof(TMap<void*, void*, void*, void*>) == 0x50);
+	static_assert(sizeof(TMap<void*, void*>) == 0x50);
 }

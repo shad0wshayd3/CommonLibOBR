@@ -8,7 +8,7 @@ namespace UE
 		public UObject
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/CoreUObject", "Field");
+		UE_DEFINE_UOBJECT("CoreUObject", "Field");
 
 		// override
 		virtual ~UField();

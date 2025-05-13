@@ -8,7 +8,7 @@ namespace UE
 		public UTESForm
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/Altar", "TESGameSetting");
+		UE_DEFINE_UOBJECT("Altar", "TESGameSetting");
 
 		// override
 		virtual ~UTESGameSetting();  // 00

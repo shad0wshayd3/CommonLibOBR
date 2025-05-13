@@ -316,6 +316,7 @@ set(SOURCES
 	include/UE/A/AController.h
 	include/UE/A/APawn.h
 	include/UE/A/APlayerController.h
+	include/UE/A/AVPairedPawn.h
 	include/UE/B/BaseKeyFuncs.h
 	include/UE/D/DefaultKeyFuncs.h
 	include/UE/E/EAutoPossessAI.h
@@ -325,22 +326,28 @@ set(SOURCES
 	include/UE/E/EComponentCreationMethod.h
 	include/UE/E/EEulerRotationOrder.h
 	include/UE/E/EExprToken.h
+	include/UE/E/EFindName.h
 	include/UE/E/EFormID.h
 	include/UE/E/EFunctionFlags.h
 	include/UE/E/EInternalObjectFlags.h
 	include/UE/E/ELevelTick.h
+	include/UE/E/ELogVerbosity.h
 	include/UE/E/EMovementMode.h
+	include/UE/E/EName.h
+	include/UE/E/ENameCase.h
 	include/UE/E/ENamedThreads.h
 	include/UE/E/ENetDormancy.h
 	include/UE/E/ENetRole.h
 	include/UE/E/EObjectFlags.h
 	include/UE/E/EObjectFullNameFlags.h
+	include/UE/E/EOblivionAnimGroup.h
 	include/UE/E/EPackageExtension.h
 	include/UE/E/EPhysicsReplicationMode.h
 	include/UE/E/EScriptType.h
 	include/UE/E/ESearchCase.h
 	include/UE/E/ESpawnActorCollisionHandlingMethod.h
 	include/UE/E/ETickingGroup.h
+	include/UE/E/EVActorValues.h
 	include/UE/E/EVBloodColor.h
 	include/UE/E/EVBossCategory.h
 	include/UE/F/FActorComponentTickFunction.h
@@ -356,11 +363,13 @@ set(SOURCES
 	include/UE/F/FDefaultDelegateUserPolicy.h
 	include/UE/F/FDefaultSetAllocator.h
 	include/UE/F/FDefaultSparseArrayAllocator.h
+	include/UE/F/FDelegateHandle.h
 	include/UE/F/FExec.h
 	include/UE/F/FField.h
 	include/UE/F/FFieldClass.h
 	include/UE/F/FFieldPath.h
 	include/UE/F/FFieldVariant.h
+	include/UE/F/FFrame.h
 	include/UE/F/FGenericPlatformString.h
 	include/UE/F/FGraphEvent.h
 	include/UE/F/FGuid.h
@@ -372,6 +381,7 @@ set(SOURCES
 	include/UE/F/FNameEntryHandle.h
 	include/UE/F/FNameEntryId.h
 	include/UE/F/FNamePool.h
+	include/UE/F/FNamePoolShardBase.h
 	include/UE/F/FNetworkNotify.h
 	include/UE/F/FObjectPostSaveContext.h
 	include/UE/F/FObjectPostSaveRootContext.h
@@ -379,11 +389,14 @@ set(SOURCES
 	include/UE/F/FObjectPreSaveRootContext.h
 	include/UE/F/FObjectPtr.h
 	include/UE/F/FOblivionNPCFaceGenData.h
+	include/UE/F/FOutParmRec.h
+	include/UE/F/FOutputDevice.h
 	include/UE/F/FPackageFileVersion.h
 	include/UE/F/FPackagePath.h
 	include/UE/F/FPathGridPointData.h
 	include/UE/F/FPathGridPointDataArray.h
 	include/UE/F/FPlatformString.h
+	include/UE/F/FPoseSnapshot.h
 	include/UE/F/FRWLock.h
 	include/UE/F/FRaceData.h
 	include/UE/F/FRawObjectIterator.h
@@ -399,6 +412,7 @@ set(SOURCES
 	include/UE/F/FSoftObjectPath.h
 	include/UE/F/FSoftObjectPtr.h
 	include/UE/F/FSparseDelegate.h
+	include/UE/F/FStaticConstructObjectParameters.h
 	include/UE/F/FString.h
 	include/UE/F/FStructBaseChain.h
 	include/UE/F/FStructuredArchive.h
@@ -418,12 +432,19 @@ set(SOURCES
 	include/UE/F/FVector_NetQuantize.h
 	include/UE/F/FWeakObjectPtr.h
 	include/UE/I/IBlueprintPropertyGuidProvider.h
+	include/UE/I/IDelegateInstance.h
+	include/UE/I/IInterface.h
 	include/UE/I/IInterface_AssetUserData.h
 	include/UE/I/INavAgentInterface.h
+	include/UE/I/IReactToFreezeInterface.h
+	include/UE/I/IVAudioPlayable.h
+	include/UE/I/IVPhysicsControllable.h
+	include/UE/I/IVTransformPairable.h
 	include/UE/I/IWorldPartitionStreamingSourceProvider.h
 	include/UE/S/SharedPointerInternals.h
 	include/UE/T/TAlignedBytes.h
 	include/UE/T/TArray.h
+	include/UE/T/TBaseDynamicDelegate.h
 	include/UE/T/TBaseDynamicMulticastDelegate.h
 	include/UE/T/TBitArray.h
 	include/UE/T/TBitsToSizeType.h
@@ -431,17 +452,23 @@ set(SOURCES
 	include/UE/T/TDefaultDelete.h
 	include/UE/T/TDefaultMapHashableKeyFuncs.h
 	include/UE/T/TDefaultMapKeyFuncs.h
+	include/UE/T/TDelegate.h
 	include/UE/T/TDelegateAccessHandlerBase.h
 	include/UE/T/TDelegateBase.h
 	include/UE/T/TEnumAsByte.h
 	include/UE/T/TFieldPath.h
+	include/UE/T/TFunction.h
 	include/UE/T/TIndirectArray.h
+	include/UE/T/TInlineAllocator.h
+	include/UE/T/TInlineSetAllocator.h
+	include/UE/T/TInlineSparseArrayAllocator.h
 	include/UE/T/TIntegerSequence.h
 	include/UE/T/TMap.h
 	include/UE/T/TMapBase.h
 	include/UE/T/TMulticastDelegate.h
 	include/UE/T/TMulticastDelegateBase.h
 	include/UE/T/TMulticastScriptDelegate.h
+	include/UE/T/TNamePoolShard.h
 	include/UE/T/TObjectIteratorBase.h
 	include/UE/T/TObjectPtr.h
 	include/UE/T/TPersistentObjectPtr.h
@@ -528,5 +555,6 @@ set(SOURCES
 	src/REL/Version.cpp
 	src/REX/REX.cpp
 	src/REX/W32.cpp
+	src/UE/F/FNameEntryId.cpp
 	src/UE/Unreal.cpp
 )

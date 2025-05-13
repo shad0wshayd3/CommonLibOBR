@@ -1,5 +1,6 @@
 #pragma once
 
+#include "UE/I/IInterface.h"
 #include "UE/T/TVector.h"
 
 namespace UE
@@ -12,8 +13,12 @@ namespace UE
 	class INavAgentInterface
 	{
 	public:
+		UE_DEFINE_IINTERFACE("Engine", "NavAgentInterface");
+
+		// add
 		virtual ~INavAgentInterface();  // 00
 
+		// add
 		virtual UObject*                      _GetUObject();                                                                                                                                        // 01
 		virtual const FNavAgentProperties&    GetNavAgentPropertiesRef() const;                                                                                                                     // 02
 		virtual FVector                       GetNavAgentLocation() const;                                                                                                                          // 03

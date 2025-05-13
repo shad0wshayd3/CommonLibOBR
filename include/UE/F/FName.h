@@ -1,22 +1,29 @@
 #pragma once
 
+#include "UE/E/EFindName.h"
+#include "UE/E/EName.h"
 #include "UE/F/FNameEntryId.h"
-#include "UE/F/FNamePool.h"
 #include "UE/F/FString.h"
 
 namespace UE
 {
-	class FNameEntry;
-
-	enum class EFindName
-	{
-		Find,
-		Add
-	};
-
 	class FName
 	{
 	public:
+		FName() = default;
+
+		FName(EName a_name) :
+			FName(a_name, 0)
+		{}
+
+		FName(EName a_name, std::int32_t a_number) :
+			FName(FNameEntryId::FromEName(a_name), a_number)
+		{}
+
+		FName(FNameEntryId a_id, std::int32_t a_number) :
+			comparisonIndex(a_id), number(a_number)
+		{}
+
 		FName(const char* a_name, EFindName a_type = EFindName::Add)
 		{
 			using func_t = void (FName::*)(const char*, EFindName);
@@ -69,7 +76,7 @@ namespace UE
 
 		// members
 		FNameEntryId  comparisonIndex;  // 00
-		std::uint32_t number;           // 04
+		std::uint32_t number{ 0 };      // 04
 	};
 	static_assert(sizeof(FName) == 0x08);
 }

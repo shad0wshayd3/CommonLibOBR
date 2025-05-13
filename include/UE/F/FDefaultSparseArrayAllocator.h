@@ -7,7 +7,7 @@
 namespace UE
 {
 	class FDefaultSparseArrayAllocator :
-		public TSparseArrayAllocator<TSizedDefaultAllocator<32>, FDefaultBitArrayAllocator>
+		public TSparseArrayAllocator<>
 	{
 	public:
 	};

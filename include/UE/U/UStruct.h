@@ -22,7 +22,7 @@ namespace UE
 		public FStructBaseChain
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/CoreUObject", "Struct");
+		UE_DEFINE_UOBJECT("CoreUObject", "Struct");
 
 		// override
 		virtual ~UStruct();

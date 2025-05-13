@@ -7,12 +7,15 @@
 
 namespace UE
 {
-	template <class T, class U, class Allocator, class HashableKeyFuncs>
+	template <class T, class U>
+	using TPair = TTuple<T, U>;
+
+	template <class T, class U, class A, class H>
 	class TMapBase
 	{
 	public:
 		// members
-		TSet<TTuple<T, U>, HashableKeyFuncs, Allocator> pairs;  // 00
+		TSet<TPair<T, U>, H, A> pairs;  // 00
 	};
 	static_assert(sizeof(TMapBase<void*, FPathGridPointDataArray, FDefaultSetAllocator, TDefaultMapHashableKeyFuncs<void*, void*, 0>>) == 0x50);
 }

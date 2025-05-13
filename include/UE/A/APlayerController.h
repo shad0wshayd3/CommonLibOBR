@@ -17,7 +17,7 @@ namespace UE
 		public IWorldPartitionStreamingSourceProvider
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/Engine", "PlayerController");
+		UE_DEFINE_UOBJECT("Engine", "PlayerController");
 
 		// override
 		virtual ~APlayerController();

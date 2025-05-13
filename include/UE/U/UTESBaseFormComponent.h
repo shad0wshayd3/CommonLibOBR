@@ -8,7 +8,7 @@ namespace UE
 		public UObject
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/Altar", "TESBaseFormComponent");
+		UE_DEFINE_UOBJECT("Altar", "TESBaseFormComponent");
 
 		// override
 		virtual ~UTESBaseFormComponent();

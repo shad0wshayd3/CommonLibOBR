@@ -13,7 +13,7 @@ namespace UE
 		public UTESForm
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/Altar", "TESRace");
+		UE_DEFINE_UOBJECT("Altar", "TESRace");
 
 		// override
 		virtual ~UTESRace();  // 00
@@ -27,5 +27,4 @@ namespace UE
 		TArray<FRaceBody>       femaleFullBodies;         // 140
 	};
 	static_assert(sizeof(UTESRace) == 0x150);
-	constexpr auto i = offsetof(UTESRace, femaleFullBodies);
 }

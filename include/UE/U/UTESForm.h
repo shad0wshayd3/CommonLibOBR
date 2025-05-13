@@ -23,7 +23,7 @@ namespace UE
 		public UTESBaseFormComponent
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/Altar", "TESForm");
+		UE_DEFINE_UOBJECT("Altar", "TESForm");
 
 		// override
 		virtual ~UTESForm();  // 00

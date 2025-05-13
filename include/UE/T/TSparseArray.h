@@ -9,15 +9,19 @@
 
 namespace UE
 {
-	template <class T, class Allocator = FDefaultSparseArrayAllocator>
+	template <class T, class A = FDefaultSparseArrayAllocator>
 	class TSparseArray
 	{
 	public:
+		using FElementOrFreeListLink = TSparseArrayElementOrFreeListLink<TAlignedBytes<sizeof(T), alignof(T)>>;
+		using DataType = TArray<FElementOrFreeListLink, typename A::ElementAllocator>;
+		using AllocationBitArrayType = TBitArray<typename A::BitArrayAllocator>;
+
 		// members
-		TArray<TSparseArrayElementOrFreeListLink<TAlignedBytes<sizeof(T), 0>>> data;             // 00
-		TBitArray<FDefaultBitArrayAllocator>                                   allocationFlags;  // 10
-		std::int32_t                                                           firstFreeIndex;   // 30
-		std::int32_t                                                           numFreeIndices;   // 34
+		DataType               data;             // 00
+		AllocationBitArrayType allocationFlags;  // 10
+		std::int32_t           firstFreeIndex;   // 30
+		std::int32_t           numFreeIndices;   // 34
 	};
 	static_assert(sizeof(TSparseArray<void*>) == 0x38);
 }
