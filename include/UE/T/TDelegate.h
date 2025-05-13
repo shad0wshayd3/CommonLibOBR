@@ -15,6 +15,5 @@ namespace UE
 		public P::FDelegateExtras
 	{
 	public:
-
 	};
 }

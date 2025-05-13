@@ -33,7 +33,8 @@ namespace UE::Core::Private::Function
 		TFunctionRefBase() = default;
 
 		// members
-		R (*callable)(void*, Args&...){ nullptr };
+		R (*callable)
+		(void*, Args&...){ nullptr };
 		S storage;
 	};
 }

@@ -9,6 +9,5 @@ namespace UE
 		public TScriptDelegate<InThreadSafetyMode>
 	{
 	public:
-
 	};
 }

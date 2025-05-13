@@ -10,7 +10,6 @@ namespace UE
 		public FNamePoolShardBase
 	{
 	public:
-
 	};
 	static_assert(sizeof(TNamePoolShard<ENameCase::IgnoreCase>) == 0x40);
 }
