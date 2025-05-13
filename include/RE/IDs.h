@@ -114,6 +114,8 @@ namespace UE::ID
 		inline constexpr REL::Offset GetFullName2{ 0x111F8D0 };
 	}
 
+	inline constexpr REL::Offset GetTransientPackage{ 0x109A510 };
+	inline constexpr REL::Offset StaticConstructObject_Internal{ 0x1129D30 };
 	inline constexpr REL::Offset StaticFindObjectFast{ 0x112C350 };
 	inline constexpr REL::Offset StaticFindObjectFastSafe{ 0x112CC40 };
 	inline constexpr REL::Offset StaticFindObject{ 0x112C0F0 };

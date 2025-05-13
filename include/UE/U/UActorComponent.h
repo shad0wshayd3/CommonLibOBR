@@ -22,7 +22,7 @@ namespace UE
 		public IInterface_AssetUserData
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/Engine", "ActorComponent");
+		UE_DEFINE_UOBJECT("Engine", "ActorComponent");
 
 		// override
 		virtual ~UActorComponent();  // 00

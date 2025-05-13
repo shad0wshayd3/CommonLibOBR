@@ -21,7 +21,7 @@ namespace UE
 		public UObject
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/Engine", "CheatManager");
+		UE_DEFINE_UOBJECT("Engine", "CheatManager");
 
 		// override
 		virtual ~UCheatManager();  // 00

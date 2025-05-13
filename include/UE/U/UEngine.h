@@ -51,7 +51,7 @@ namespace UE
 		public FExec
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/Engine", "Engine");
+		UE_DEFINE_UOBJECT("Engine", "Engine");
 
 		// override
 		virtual ~UEngine();  // 00

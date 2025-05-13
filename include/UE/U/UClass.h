@@ -25,7 +25,7 @@ namespace UE
 		public UStruct
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/CoreUObject", "Class");
+		UE_DEFINE_UOBJECT("CoreUObject", "Class");
 
 		// override
 		virtual ~UClass();

@@ -15,7 +15,7 @@ namespace UE
 		public UObject
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/CoreUObject", "Package");
+		UE_DEFINE_UOBJECT("CoreUObject", "Package");
 
 		// members
 		std::uint8_t            dirty: 1;               // 28:0

@@ -1,14 +1,16 @@
 #pragma once
 
+#include "UE/F/FDefaultAllocator.h"
 #include "UE/F/FDefaultBitArrayAllocator.h"
-#include "UE/T/TSizedDefaultAllocator.h"
 
 namespace UE
 {
-	template <class T = TSizedDefaultAllocator<32>, class U = FDefaultBitArrayAllocator>
+	template <class A1 = FDefaultAllocator, class A2 = FDefaultBitArrayAllocator>
 	class TSparseArrayAllocator
 	{
 	public:
+		using ElementAllocator = A1;
+		using BitArrayAllocator = A2;
 	};
-	static_assert(std::is_empty_v<TSparseArrayAllocator<void*, void*>>);
+	static_assert(std::is_empty_v<TSparseArrayAllocator<>>);
 }

@@ -12,7 +12,7 @@ namespace UE
 		public UStruct
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/CoreUObject", "Function");
+		UE_DEFINE_UOBJECT("CoreUObject", "Function");
 
 		// override
 		virtual ~UFunction();

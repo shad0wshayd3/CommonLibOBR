@@ -25,7 +25,7 @@ namespace UE
 		public INavAgentInterface
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/Engine", "Pawn");
+		UE_DEFINE_UOBJECT("Engine", "Pawn");
 
 		// override
 		virtual ~APawn();

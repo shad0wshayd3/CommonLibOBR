@@ -15,7 +15,7 @@ namespace UE
 		public UActorComponent
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/Altar", "VTESObjectRefComponent");
+		UE_DEFINE_UOBJECT("Altar", "VTESObjectRefComponent");
 
 		// override
 		virtual ~UVTESObjectRefComponent();  // 00

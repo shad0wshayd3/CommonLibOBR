@@ -8,7 +8,6 @@ namespace UE
 	class FNameEntryAllocator
 	{
 	public:
-	public:
 		FNameEntry& Resolve(FNameEntryHandle a_handle) const
 		{
 			return *reinterpret_cast<FNameEntry*>(blocks[a_handle.block] + alignof(FNameEntry) * a_handle.offset);
@@ -20,4 +19,5 @@ namespace UE
 		std::uint32_t currentByteCursor;  // 008
 		std::uint8_t* blocks[8192];       // 00C
 	};
+	static_assert(sizeof(FNameEntryAllocator) == 0x10010);
 }

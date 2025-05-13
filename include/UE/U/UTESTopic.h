@@ -8,7 +8,7 @@ namespace UE
 		public UTESForm
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/Altar", "TESTopic");
+		UE_DEFINE_UOBJECT("Altar", "TESTopic");
 
 		// override
 		virtual ~UTESTopic();  // 00

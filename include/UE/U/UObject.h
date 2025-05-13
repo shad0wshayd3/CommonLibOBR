@@ -10,10 +10,10 @@
 #include "UE/T/TMap.h"
 #include "UE/U/UObjectBaseUtility.h"
 
-#define UE_DEFINE_OBJECT(a_package, a_name)           \
+#define UE_DEFINE_UOBJECT(a_package, a_name)          \
 	static constexpr auto UE_PACKAGE{ L##a_package }; \
 	static constexpr auto UE_NAME{ L##a_name };       \
-	static constexpr auto UE_CLASS{ L##a_package L"." L##a_name };
+	static constexpr auto UE_CLASS{ L"/Script/" L##a_package L"." L##a_name };
 
 namespace UE
 {
@@ -51,7 +51,7 @@ namespace UE
 		public UObjectBaseUtility
 	{
 	public:
-		UE_DEFINE_OBJECT("/Script/CoreUObject", "Object");
+		UE_DEFINE_UOBJECT("CoreUObject", "Object");
 
 		class FAssetRegistryTag
 		{
