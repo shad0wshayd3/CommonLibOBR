@@ -87,6 +87,12 @@ namespace UE::ID
 		inline constexpr REL::Offset GetSingleton{ 0x909EE80 };
 	}
 
+	namespace FSelfRegisteringExec
+	{
+		inline constexpr REL::Offset Ctor{ 0x0EEA960 };
+		inline constexpr REL::Offset Dtor{ 0x0EEAF70 };
+	}
+
 	namespace FString
 	{
 		inline constexpr REL::Offset Ctor1{ 0x0DE4F20 };
@@ -133,6 +139,8 @@ namespace UE::ID
 	}
 
 	inline constexpr REL::Offset AsyncTask{ 0x0DC48F0 };
+	inline constexpr REL::Offset GetExecRegistry{ 0x0EF7E60 };
+	inline constexpr REL::Offset GetExecRegistryLock{ 0x0EF7ED0 };
 	inline constexpr REL::Offset GetTransientPackage{ 0x109A510 };
 	inline constexpr REL::Offset IsInGameThread{ 0x0E3C380 };
 	inline constexpr REL::Offset LowLevelFatalErrorHandler{ 0x0ED7980 };

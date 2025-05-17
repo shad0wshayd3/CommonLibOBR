@@ -6,6 +6,22 @@
 
 namespace UE
 {
+	template <class T1, class T2, class S>
+	void ConstructItems(void* a_dst, const T2* a_src, S a_count)
+	{
+		if constexpr (TIsBitwiseConstructible<T1, T2>::Value) {
+			if (a_count)
+				FMemory::Memcpy(a_dst, a_src, sizeof(T2) * a_count);
+		} else {
+			while (a_count) {
+				new (a_dst) T1(*a_src);
+				++(T1*&)a_dst;
+				++a_src;
+				--a_count;
+			}
+		}
+	}
+
 	template <typename T>
 	T CopyTemp(T& a_value)
 	{
@@ -39,21 +55,5 @@ namespace UE
 		static_assert(!std::is_same_v<std::remove_reference_t<T>&, const std::remove_reference_t<T>&>, "MoveTemp called on a const object");
 
 		return (std::remove_reference_t<T>&&)a_object;
-	}
-
-	template <class T1, class T2, class S>
-	void ConstructItems(void* a_dst, const T2* a_src, S a_count)
-	{
-		if constexpr (TIsBitwiseConstructible<T1, T2>::Value) {
-			if (a_count)
-				FMemory::Memcpy(a_dst, a_src, sizeof(T2) * a_count);
-		} else {
-			while (a_count) {
-				new (a_dst) T1(*a_src);
-				++(T1*&)a_dst;
-				++a_src;
-				--a_count;
-			}
-		}
 	}
 }

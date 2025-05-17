@@ -11,6 +11,7 @@ namespace UE
 	{
 	public:
 		using SizeType = A::SizeType;
+		using USizeType = std::make_unsigned_t<SizeType>;
 		using ElementAllocatorType = TChooseClass<
 			A::NeedsElementType, typename A::template ForElementType<T>, typename A::ForAnyElementType>::Result;
 
@@ -75,6 +76,39 @@ namespace UE
 		T*       end() { return GetData() + Num(); }
 		const T* end() const { return GetData() + Num(); }
 
+		SizeType Add(T&& a_object)
+		{
+			return Emplace(std::move(a_object));
+		}
+
+		SizeType Add(const T& a_object)
+		{
+			return Emplace(a_object);
+		}
+
+		SizeType AddUninitialized()
+		{
+			assert((arrayNum >= 0) & (arrayMax >= arrayNum));
+
+			const auto old = static_cast<USizeType>(arrayNum);
+			const auto num = old + static_cast<USizeType>(1);
+			arrayNum = static_cast<SizeType>(num);
+
+			if (num > static_cast<USizeType>(arrayMax))
+				ResizeGrow(static_cast<SizeType>(old));
+
+			return old;
+		}
+
+		SizeType AllocatorCalculateSlackGrow(SizeType a_current, SizeType a_newMax)
+		{
+			if constexpr (TAllocatorTraits<A>::SupportsElementAlignment) {
+				return allocatorInstance.CalculateSlackGrow(a_current, a_newMax, sizeof(T), alignof(T));
+			} else {
+				return allocatorInstance.CalculateSlackGrow(a_current, a_newMax, sizeof(T));
+			}
+		}
+
 		SizeType AllocatorCalculateSlackReserve(SizeType a_newMax)
 		{
 			if constexpr (TAllocatorTraits<A>::SupportsElementAlignment) {
@@ -105,6 +139,14 @@ namespace UE
 			}
 		}
 
+		template <class... U>
+		SizeType Emplace(U&&... a_args)
+		{
+			const auto index = AddUninitialized();
+			new (GetData() + index) T(std::forward<U>(a_args)...);
+			return index;
+		}
+
 		void ResizeForCopy(SizeType a_newMax, SizeType a_prevMax)
 		{
 			if (a_newMax)
@@ -116,6 +158,12 @@ namespace UE
 			} else {
 				arrayMax = a_prevMax;
 			}
+		}
+
+		void ResizeGrow(SizeType a_oldNum)
+		{
+			arrayMax = AllocatorCalculateSlackGrow(arrayNum, arrayMax);
+			AllocatorResizeAllocation(a_oldNum, arrayMax);
 		}
 
 		// members
