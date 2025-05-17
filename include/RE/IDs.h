@@ -87,6 +87,11 @@ namespace UE::ID
 		inline constexpr REL::Offset GetSingleton{ 0x909EE80 };
 	}
 
+	namespace FParse
+	{
+		inline constexpr REL::Offset Command{ 0x0F0F5E0 };
+	}
+
 	namespace FSelfRegisteringExec
 	{
 		inline constexpr REL::Offset Ctor{ 0x0EEA960 };

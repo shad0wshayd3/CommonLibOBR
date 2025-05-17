@@ -101,6 +101,7 @@
 #include "UE/F/FOutputDevice.h"
 #include "UE/F/FPackageFileVersion.h"
 #include "UE/F/FPackagePath.h"
+#include "UE/F/FParse.h"
 #include "UE/F/FPathGridPointData.h"
 #include "UE/F/FPathGridPointDataArray.h"
 #include "UE/F/FPlatformString.h"
