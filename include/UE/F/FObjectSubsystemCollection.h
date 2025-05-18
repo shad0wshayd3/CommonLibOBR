@@ -29,6 +29,5 @@ namespace UE
 		public FSubsystemCollectionBase
 	{
 	public:
-
 	};
 }

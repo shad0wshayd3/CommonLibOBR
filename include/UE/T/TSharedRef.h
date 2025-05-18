@@ -12,7 +12,8 @@ namespace UE
 	public:
 		template <class U>
 		explicit TSharedRef(U* a_object)
-			requires(std::convertible_to<U*, T*>) :
+			requires(std::convertible_to<U*, T*>)
+			:
 			object(a_object), sharedReferenceCount(SharedPointerInternals::NewDefaultReferenceController<M>(a_object))
 		{
 			Init(a_object);

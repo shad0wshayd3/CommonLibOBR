@@ -8,7 +8,7 @@ namespace UE::Core::Private::Function
 	template <class F, class R, class... T>
 	struct TFunctorReturnTypeIsCompatible
 	{
-		static constexpr bool Value{ std::is_constructible_v<R, decltype(std::declval<F>()(std::declval<T>()...))> }; 
+		static constexpr bool Value{ std::is_constructible_v<R, decltype(std::declval<F>()(std::declval<T>()...))> };
 	};
 
 	template <class MR, class C, class R, class... T>
@@ -18,7 +18,7 @@ namespace UE::Core::Private::Function
 	};
 
 	template <class MR, class C, class R, class... T>
-	struct TFunctorReturnTypeIsCompatible<MR C::* const, R, T...>
+	struct TFunctorReturnTypeIsCompatible<MR C::*const, R, T...>
 	{
 		static constexpr bool Value{ std::is_constructible_v<R, MR> };
 	};
@@ -333,7 +333,7 @@ namespace UE::Core::Private::Function
 		}
 
 		template <class U>
-		requires(!std::is_same_v<TFunctionRefBase, std::decay_t<U>>)
+			requires(!std::is_same_v<TFunctionRefBase, std::decay_t<U>>)
 		TFunctionRefBase(U&& a_func)
 		{
 			auto binding = storage.Bind(std::forward<U>(a_func));
@@ -368,7 +368,7 @@ namespace UE::Core::Private::Function
 		}
 
 		// members
-		R (*callable)
+		R(*callable)
 		(void*, T&...){ nullptr };
 		S storage;
 	};

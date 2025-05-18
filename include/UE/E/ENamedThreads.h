@@ -7,6 +7,6 @@ namespace UE
 		RHIThread = 0,
 		GameThread = 1,
 		ActualRenderingThread = 2,
-		AnyThread = 255, 
+		AnyThread = 255,
 	};
 }

@@ -193,7 +193,7 @@ namespace UE::SharedPointerInternals
 				if (newReferenceController)
 					newReferenceController->AddSharedReference();
 
-				if (referenceController) 
+				if (referenceController)
 					referenceController->ReleaseSharedReference();
 
 				referenceController = newReferenceController;
@@ -263,7 +263,7 @@ namespace UE::SharedPointerInternals
 		FWeakReferencer(const FSharedReferencer<M>& a_sharedReferencer) :
 			referenceController(a_sharedReferencer.referenceController)
 		{
-			if (referenceController) 
+			if (referenceController)
 				referenceController->AddWeakReference();
 		}
 

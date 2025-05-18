@@ -35,14 +35,14 @@ namespace UE
 	}
 
 	template <class T1, class T2>
-	requires(std::is_convertible_v<std::remove_reference_t<T1>*, const volatile T2*>)
+		requires(std::is_convertible_v<std::remove_reference_t<T1>*, const volatile T2*>)
 	decltype(auto) ForwardAsBase(std::remove_reference_t<T1>& a_object)
 	{
 		return (TCopyQualifiersAndRefsFromTo_T<T1&&, T2>)a_object;
 	}
 
-	template<class T1, class T2>
-	requires(std::is_convertible_v<std::remove_reference_t<T1>*, const volatile T2*>)
+	template <class T1, class T2>
+		requires(std::is_convertible_v<std::remove_reference_t<T1>*, const volatile T2*>)
 	decltype(auto) ForwardAsBase(std::remove_reference_t<T1>&& a_object)
 	{
 		return (TCopyQualifiersAndRefsFromTo_T<T1&&, T2>)a_object;

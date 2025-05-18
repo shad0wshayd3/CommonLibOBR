@@ -23,7 +23,7 @@ namespace UE
 		{}
 
 		template <class F>
-		requires(!(TIsTUniqueFunction<std::decay_t<F>>::Value || TIsTFunction<std::decay_t<F>>::Value) && Core::Private::Function::TFuncCanBindToFunctor<T, F>::Value)
+			requires(!(TIsTUniqueFunction<std::decay_t<F>>::Value || TIsTFunction<std::decay_t<F>>::Value) && Core::Private::Function::TFuncCanBindToFunctor<T, F>::Value)
 		TUniqueFunction(F&& a_function) :
 			Super(std::forward<F>(a_function))
 		{}

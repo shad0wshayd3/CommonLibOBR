@@ -30,7 +30,7 @@ namespace UE::Core::Private::Tuple
 		TTupleBaseElement() = default;
 
 		template <class U>
-		requires(std::is_constructible_v<T, U&&>)
+			requires(std::is_constructible_v<T, U &&>)
 		explicit TTupleBaseElement(EForwardingConstructor, U&& a_arg) :
 			value(std::forward<U>(a_arg))
 		{}
@@ -46,7 +46,7 @@ namespace UE::Core::Private::Tuple
 		TTupleBaseElement() = default;
 
 		template <class U>
-		requires(std::is_constructible_v<T, U&&>)
+			requires(std::is_constructible_v<T, U &&>)
 		explicit TTupleBaseElement(EForwardingConstructor, U&& a_arg) :
 			key(std::forward<U>(a_arg))
 		{}

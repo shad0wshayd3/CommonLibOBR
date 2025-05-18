@@ -1,7 +1,7 @@
 #pragma once
 
-#include "UE/E/EClassFlags.h"
 #include "UE/E/EClassCastFlags.h"
+#include "UE/E/EClassFlags.h"
 
 #define UE_DECLARE_TCASTFLAGS(a_class)                                 \
 	class a_class;                                                     \
