@@ -44,9 +44,6 @@ namespace OBSE
 
 			static std::once_flag once;
 			std::call_once(once, [&]() {
-				const auto mod = REL::Module::GetSingleton();
-				mod->load(L"OblivionRemastered-Win64-Shipping.exe"sv, L"OBSE_RUNTIME"sv);
-
 				if (info.iddb) {
 					const auto iddb = REL::IDDB::GetSingleton();
 					iddb->load("OBSE/Plugins/versionlib-{}.bin"sv);
