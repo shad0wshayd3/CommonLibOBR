@@ -133,7 +133,8 @@ namespace OBSE
 		enum : std::uint32_t
 		{
 			kPostLoad,
-			kPostPostLoad
+			kPostPostLoad,
+			kDataLoaded
 		};
 
 		struct Message
