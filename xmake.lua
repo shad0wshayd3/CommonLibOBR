@@ -17,6 +17,12 @@ add_rules("mode.debug", "mode.releasedbg")
 includes("xmake-rules.lua")
 
 -- define options
+option("obse_xbyak", function()
+    set_default(false)
+    set_description("enable xbyak support for trampoline")
+    add_defines("OBSE_SUPPORT_XBYAK=1")
+end)
+
 option("rex_ini", function()
     set_default(false)
     set_description("enable ini config support for REX")
@@ -32,14 +38,8 @@ option("rex_toml", function()
     set_description("enable toml config support for REX")
 end)
 
-option("obse_xbyak", function()
-    set_default(false)
-    set_description("enable xbyak support for trampoline")
-    add_defines("OBSE_SUPPORT_XBYAK=1")
-end)
-
 -- require packages
-add_requires("commonlib-shared 75981b8181925dc09fdda11ac86ff6f6425e634f", { configs = {
+add_requires("commonlib-shared e9e8619678cc166de00a9e96dc465b696f7bd831", { configs = {
     rex_ini = has_config("rex_ini"),
     rex_json = has_config("rex_json"),
     rex_toml = has_config("rex_toml"),
@@ -53,9 +53,6 @@ target("commonlibob64", function()
 
     -- set build by default
     set_default(os.scriptdir() == os.projectdir())
-
-    -- set build group
-    set_group("commonlibob64")
 
     -- add packages
     add_packages("commonlib-shared", { public = true })

@@ -46,7 +46,7 @@ namespace OBSE
 			std::call_once(once, [&]() {
 				if (info.iddb) {
 					const auto iddb = REL::IDDB::GetSingleton();
-					iddb->load("OBSE/Plugins/versionlib-{}.bin"sv);
+					iddb->load(L"OBSE/Plugins/versionlib-{}.bin"sv);
 				}
 
 				if (const auto data = PluginVersionData::GetSingleton()) {
