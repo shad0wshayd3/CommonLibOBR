@@ -40,6 +40,7 @@ def main():
 
 	make_header("OBSE", "OBSE.h", { "Impl" })
 	make_header("RE", "Oblivion.h", { "IDs.h", "NiRTTI_IDs.h", "RTTI_IDs.h", "VTABLE_IDs.h" })
+	make_header("UE", "Unreal.h")
 
 if __name__ == "__main__":
 	main()

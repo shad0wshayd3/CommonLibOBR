@@ -1,12 +1,12 @@
 #pragma once
 
+#include "UE/F/FMemory.h"
+
 namespace RE
 {
 	inline void* malloc(std::size_t a_size)
 	{
-		using func_t = decltype(&malloc);
-		static REL::Relocation<func_t> func{ ID::malloc };
-		return func(a_size);
+		return UE::FMemory::Malloc(a_size, 0x10);
 	}
 
 	template <class T>
@@ -19,6 +19,23 @@ namespace RE
 	inline T* malloc()
 	{
 		return malloc<T>(sizeof(T));
+	}
+
+	inline void* aligned_alloc(std::uint32_t a_alignment, std::size_t a_size)
+	{
+		return UE::FMemory::Malloc(a_size, a_alignment);
+	}
+
+	template <class T>
+	inline T* aligned_alloc(std::uint32_t a_alignment, std::size_t a_size)
+	{
+		return static_cast<T*>(aligned_alloc(a_alignment, a_size));
+	}
+
+	template <class T>
+	inline T* aligned_alloc()
+	{
+		return aligned_alloc<T>(alignof(T), sizeof(T));
 	}
 
 	inline void* calloc(std::size_t a_num, std::size_t a_size)
@@ -42,12 +59,32 @@ namespace RE
 		return calloc<T>(a_num, sizeof(T));
 	}
 
+	inline void* realloc(void* a_ptr, std::size_t a_newSize)
+	{
+		return UE::FMemory::Realloc(a_ptr, a_newSize, 0x10);
+	}
+
+	template <class T>
+	inline T* realloc(void* a_ptr, std::size_t a_newSize)
+	{
+		return static_cast<T*>(realloc(a_ptr, a_newSize));
+	}
+
+	inline void* aligned_realloc(void* a_ptr, std::size_t a_newSize, std::uint32_t a_alignment)
+	{
+		return UE::FMemory::Realloc(a_ptr, a_newSize, a_alignment);
+	}
+
+	template <class T>
+	inline T* aligned_realloc(void* a_ptr, std::size_t a_newSize, std::uint32_t a_alignment)
+	{
+		return static_cast<T*>(aligned_realloc(a_ptr, a_newSize, a_alignment));
+	}
+
 	inline void free(void* a_ptr)
 	{
 		if (a_ptr) {
-			using func_t = decltype(&free);
-			static REL::Relocation<func_t> func{ ID::free };
-			func(a_ptr);
+			UE::FMemory::Free(a_ptr);
 		}
 	}
 }

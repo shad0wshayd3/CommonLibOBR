@@ -32,3 +32,5 @@ namespace RE
 #include "RE/NiRTTI_IDs.h"
 #include "RE/RTTI_IDs.h"
 #include "RE/VTABLE_IDs.h"
+
+#include "RE/B/BSCoreTypes.h"
