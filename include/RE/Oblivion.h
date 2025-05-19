@@ -15,7 +15,6 @@
 #include "RE/A/AlchemyItem.h"
 #include "RE/A/AlchemyItemData.h"
 #include "RE/B/BIPED_MODEL.h"
-#include "RE/B/BSCoreTypes.h"
 #include "RE/B/BSStringT.h"
 #include "RE/B/BSTCaseInsensitiveStringMap.h"
 #include "RE/B/BSTList.h"

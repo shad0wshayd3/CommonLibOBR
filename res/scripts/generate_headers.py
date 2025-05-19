@@ -39,7 +39,7 @@ def main():
 	os.chdir(os.path.join(root, "include"))
 
 	make_header("OBSE", "OBSE.h", { "Impl" })
-	make_header("RE", "Oblivion.h", { "IDs.h", "NiRTTI_IDs.h", "RTTI_IDs.h", "VTABLE_IDs.h" })
+	make_header("RE", "Oblivion.h", { "BSCoreTypes.h", "IDs.h", "IDs_NiRTTI.h", "IDs_RTTI.h", "IDs_VTABLE.h" })
 	make_header("UE", "Unreal.h")
 
 if __name__ == "__main__":

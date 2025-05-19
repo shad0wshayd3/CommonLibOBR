@@ -29,8 +29,8 @@ namespace RE
 }
 
 #include "RE/IDs.h"
-#include "RE/NiRTTI_IDs.h"
-#include "RE/RTTI_IDs.h"
-#include "RE/VTABLE_IDs.h"
+#include "RE/IDs_NiRTTI.h"
+#include "RE/IDs_RTTI.h"
+#include "RE/IDs_VTABLE.h"
 
 #include "RE/B/BSCoreTypes.h"
