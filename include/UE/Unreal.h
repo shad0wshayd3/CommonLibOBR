@@ -81,6 +81,7 @@
 #include "UE/F/FGuid.h"
 #include "UE/F/FIntPoint.h"
 #include "UE/F/FLinearColor.h"
+#include "UE/F/FLogScopedCategoryAndVerbosityOverride.h"
 #include "UE/F/FMemory.h"
 #include "UE/F/FMicrosoftPlatformString.h"
 #include "UE/F/FName.h"

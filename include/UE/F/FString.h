@@ -7,9 +7,9 @@ namespace UE
 {
 	class FString;
 
-	inline wchar_t* GetData(FString& a_str);
+	inline wchar_t*       GetData(FString& a_str);
 	inline const wchar_t* GetData(const FString& a_str);
-	inline std::int32_t GetNum(const FString& a_str);
+	inline std::int32_t   GetNum(const FString& a_str);
 
 	class FString
 	{
