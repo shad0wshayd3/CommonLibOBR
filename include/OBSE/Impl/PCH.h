@@ -1,11 +1,11 @@
 #pragma once
 
-#include <REX/Impl/PCH.h>
+#include <REX/REX.h>
+#include <REL/REL.h>
 
 namespace OBSE
 {
 	using namespace std::literals;
-	namespace stl = XSE::stl;
 
 	struct VersionPackInfo
 	{
@@ -25,7 +25,6 @@ namespace OBSE
 namespace RE
 {
 	using namespace std::literals;
-	namespace stl = XSE::stl;
 }
 
 #include "RE/IDs.h"

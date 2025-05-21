@@ -7,6 +7,7 @@
 #include "REX/W32/OLE32.h"
 #include "REX/W32/SHELL32.h"
 
+#include <spdlog/spdlog.h>
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/sinks/msvc_sink.h>
 
@@ -44,11 +45,6 @@ namespace OBSE
 
 			static std::once_flag once;
 			std::call_once(once, [&]() {
-				if (info.iddb) {
-					const auto iddb = REL::IDDB::GetSingleton();
-					iddb->load(L"OBSE/Plugins/versionlib-{}.bin"sv);
-				}
-
 				if (const auto data = PluginVersionData::GetSingleton()) {
 					pluginName = data->GetPluginName();
 					pluginAuthor = data->GetAuthorName();
