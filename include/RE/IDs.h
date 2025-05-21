@@ -2,6 +2,11 @@
 
 namespace RE::ID
 {
+	namespace Actor
+	{
+		inline constexpr REL::Offset GetItemCountInContainer{ 0x65DA780 };
+	}
+
 	namespace FORM_ENUM_STRING
 	{
 		inline constexpr REL::Offset FormEnumString{ 0x8FDD6A0 };
