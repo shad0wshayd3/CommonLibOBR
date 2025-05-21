@@ -161,6 +161,13 @@ namespace RE
 			return func(this);
 		}
 
+		TESWorldSpace* GetWorldSpace()
+		{
+			using func_t = decltype(&TESObjectREFR::GetWorldSpace);
+			static REL::Relocation<func_t> func{ ID::TESObjectREFR::GetWorldSpace };
+			return func(this);
+		}
+
 		// members
 		OBJ_REFR                data;                                   // 050
 		float                   refScale;                               // 070

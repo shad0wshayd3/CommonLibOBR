@@ -58,6 +58,7 @@ namespace RE::ID
 	namespace TESObjectREFR
 	{
 		inline constexpr REL::Offset GetInterior{ 0x65A8400 };
+		inline constexpr REL::Offset GetWorldSpace{ 0x65A9F10 };
 	}
 
 	namespace Tile
