@@ -17,6 +17,13 @@ namespace RE
 		virtual void CopyComponent(BaseFormComponent* a_rhs) override;     // 02
 		virtual bool CompareComponent(BaseFormComponent* a_rhs) override;  // 03
 
+		static char* GetFullName(TESForm* a_object)
+		{
+			using func_t = decltype(&TESFullName::GetFullName);
+			static REL::Relocation<func_t> func{ ID::TESFullName::GetFullName };
+			return func(a_object);
+		}
+
 		// members
 		BSString fullName;  // 08
 	};

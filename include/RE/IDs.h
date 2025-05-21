@@ -2,6 +2,11 @@
 
 namespace RE::ID
 {
+	namespace Actor
+	{
+		inline constexpr REL::Offset GetItemCountInContainer{ 0x65DA780 };
+	}
+
 	namespace FORM_ENUM_STRING
 	{
 		inline constexpr REL::Offset FormEnumString{ 0x8FDD6A0 };
@@ -53,6 +58,11 @@ namespace RE::ID
 	{
 		inline constexpr REL::Offset AllForms{ 0x8FDDD30 };
 		inline constexpr REL::Offset AllFormsByEditorID{ 0x8FDDD70 };
+	}
+
+	namespace TESFullName
+	{
+		inline constexpr REL::Offset GetFullName{ 0x65A8170 };
 	}
 
 	namespace TESObjectREFR

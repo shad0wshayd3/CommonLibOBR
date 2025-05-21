@@ -253,6 +253,13 @@ namespace RE
 		virtual void                   HandleBlockedAttack(float a_fullDamage, float a_percentageBlocked, Actor* a_blockingActor, ArrowProjectile* a_arrow);                                                                                  // 110
 		virtual void                   HandleHealthDamage(Actor* a_attacker, float a_damage);                                                                                                                                                 // 111
 
+		std::int32_t GetItemCountInContainer(TESBoundObject* a_object)
+		{
+			using func_t = decltype(&Actor::GetItemCountInContainer);
+			static REL::Relocation<func_t> func{ ID::Actor::GetItemCountInContainer };
+			return func(this, a_object);
+		}
+
 		// members
 		ActorDeathInfos                                       actorKilledInfos;                // 178
 		bool                                                  isWalkingOnWater;                // 1D0
