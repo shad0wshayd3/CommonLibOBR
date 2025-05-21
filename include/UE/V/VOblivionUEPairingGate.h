@@ -45,10 +45,10 @@ namespace UE
 		virtual void                SignalSendingHandler(std::uint64_t a_frameNumber, const char* a_handlerName) override;              // 1A
 		virtual void                DebugHelper(std::uint64_t, void*, const char*, std::uint64_t) override;                             // 1B
 
-		static VOblivionUEPairingGate* GetInstance()
+		static VOblivionUEPairingGate* GetSingleton()
 		{
-			using func_t = decltype(&VOblivionUEPairingGate::GetInstance);
-			static REL::Relocation<func_t> func{ ID::VOblivionUEPairingGate::GetInstance };
+			using func_t = decltype(&VOblivionUEPairingGate::GetSingleton);
+			static REL::Relocation<func_t> func{ ID::VOblivionUEPairingGate::GetSingleton };
 			return func();
 		}
 
@@ -58,7 +58,7 @@ namespace UE
 		std::uint32_t                                   allocatedPairingEntryCount;      // 20
 		std::uint32_t                                   allocatedPairingEntryTotalSize;  // 24
 		TAllocatorFixedSizeFreeList<24, 256>            pairingEntriesFreeList;          // 28
-		FWindowsCriticalSection                         pairingListCriticalSection;      // 38
+		FCriticalSection                                pairingListCriticalSection;      // 38
 		TUniquePtr<FGenericPlatformProcess::FSemaphore> gamesSyncSemaphore;              // 60
 		TArray<VPairingEntry*>                          currentPairingEntries;           // 68
 		VPairingFlowManager                             flowManager;                     // 78
