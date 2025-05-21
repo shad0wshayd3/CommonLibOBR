@@ -1,7 +1,7 @@
 #pragma once
 
-#include <REX/REX.h>
 #include <REL/REL.h>
+#include <REX/REX.h>
 
 namespace OBSE
 {
