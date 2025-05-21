@@ -12,6 +12,11 @@ namespace RE::ID
 		inline constexpr REL::Offset Singleton{ 0x8FE1E10 };
 	}
 
+	namespace InterfaceManager
+	{
+		inline constexpr REL::Offset GetInstance{ 0x6603730 };
+	}
+
 	namespace MenuConsole
 	{
 		inline constexpr REL::Offset Instance{ 0x665C360 };
@@ -21,6 +26,11 @@ namespace RE::ID
 	namespace PlayerCharacter
 	{
 		inline constexpr REL::Offset Singleton{ 0x9455388 };
+	}
+
+	namespace Script
+	{
+		inline constexpr REL::Offset ParseParameters{ 0x66598E0 };
 	}
 
 	namespace SCRIPT_FUNCTION
@@ -116,6 +126,12 @@ namespace UE::ID
 		inline constexpr REL::Offset GetSingleton{ 0x9145160 };
 	}
 
+	namespace UAltarCheatManager
+	{
+		inline constexpr REL::Offset GetSelectedActor{ 0x2CE76F0 };
+		inline constexpr REL::Offset SetSelectedActor{ 0x479DAB0 };
+	}
+
 	namespace UClass
 	{
 		inline constexpr REL::Offset FindFunctionByName{ 0x1005AA0 };
@@ -138,9 +154,19 @@ namespace UE::ID
 		inline constexpr REL::Offset GetFullName2{ 0x111F8D0 };
 	}
 
+	namespace UVTESObjectRefComponent
+	{
+		inline constexpr REL::Offset StaticClass{ 0x4723D80 };
+	}
+
 	namespace UWorld
 	{
 		inline constexpr REL::Offset GetSingleton{ 0x92B3878 };
+	}
+
+	namespace VOblivionUEPairingGate
+	{
+		inline constexpr REL::Offset GetInstance{ 0x45C16F0 };
 	}
 
 	inline constexpr REL::Offset AsyncTask{ 0x0DC48F0 };

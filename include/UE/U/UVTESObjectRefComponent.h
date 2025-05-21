@@ -20,6 +20,13 @@ namespace UE
 		// override
 		virtual ~UVTESObjectRefComponent();  // 00
 
+		static UClass* StaticClass()
+		{
+			using func_t = decltype(&UVTESObjectRefComponent::StaticClass);
+			static REL::Relocation<func_t> func{ ID::UVTESObjectRefComponent::StaticClass };
+			return func();
+		}
+
 		// members
 		std::uint32_t                   formIDInstance;          // 0A0
 		FGuid                           guid;                    // 0A4

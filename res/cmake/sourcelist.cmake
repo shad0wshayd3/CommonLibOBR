@@ -59,6 +59,8 @@ set(SOURCES
 	include/RE/I/IconArray.h
 	include/RE/I/IngredientItem.h
 	include/RE/I/IngredientItemData.h
+	include/RE/I/Interface.h
+	include/RE/I/InterfaceManager.h
 	include/RE/IDs.h
 	include/RE/M/MATERIAL_TYPE.h
 	include/RE/M/MENU_CLASS.h
@@ -384,6 +386,7 @@ set(SOURCES
 	include/UE/F/FFieldVariant.h
 	include/UE/F/FFrame.h
 	include/UE/F/FFrameRate.h
+	include/UE/F/FGenericPlatformProcess.h
 	include/UE/F/FGenericPlatformString.h
 	include/UE/F/FGraphEvent.h
 	include/UE/F/FGuid.h
@@ -466,6 +469,7 @@ set(SOURCES
 	include/UE/I/IInterface.h
 	include/UE/I/IInterface_AssetUserData.h
 	include/UE/I/INavAgentInterface.h
+	include/UE/I/IPairingGate.h
 	include/UE/I/IReactToFreezeInterface.h
 	include/UE/I/ITextData.h
 	include/UE/I/IVAudioPlayable.h
@@ -474,6 +478,7 @@ set(SOURCES
 	include/UE/I/IWorldPartitionStreamingSourceProvider.h
 	include/UE/S/SharedPointerInternals.h
 	include/UE/T/TAlignedBytes.h
+	include/UE/T/TAllocatorFixedSizeFreeList.h
 	include/UE/T/TAllocatorTraits.h
 	include/UE/T/TArray.h
 	include/UE/T/TBaseDynamicDelegate.h
@@ -591,8 +596,12 @@ set(SOURCES
 	include/UE/Unreal.h
 	include/UE/UnrealGlobal.h
 	include/UE/UnrealMacro.h
+	include/UE/V/VHandlerClass.h
+	include/UE/V/VOblivionUEPairingGate.h
 	include/UE/V/VPairingData_IPairingData.h
 	include/UE/V/VPairingData_VTransform.h
+	include/UE/V/VPairingEntry.h
+	include/UE/V/VPairingFlowManager.h
 	src/OBSE/API.cpp
 	src/OBSE/Impl/PCH.cpp
 	src/OBSE/Interfaces.cpp

@@ -56,6 +56,8 @@
 #include "RE/I/IconArray.h"
 #include "RE/I/IngredientItem.h"
 #include "RE/I/IngredientItemData.h"
+#include "RE/I/Interface.h"
+#include "RE/I/InterfaceManager.h"
 #include "RE/M/MATERIAL_TYPE.h"
 #include "RE/M/MENU_CLASS.h"
 #include "RE/M/MagicCaster.h"

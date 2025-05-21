@@ -1,9 +1,12 @@
 #pragma once
 
-namespace RE
+namespace UE
 {
 	class VPairingEntry;
+}
 
+namespace RE
+{
 	class IVPairableItem
 	{
 	public:
@@ -20,8 +23,8 @@ namespace RE
 		virtual void OnPostUnpairItem();   // 06
 
 		// members
-		bool           isActuallyPaired;  // 08
-		VPairingEntry* pairingEntry;      // 10
+		bool               isActuallyPaired;  // 08
+		UE::VPairingEntry* pairingEntry;      // 10
 	};
 	static_assert(sizeof(IVPairableItem) == 0x18);
 }

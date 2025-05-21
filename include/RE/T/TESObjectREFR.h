@@ -175,7 +175,7 @@ namespace RE
 		bool                    hasTrapContinuityBeenCheckedInReverse;  // 0C0
 		TESObjectREFR*          dockedActor;                            // 0C8
 		EVUnpairingState        unpairingState;                         // 0D0
-		VPairingEntry*          droppedBy;                              // 0D8
+		UE::VPairingEntry*      droppedBy;                              // 0D8
 		bool                    isBeingTeleported;                      // 0E0
 		FVDoorTeleportationInfo pendingDoorTeleportationInfo;           // 0E8
 		std::uint32_t           levelCreatureFormID;                    // 108
