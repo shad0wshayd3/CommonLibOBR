@@ -12,9 +12,9 @@ namespace UE
 		virtual ~FExec() = default;  // 00
 
 		// add
-		virtual bool Exec(UWorld* a_world, const wchar_t* a_cmd, FOutputDevice& a_archive)  // 01
+		virtual bool Exec(UWorld* a_world, const wchar_t* a_cmd, FOutputDevice& a_output)  // 01
 		{
-			return Exec_Runtime(a_world, a_cmd, a_archive);
+			return Exec_Runtime(a_world, a_cmd, a_output);
 		}
 
 	protected:

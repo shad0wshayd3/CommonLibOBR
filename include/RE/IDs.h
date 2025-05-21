@@ -87,6 +87,11 @@ namespace UE::ID
 		inline constexpr REL::Offset KismetExecutionMessage{ 0x10FD030 };
 	}
 
+	namespace FLogScopedCategoryAndVerbosityOverride
+	{
+		inline constexpr REL::Offset GetTLSCurrent{ 0x0EA74B0 };
+	}
+
 	namespace FMemory
 	{
 		inline constexpr REL::Offset Free{ 0x0E30580 };
@@ -121,8 +126,12 @@ namespace UE::ID
 
 	namespace FString
 	{
+		inline constexpr REL::Offset AppendChar{ 0x0DE7710 };
+		inline constexpr REL::Offset AppendChars1{ 0x0DE7790 };
+		inline constexpr REL::Offset AppendChars2{ 0x0DE77A0 };
 		inline constexpr REL::Offset Ctor1{ 0x0DE4F20 };
 		inline constexpr REL::Offset Ctor2{ 0x0DE50B0 };
+		inline constexpr REL::Offset Reset{ 0x0DF0110 };
 	}
 
 	namespace FText
@@ -165,11 +174,6 @@ namespace UE::ID
 		inline constexpr REL::Offset GetFullName2{ 0x111F8D0 };
 	}
 
-	namespace UVTESObjectRefComponent
-	{
-		inline constexpr REL::Offset StaticClass{ 0x4723D80 };
-	}
-
 	namespace UWorld
 	{
 		inline constexpr REL::Offset GetSingleton{ 0x92B3878 };
@@ -177,7 +181,7 @@ namespace UE::ID
 
 	namespace VOblivionUEPairingGate
 	{
-		inline constexpr REL::Offset GetInstance{ 0x45C16F0 };
+		inline constexpr REL::Offset GetSingleton{ 0x45C16F0 };
 	}
 
 	inline constexpr REL::Offset AsyncTask{ 0x0DC48F0 };
