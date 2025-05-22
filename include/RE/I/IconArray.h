@@ -20,5 +20,4 @@ namespace RE
 		std::uint8_t numFading;  // 00
 	};
 	static_assert(sizeof(IconArray) == 0x28);
-
 }

@@ -186,5 +186,4 @@ namespace RE
 		NiTList<Tile*>  children;          // 60
 	};
 	static_assert(sizeof(Tile) == 0x80);
-
 }

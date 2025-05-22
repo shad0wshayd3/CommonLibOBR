@@ -96,5 +96,4 @@ namespace RE
 		bool                           isInsideFastTravelProcess;  // 1B9
 	};
 	static_assert(sizeof(MapMenu) == 0x1C0);
-
 }

@@ -27,5 +27,4 @@ namespace RE
 		kButtonIdleEvent = -1,
 		kButtonClick = -2,
 	};
-
 }

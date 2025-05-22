@@ -62,5 +62,4 @@ namespace RE
 		REX::Enum<FADE_STATE, std::int32_t> fadeState;        // 48
 	};
 	static_assert(sizeof(Menu) == 0x50);
-
 }

@@ -93,5 +93,4 @@ namespace RE
 		bool                           enableLeveledRegion;   // 1858
 	};
 	static_assert(sizeof(TESDataHandler) == 0x1860);
-
 }
