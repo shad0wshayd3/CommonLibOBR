@@ -39,7 +39,7 @@ namespace UE
 		virtual void                DebugHelper(std::uint64_t, void*, const char*, std::uint64_t) = 0;                             // 1B
 
 		// members
-		std::map<std::string, std::uint32_t> existingAsyncFlows;
+		std::byte existingAsyncFlows[0x10];  // 08 - std::map<std::string, std::uint32_t> [BAD!]
 	};
 	static_assert(sizeof(IPairingGate) == 0x18);
 }
