@@ -40,6 +40,34 @@ namespace RE
 		virtual void         StartFadeOut() override;                                     // 16
 		virtual void         StartFadeIn() override;                                      // 18
 
+		void CenterMapAt(float a_x, float a_y, bool a_worldMap)
+		{
+			using func_t = decltype(&MapMenu::CenterMapAt);
+			static REL::Relocation<func_t> func{ ID::MapMenu::CenterMapAt };
+			return func(this, a_x, a_y, a_worldMap);
+		}
+
+		void SwitchTabs(std::int32_t a_id, Tile* a_target)
+		{
+			using func_t = decltype(&MapMenu::SwitchTabs);
+			static REL::Relocation<func_t> func{ ID::MapMenu::SwitchTabs };
+			return func(this, a_id, a_target);
+		}
+
+		void SwitchTabsNotifyingAltar(std::int32_t a_id, Tile* a_target)
+		{
+			using func_t = decltype(&MapMenu::SwitchTabsNotifyingAltar);
+			static REL::Relocation<func_t> func{ ID::MapMenu::SwitchTabsNotifyingAltar };
+			return func(this, a_id, a_target);
+		}
+
+		static void Update()
+		{
+			using func_t = decltype(&MapMenu::Update);
+			static REL::Relocation<func_t> func{ ID::MapMenu::Update };
+			return func();
+		}
+
 		// members
 		Tile*                          background;                 // 050
 		Tile*                          localTab;                   // 058

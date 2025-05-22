@@ -170,6 +170,35 @@ namespace RE
 
 		static Tile* GetMenuByClass(MENU_CLASS a_menuClass);
 
+		Value* GetValue(std::int32_t a_trait) const
+		{
+			auto head = traits.head;
+			while (head) {
+				if (auto element = head->element;
+					element && element->index == a_trait) {
+					return element;
+				}
+				head = head->next;
+			}
+			return nullptr;
+		}
+
+		float GetFloat(std::int32_t a_trait) const
+		{
+			if (auto value = GetValue(a_trait)) {
+				return value->value;
+			}
+			return 0.0f;
+		}
+
+		const char* GetString(std::int32_t a_trait) const
+		{
+			if (auto value = GetValue(a_trait)) {
+				return value->string.c_str();
+			}
+			return "\0";
+		}
+
 		Menu* GetMenu();
 
 		// members
