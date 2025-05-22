@@ -44,5 +44,4 @@ namespace RE
 		bool           skipFadeIn;     // B4
 	};
 	static_assert(sizeof(HUDInfoMenu) == 0xB8);
-
 }

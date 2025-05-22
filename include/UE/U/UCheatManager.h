@@ -68,12 +68,12 @@ namespace UE
 		virtual void    BugItGo(float, float, float, float, float, float);                                       // 7E
 		virtual void    BugItGoString(const FString*, const FString*);                                           // 7F
 		virtual void    BugIt(const FString*);                                                                   // 80
-		virtual void    BugItStringCreator(Math::TVector<double>, Math::TRotator<double>, FString*, FString*);   // 81
+		virtual void    BugItStringCreator(FVector, FRotator, FString*, FString*);                               // 81
 		virtual void    FlushLog();                                                                              // 82
 		virtual void    LogLoc();                                                                                // 83
 		virtual void    SetMouseSensitivityToDefault();                                                          // 84
 		virtual void    InvertMouse();                                                                           // 85
-		virtual void    BugItWorker(Math::TVector<double>, Math::TRotator<double>);                              // 86
+		virtual void    BugItWorker(FVector, FRotator);                                                          // 86
 		virtual void    LogOutBugItGoToLogFile(const FString*, const FString*, const FString*, const FString*);  // 87
 		virtual void    SetLevelStreamingStatus(FName, bool, bool);                                              // 88
 		virtual void    InitCheatManager();                                                                      // 89

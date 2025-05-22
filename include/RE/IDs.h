@@ -2,6 +2,11 @@
 
 namespace RE::ID
 {
+	namespace Actor
+	{
+		inline constexpr REL::Offset GetItemCountInContainer{ 0x65DA780 };
+	}
+
 	namespace FORM_ENUM_STRING
 	{
 		inline constexpr REL::Offset FormEnumString{ 0x8FDD6A0 };
@@ -10,6 +15,19 @@ namespace RE::ID
 	namespace GameSettingCollection
 	{
 		inline constexpr REL::Offset Singleton{ 0x8FE1E10 };
+	}
+
+	namespace InterfaceManager
+	{
+		inline constexpr REL::Offset GetInstance{ 0x6603730 };
+	}
+
+	namespace MapMenu
+	{
+		inline constexpr REL::Offset CenterMapAt{ 0x6587A30 };
+		inline constexpr REL::Offset SwitchTabs{ 0x658CC90 };
+		inline constexpr REL::Offset SwitchTabsNotifyingAltar{ 0x658CE30 };
+		inline constexpr REL::Offset Update{ 0x658D080 };
 	}
 
 	namespace MenuConsole
@@ -21,6 +39,11 @@ namespace RE::ID
 	namespace PlayerCharacter
 	{
 		inline constexpr REL::Offset Singleton{ 0x9455388 };
+	}
+
+	namespace Script
+	{
+		inline constexpr REL::Offset ParseParameters{ 0x66598E0 };
 	}
 
 	namespace SCRIPT_FUNCTION
@@ -45,9 +68,15 @@ namespace RE::ID
 		inline constexpr REL::Offset AllFormsByEditorID{ 0x8FDDD70 };
 	}
 
+	namespace TESFullName
+	{
+		inline constexpr REL::Offset GetFullName{ 0x65A8170 };
+	}
+
 	namespace TESObjectREFR
 	{
 		inline constexpr REL::Offset GetInterior{ 0x65A8400 };
+		inline constexpr REL::Offset GetWorldSpace{ 0x65A9F10 };
 	}
 
 	namespace Tile
@@ -64,6 +93,11 @@ namespace UE::ID
 	namespace FFrame
 	{
 		inline constexpr REL::Offset KismetExecutionMessage{ 0x10FD030 };
+	}
+
+	namespace FLogScopedCategoryAndVerbosityOverride
+	{
+		inline constexpr REL::Offset GetTLSCurrent{ 0x0EA74B0 };
 	}
 
 	namespace FMemory
@@ -100,8 +134,12 @@ namespace UE::ID
 
 	namespace FString
 	{
+		inline constexpr REL::Offset AppendChar{ 0x0DE7710 };
+		inline constexpr REL::Offset AppendChars1{ 0x0DE7790 };
+		inline constexpr REL::Offset AppendChars2{ 0x0DE77A0 };
 		inline constexpr REL::Offset Ctor1{ 0x0DE4F20 };
 		inline constexpr REL::Offset Ctor2{ 0x0DE50B0 };
+		inline constexpr REL::Offset Reset{ 0x0DF0110 };
 	}
 
 	namespace FText
@@ -114,6 +152,12 @@ namespace UE::ID
 	namespace FUObjectArray
 	{
 		inline constexpr REL::Offset GetSingleton{ 0x9145160 };
+	}
+
+	namespace UAltarCheatManager
+	{
+		inline constexpr REL::Offset GetSelectedActor{ 0x2CE76F0 };
+		inline constexpr REL::Offset SetSelectedActor{ 0x479DAB0 };
 	}
 
 	namespace UClass
@@ -141,6 +185,11 @@ namespace UE::ID
 	namespace UWorld
 	{
 		inline constexpr REL::Offset GetSingleton{ 0x92B3878 };
+	}
+
+	namespace VOblivionUEPairingGate
+	{
+		inline constexpr REL::Offset GetSingleton{ 0x45C16F0 };
 	}
 
 	inline constexpr REL::Offset AsyncTask{ 0x0DC48F0 };
