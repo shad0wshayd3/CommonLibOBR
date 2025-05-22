@@ -390,7 +390,13 @@ set(SOURCES
 	include/UE/F/FGenericPlatformString.h
 	include/UE/F/FGraphEvent.h
 	include/UE/F/FGuid.h
+	include/UE/F/FInputText.h
 	include/UE/F/FIntPoint.h
+	include/UE/F/FLegacyMapMenuIconProperties.h
+	include/UE/F/FLegacyMapMenuLocalMapProperties.h
+	include/UE/F/FLegacyMapMenuQuestProperties.h
+	include/UE/F/FLegacyMapMenuTitleProperties.h
+	include/UE/F/FLegacyMapMenuWorldMapProperties.h
 	include/UE/F/FLinearColor.h
 	include/UE/F/FLogScopedCategoryAndVerbosityOverride.h
 	include/UE/F/FMemory.h
@@ -403,6 +409,7 @@ set(SOURCES
 	include/UE/F/FNamePool.h
 	include/UE/F/FNamePoolShardBase.h
 	include/UE/F/FNetworkNotify.h
+	include/UE/F/FNotThreadSafeNotCheckedDelegateUserPolicy.h
 	include/UE/F/FObjectPostSaveContext.h
 	include/UE/F/FObjectPostSaveRootContext.h
 	include/UE/F/FObjectPreSaveContext.h
@@ -465,11 +472,15 @@ set(SOURCES
 	include/UE/F/FWorldMapData.h
 	include/UE/F/FWorldMapLandscapeInfo.h
 	include/UE/F/FWorldMapLandscapeSettings.h
+	include/UE/F/FieldNotification_FFieldId.h
+	include/UE/F/FieldNotification_FFieldMulticastDelegate.h
+	include/UE/F/FieldNotification_IClassDescriptor.h
 	include/UE/I/IBlueprintPropertyGuidProvider.h
 	include/UE/I/IDelegateInstance.h
 	include/UE/I/IInterface.h
 	include/UE/I/IInterface_AssetUserData.h
 	include/UE/I/INavAgentInterface.h
+	include/UE/I/INotifyFieldValueChanged.h
 	include/UE/I/IPairingGate.h
 	include/UE/I/IReactToFreezeInterface.h
 	include/UE/I/ITextData.h
@@ -477,6 +488,7 @@ set(SOURCES
 	include/UE/I/IVPhysicsControllable.h
 	include/UE/I/IVTransformPairable.h
 	include/UE/I/IWorldPartitionStreamingSourceProvider.h
+	include/UE/M/MVVM_FMVVMFieldNotificationDelegates.h
 	include/UE/S/SharedPointerInternals.h
 	include/UE/T/TAlignedBytes.h
 	include/UE/T/TAllocatorFixedSizeFreeList.h
@@ -563,6 +575,7 @@ set(SOURCES
 	include/UE/U/UGameplayStatics.h
 	include/UE/U/UInterface.h
 	include/UE/U/UKismetSystemLibrary.h
+	include/UE/U/UMVVMViewModelBase.h
 	include/UE/U/UObject.h
 	include/UE/U/UObjectBase.h
 	include/UE/U/UObjectBaseUtility.h
@@ -591,7 +604,10 @@ set(SOURCES
 	include/UE/U/UTESWaterForm.h
 	include/UE/U/UTESWeather.h
 	include/UE/U/UTESWorldSpace.h
+	include/UE/U/UVMapMenuViewModel.h
+	include/UE/U/UVMapPageViewModel.h
 	include/UE/U/UVTESObjectRefComponent.h
+	include/UE/U/UVViewModelBase.h
 	include/UE/U/UWorld.h
 	include/UE/U/UWorldProxy.h
 	include/UE/Unreal.h

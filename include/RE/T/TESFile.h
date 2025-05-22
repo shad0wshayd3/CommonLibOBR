@@ -75,5 +75,4 @@ namespace RE
 		std::uint32_t                               decompressedFormBufferSize;    // 470
 	};
 	static_assert(sizeof(TESFile) == 0x478);
-
 }

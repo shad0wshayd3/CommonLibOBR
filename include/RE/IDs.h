@@ -22,6 +22,14 @@ namespace RE::ID
 		inline constexpr REL::Offset GetInstance{ 0x6603730 };
 	}
 
+	namespace MapMenu
+	{
+		inline constexpr REL::Offset CenterMapAt{ 0x6587A30 };
+		inline constexpr REL::Offset SwitchTabs{ 0x658CC90 };
+		inline constexpr REL::Offset SwitchTabsNotifyingAltar{ 0x658CE30 };
+		inline constexpr REL::Offset Update{ 0x658D080 };
+	}
+
 	namespace MenuConsole
 	{
 		inline constexpr REL::Offset Instance{ 0x665C360 };
