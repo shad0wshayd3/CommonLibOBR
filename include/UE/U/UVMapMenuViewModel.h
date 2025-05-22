@@ -1,13 +1,13 @@
 #pragma once
 
-#include "UE/U/UVViewModelBase.h"
 #include "UE/F/FDelegateHandle.h"
-#include "UE/F/FLegacyMapMenuTitleProperties.h"
-#include "UE/F/FLegacyMapMenuQuestProperties.h"
-#include "UE/T/TObjectPtr.h"
-#include "UE/T/TMap.h"
-#include "UE/F/FString.h"
 #include "UE/F/FInputText.h"
+#include "UE/F/FLegacyMapMenuQuestProperties.h"
+#include "UE/F/FLegacyMapMenuTitleProperties.h"
+#include "UE/F/FString.h"
+#include "UE/T/TMap.h"
+#include "UE/T/TObjectPtr.h"
+#include "UE/U/UVViewModelBase.h"
 
 namespace UE
 {
