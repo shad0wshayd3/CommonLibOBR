@@ -25,6 +25,8 @@
 #include "UE/E/EFunctionFlags.h"
 #include "UE/E/EGetWorldErrorMode.h"
 #include "UE/E/EInternalObjectFlags.h"
+#include "UE/E/ELegacyMapMenuIcon.h"
+#include "UE/E/ELegacyMapMenuPage.h"
 #include "UE/E/ELevelTick.h"
 #include "UE/E/ELogVerbosity.h"
 #include "UE/E/EMovementMode.h"
