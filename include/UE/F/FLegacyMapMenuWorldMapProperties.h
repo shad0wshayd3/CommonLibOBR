@@ -1,7 +1,7 @@
 #pragma once
 
+#include "UE/F/FVector2.h"
 #include "UE/T/TObjectPtr.h"
-#include "UE/T/TVector2.h"
 
 namespace UE
 {
@@ -11,9 +11,9 @@ namespace UE
 	{
 	public:
 		// members
-		TObjectPtr<UObject>    map;          // 00
-		Math::TVector2<double> mapSize;      // 08
-		bool                   isMainWorld;  // 18
+		TObjectPtr<UObject> map;          // 00
+		FVector2d           mapSize;      // 08
+		bool                isMainWorld;  // 18
 	};
 	static_assert(sizeof(FLegacyMapMenuWorldMapProperties) == 0x20);
 }

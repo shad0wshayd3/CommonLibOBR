@@ -1,7 +1,7 @@
 #pragma once
 
+#include "UE/F/FVector2.h"
 #include "UE/T/TObjectPtr.h"
-#include "UE/T/TVector2.h"
 
 namespace UE
 {
@@ -12,8 +12,8 @@ namespace UE
 	public:
 		// members
 		TObjectPtr<UMaterialInterface> map;                 // 00
-		Math::TVector2<double>         mapSize;             // 08
-		Math::TVector2<double>         desiredTextureSize;  // 18
+		FVector2d                      mapSize;             // 08
+		FVector2d                      desiredTextureSize;  // 18
 	};
 	static_assert(sizeof(FLegacyMapMenuLocalMapProperties) == 0x28);
 }

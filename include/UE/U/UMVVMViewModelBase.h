@@ -11,7 +11,7 @@ namespace UE
 		public INotifyFieldValueChanged
 	{
 	public:
-		UE_DEFINE_UOBJECT(UMVVMViewModelBase, UObject, "/Script/ModelViewViewModel", "MVVMViewModelBase");
+		UE_DEFINE_UOBJECT(UMVVMViewModelBase, UObject, "ModelViewViewModel", "MVVMViewModelBase");
 
 		// members
 		MVVM::FMVVMFieldNotificationDelegates notificationDelegates;  // 30

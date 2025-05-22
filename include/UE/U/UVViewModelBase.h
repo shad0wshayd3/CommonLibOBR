@@ -14,7 +14,7 @@ namespace UE
 		public UMVVMViewModelBase
 	{
 	public:
-		UE_DEFINE_UOBJECT(UVViewModelBase, UMVVMViewModelBase, "/Script/Altar", "VViewModelBase");
+		UE_DEFINE_UOBJECT(UVViewModelBase, UMVVMViewModelBase, "Altar", "VViewModelBase");
 
 		// members
 		bool                                       isMenuOpen;           // 68

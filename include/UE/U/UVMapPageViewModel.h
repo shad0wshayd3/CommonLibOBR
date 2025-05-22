@@ -2,8 +2,8 @@
 
 #include "UE/F/FLegacyMapMenuLocalMapProperties.h"
 #include "UE/F/FLegacyMapMenuWorldMapProperties.h"
+#include "UE/F/FVector2.h"
 #include "UE/T/TArray.h"
-#include "UE/T/TVector2.h"
 #include "UE/U/UVViewModelBase.h"
 
 namespace UE
@@ -14,15 +14,15 @@ namespace UE
 		public UVViewModelBase
 	{
 	public:
-		UE_DEFINE_UOBJECT(UVMapPageViewModel, UVViewModelBase, "/Script/Altar", "VMapPageViewModel");
+		UE_DEFINE_UOBJECT(UVMapPageViewModel, UVViewModelBase, "Altar", "VMapPageViewModel");
 
 		// members
 		TArray<float>                        fogDatas;                               // 0D0
 		FLegacyMapMenuWorldMapProperties     worldMapProperties;                     // 0E0
 		FLegacyMapMenuLocalMapProperties     localMapProperties;                     // 100
 		TArray<FLegacyMapMenuIconProperties> mapIcons;                               // 128
-		Math::TVector2<double>               mapPosition;                            // 138
-		Math::TVector2<double>               playerMarkerPosition;                   // 148
+		FVector2d                            mapPosition;                            // 138
+		FVector2d                            playerMarkerPosition;                   // 148
 		float                                zoom;                                   // 158
 		float                                minZoomValue;                           // 15C
 		float                                maxZoomValue;                           // 160

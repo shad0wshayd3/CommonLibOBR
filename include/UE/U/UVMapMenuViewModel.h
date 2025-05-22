@@ -1,5 +1,6 @@
 #pragma once
 
+#include "UE/E/ELegacyMapMenuPage.h"
 #include "UE/F/FDelegateHandle.h"
 #include "UE/F/FInputText.h"
 #include "UE/F/FLegacyMapMenuQuestProperties.h"
@@ -11,14 +12,13 @@
 
 namespace UE
 {
-	enum class ELegacyMapMenuPage : std::int8_t;
 	class UVMapPageViewModel;
 
 	class UVMapMenuViewModel :
 		public UVViewModelBase
 	{
 	public:
-		UE_DEFINE_UOBJECT(UVMapMenuViewModel, UVViewModelBase, "/Script/Altar", "VMapMenuViewModel");
+		UE_DEFINE_UOBJECT(UVMapMenuViewModel, UVViewModelBase, "Altar", "VMapMenuViewModel");
 
 		// members
 		FDelegateHandle                       pageUpdatedDelegateHandle;  // 0D0
