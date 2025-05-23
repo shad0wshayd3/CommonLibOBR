@@ -335,6 +335,7 @@ set(SOURCES
 	include/UE/E/EFrameHitchType.h
 	include/UE/E/EFunctionFlags.h
 	include/UE/E/EGetWorldErrorMode.h
+	include/UE/E/EGrassWaterState.h
 	include/UE/E/EInternalObjectFlags.h
 	include/UE/E/ELegacyMapMenuIcon.h
 	include/UE/E/ELegacyMapMenuPage.h
@@ -349,6 +350,7 @@ set(SOURCES
 	include/UE/E/EObjectFlags.h
 	include/UE/E/EObjectFullNameFlags.h
 	include/UE/E/EOblivionAnimGroup.h
+	include/UE/E/EOblivionWeaponType.h
 	include/UE/E/EPackageExtension.h
 	include/UE/E/EPhysicsReplicationMode.h
 	include/UE/E/ESPMode.h
@@ -361,6 +363,9 @@ set(SOURCES
 	include/UE/E/EVActorValues.h
 	include/UE/E/EVBloodColor.h
 	include/UE/E/EVBossCategory.h
+	include/UE/E/EVDefaultSurfaceType.h
+	include/UE/E/EVPhysicsLoadingBehaviour.h
+	include/UE/E/EVPhysicsSimulationBehaviour.h
 	include/UE/F/FActorComponentTickFunction.h
 	include/UE/F/FActorTickFunction.h
 	include/UE/F/FAudioDeviceHandle.h
@@ -457,6 +462,7 @@ set(SOURCES
 	include/UE/F/FStructuredArchiveSlot.h
 	include/UE/F/FStructuredArchiveSlotBase.h
 	include/UE/F/FStructuredArchiveStream.h
+	include/UE/F/FTESGrassData.h
 	include/UE/F/FTESWeatherList.h
 	include/UE/F/FText.h
 	include/UE/F/FThreadSafeCounter.h
@@ -466,6 +472,8 @@ set(SOURCES
 	include/UE/F/FUObjectArray.h
 	include/UE/F/FUObjectItem.h
 	include/UE/F/FURL.h
+	include/UE/F/FVBuoyancySettings.h
+	include/UE/F/FVPhysicsControlSettings.h
 	include/UE/F/FVector.h
 	include/UE/F/FVector2.h
 	include/UE/F/FVector_NetQuantize.h
@@ -585,22 +593,36 @@ set(SOURCES
 	include/UE/U/UObjectHash.h
 	include/UE/U/UPackage.h
 	include/UE/U/UStruct.h
+	include/UE/U/UTESActorBase.h
 	include/UE/U/UTESBaseFormComponent.h
+	include/UE/U/UTESBoundObject.h
 	include/UE/U/UTESCell.h
 	include/UE/U/UTESClass.h
 	include/UE/U/UTESClimate.h
 	include/UE/U/UTESFaction.h
 	include/UE/U/UTESForm.h
 	include/UE/U/UTESGameSetting.h
+	include/UE/U/UTESGrass.h
 	include/UE/U/UTESHair.h
 	include/UE/U/UTESIdleForm.h
+	include/UE/U/UTESLevCreature.h
+	include/UE/U/UTESLevItem.h
 	include/UE/U/UTESObject.h
+	include/UE/U/UTESObjectACTI.h
+	include/UE/U/UTESObjectAPPA.h
+	include/UE/U/UTESObjectARMO.h
+	include/UE/U/UTESObjectBOOK.h
+	include/UE/U/UTESObjectCLOT.h
+	include/UE/U/UTESObjectMISC.h
 	include/UE/U/UTESObjectREFR.h
+	include/UE/U/UTESObjectSTAT.h
+	include/UE/U/UTESObjectWEAP.h
 	include/UE/U/UTESPackage.h
 	include/UE/U/UTESQuest.h
 	include/UE/U/UTESRace.h
 	include/UE/U/UTESRegion.h
 	include/UE/U/UTESScript.h
+	include/UE/U/UTESSubSpace.h
 	include/UE/U/UTESTopic.h
 	include/UE/U/UTESTopicInfo.h
 	include/UE/U/UTESWaterForm.h
