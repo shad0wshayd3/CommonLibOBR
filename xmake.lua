@@ -63,7 +63,8 @@ target("commonlibob64", function()
     add_includedirs("include", { public = true })
     add_headerfiles(
         "include/(OBSE/**.h)",
-        "include/(RE/**.h)"
+        "include/(RE/**.h)",
+        "include/(UE/**.h)"
     )
 
     -- add extra files
