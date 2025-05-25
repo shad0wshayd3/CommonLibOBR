@@ -393,7 +393,7 @@ namespace UE::SharedPointerInternals
 	template <class T>
 	struct DefaultDeleter
 	{
-		static void operator()(T* a_object)
+		void operator()(T* a_object)
 		{
 			delete a_object;
 		}
