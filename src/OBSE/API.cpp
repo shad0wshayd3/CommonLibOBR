@@ -9,6 +9,7 @@
 
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/sinks/msvc_sink.h>
+#include <spdlog/spdlog.h>
 
 namespace OBSE
 {
@@ -41,11 +42,6 @@ namespace OBSE
 		void API::Init(InitInfo a_info, const OBSE::QueryInterface* a_intfc)
 		{
 			info = a_info;
-
-			(void)REL::Module::get();
-			if (info.iddb) {
-				(void)REL::IDDB::get();
-			}
 
 			static std::once_flag once;
 			std::call_once(once, [&]() {

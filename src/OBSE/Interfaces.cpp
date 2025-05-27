@@ -6,7 +6,7 @@
 
 namespace OBSE
 {
-	bool MessagingInterface::RegisterListener(EventCallback* a_handler, stl::zstring a_sender) const
+	bool MessagingInterface::RegisterListener(EventCallback* a_handler, std::string_view a_sender) const
 	{
 		const auto success =
 			GetProxy().RegisterListener(

@@ -133,7 +133,8 @@ namespace OBSE
 		enum : std::uint32_t
 		{
 			kPostLoad,
-			kPostPostLoad
+			kPostPostLoad,
+			kDataLoaded
 		};
 
 		struct Message
@@ -149,7 +150,7 @@ namespace OBSE
 		[[nodiscard]] std::uint32_t Version() const noexcept { return GetProxy().interfaceVersion; }
 
 		bool RegisterListener(EventCallback* a_handler) const { return RegisterListener(a_handler, "OBSE"sv); }
-		bool RegisterListener(EventCallback* a_handler, stl::zstring a_sender) const;
+		bool RegisterListener(EventCallback* a_handler, std::string_view a_sender) const;
 		bool Dispatch(std::uint32_t a_messageType, void* a_data, std::uint32_t a_dataLen, const char* a_receiver) const;
 	};
 

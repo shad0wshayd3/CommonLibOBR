@@ -19,7 +19,6 @@ namespace OBSE
 		bool        trampoline{ false };
 		std::size_t trampolineSize{ 0 };
 		bool        hook{ true };
-		bool        iddb{ false };
 	};
 
 	void Init(const PreLoadInterface* a_intfc, InitInfo a_info = {}) noexcept;

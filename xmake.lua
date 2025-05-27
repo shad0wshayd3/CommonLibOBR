@@ -7,6 +7,9 @@ set_languages("c++23")
 set_warnings("allextra")
 set_encodings("utf-8")
 
+-- add repositories
+add_repositories("libxse-xrepo https://github.com/libxse/libxse-xrepo")
+
 -- add rules
 add_rules("mode.debug", "mode.releasedbg")
 
@@ -14,49 +17,33 @@ add_rules("mode.debug", "mode.releasedbg")
 includes("xmake-rules.lua")
 
 -- define options
-option("obse_xbyak", function()
+option("commonlib_ini", function()
     set_default(false)
-    set_description("Enable trampoline support for Xbyak")
-    add_defines("OBSE_SUPPORT_XBYAK=1")
+    set_description("enable ini config support for REX")
 end)
 
-option("rex_ini", function()
+option("commonlib_json", function()
     set_default(false)
-    set_description("Enable ini config support for REX")
-    add_defines("REX_OPTION_INI=1")
+    set_description("enable json config support for REX")
 end)
 
-option("rex_json", function()
+option("commonlib_toml", function()
     set_default(false)
-    set_description("Enable json config support for REX")
-    add_defines("REX_OPTION_JSON=1")
+    set_description("enable toml config support for REX")
 end)
 
-option("rex_toml", function()
+option("commonlib_xbyak", function()
     set_default(false)
-    set_description("Enable toml config support for REX")
-    add_defines("REX_OPTION_TOML=1")
+    set_description("enable xbyak support for trampoline")
 end)
 
 -- require packages
-add_requires("rsm-mmio")
-add_requires("spdlog", { configs = { header_only = false, wchar = true, std_format = true } })
-
-if has_config("obse_xbyak") then
-    add_requires("xbyak")
-end
-
-if has_config("rex_ini") then
-    add_requires("simpleini")
-end
-
-if has_config("rex_json") then
-    add_requires("nlohmann_json")
-end
-
-if has_config("rex_toml") then
-    add_requires("toml11")
-end
+add_requires("commonlib-shared d81a6748c1316d9ff731d2a5dd1e6f017be45ce9", { configs = {
+    ini = has_config("commonlib_ini"),
+    json = has_config("commonlib_json"),
+    toml = has_config("commonlib_toml"),
+    xbyak = has_config("commonlib_xbyak")
+}})
 
 -- define targets
 target("commonlibob64", function()
@@ -66,33 +53,8 @@ target("commonlibob64", function()
     -- set build by default
     set_default(os.scriptdir() == os.projectdir())
 
-    -- set build group
-    set_group("commonlibob64")
-
     -- add packages
-    add_packages("rsm-mmio", "spdlog", { public = true })
-
-    if has_config("obse_xbyak") then
-        add_packages("xbyak", { public = true })
-    end
-
-    if has_config("rex_ini") then
-        add_packages("simpleini", { public = true })
-    end
-
-    if has_config("rex_json") then
-        add_packages("nlohmann_json", { public = true })
-    end
-
-    if has_config("rex_toml") then
-        add_packages("toml11", { public = true })
-    end
-
-    -- add options
-    add_options("obse_xbyak", "rex_ini", "rex_json", "rex_toml", { public = true })
-
-    -- add system links
-    add_syslinks("advapi32", "bcrypt", "d3d11", "d3dcompiler", "dbghelp", "dxgi", "ole32", "shell32", "user32", "version")
+    add_packages("commonlib-shared", { public = true })
 
     -- add source files
     add_files("src/**.cpp")
@@ -102,8 +64,6 @@ target("commonlibob64", function()
     add_headerfiles(
         "include/(OBSE/**.h)",
         "include/(RE/**.h)",
-        "include/(REL/**.h)",
-        "include/(REX/**.h)",
         "include/(UE/**.h)"
     )
 
