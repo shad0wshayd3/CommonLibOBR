@@ -2,8 +2,8 @@
 
 #include "UE/F/FIntPoint.h"
 #include "UE/F/FQualityLevels.h"
-#include "UE/T/TDelegate.h"
 #include "UE/T/TBaseDynamicMulticastDelegate.h"
+#include "UE/T/TDelegate.h"
 #include "UE/U/UObject.h"
 
 namespace UE
