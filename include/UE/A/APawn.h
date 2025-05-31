@@ -5,6 +5,7 @@
 #include "UE/E/EAutoReceiveInput.h"
 #include "UE/I/INavAgentInterface.h"
 #include "UE/T/TBaseDynamicMulticastDelegate.h"
+#include "UE/T/TQuat.h"
 #include "UE/T/TSparseDynamicDelegate.h"
 #include "UE/T/TSubclassOf.h"
 
@@ -14,6 +15,8 @@ namespace UE
 	class APlayerState;
 	class FPawnControllerChangedSignatureInfoGetter;
 	class FPawnRestartedSignatureInfoGetter;
+	class UPawnMovementComponent;
+	class UPawnNoiseEmitterComponent;
 
 	using FPawnControllerChangedSignature_MCSignature = TBaseDynamicMulticastDelegate<FNotThreadSafeDelegateMode, void, APawn*, AController*, AController*>;
 	using FPawnControllerChangedSignature = TSparseDynamicDelegate<FPawnControllerChangedSignature_MCSignature, APawn, FPawnControllerChangedSignatureInfoGetter>;
@@ -28,7 +31,53 @@ namespace UE
 		UE_DEFINE_UOBJECT(APawn, AActor, "Engine", "Pawn");
 
 		// override
-		virtual ~APawn();
+		virtual ~APawn();  // 000
+
+		// add
+		virtual UPawnMovementComponent*     GetMovementComponent();                                                                                          //
+		virtual UPrimitiveComponent*        GetMovementBase();                                                                                               //
+		virtual UPawnNoiseEmitterComponent* GetPawnNoiseEmitterComponent();                                                                                  //
+		virtual void                        OnPlayerStateChanged(APlayerState* a_new, APlayerState* a_old);                                                  //
+		virtual void                        TurnOff();                                                                                                       //
+		virtual void                        PawnStartFire(std::uint8_t a_mode);                                                                              //
+		virtual APhysicsVolume*             GetPawnPhysicsVolume();                                                                                          //
+		virtual bool                        ReachedDesiredRotation();                                                                                        //
+		virtual float                       GetDefaultHalfHeight();                                                                                          //
+		virtual bool                        IsPawnControlled();                                                                                              //
+		virtual void                        OnRep_Controller();                                                                                              //
+		virtual void                        OnRep_PlayerState();                                                                                             //
+		virtual void                        UpdateNavigationRelevance();                                                                                     //
+		virtual bool                        ShouldTakeDamage(float a_damage, const FDamageEvent* a_event, AController* a_eventInstigator, AActor* a_cause);  //
+		virtual FVector                     GetGravityDirection();                                                                                           //
+		virtual FQuat                       GetGravityTransform();                                                                                           //
+		virtual void                        SetPlayerDefaults();                                                                                             //
+		virtual void                        RecalculateBaseEyeHeight();                                                                                      //
+		virtual void                        PossessedBy(AController* a_controller);                                                                          //
+		virtual void                        UnPossessed();                                                                                                   //
+		virtual void                        NotifyControllerChanged();                                                                                       //
+		virtual void                        NotifyRestarted();                                                                                               //
+		virtual void                        Restart();                                                                                                       //
+		virtual void                        PawnClientRestart();                                                                                             //
+		virtual bool                        IsLocallyControlled();                                                                                           //
+		virtual bool                        IsPlayerControlled();                                                                                            //
+		virtual bool                        IsBotControlled();                                                                                               //
+		virtual FRotator                    GetViewRotation();                                                                                               //
+		virtual FVector                     GetPawnViewLocation();                                                                                           //
+		virtual FRotator                    GetBaseAimRotation();                                                                                            //
+		virtual bool                        InFreeCam();                                                                                                     //
+		virtual void                        FaceRotation(FRotator a_rotation, float a_deltaTime = 0.0F);                                                     //
+		virtual void                        DetachFromControllerPendingDestroy();                                                                            //
+		virtual void                        SpawnDefaultController();                                                                                        //
+		virtual AController*                GetDamageInstigator(AController* a_instigatedBy, const UDamageType& a_damageType);                               //
+		virtual UInputComponent*            CreatePlayerInputComponent();                                                                                    //
+		virtual void                        DestroyPlayerInputComponent();                                                                                   //
+		virtual void                        SetupPlayerInputComponent(UInputComponent* a_component);                                                         //
+		virtual void                        AddMovementInput(FVector a_worldDirection, float a_scale = 1.0F, bool a_force = false);                          //
+		virtual FVector                     ConsumeMovementInputVector();                                                                                    //
+		virtual void                        AddControllerPitchInput(float a_value);                                                                          //
+		virtual void                        AddControllerYawInput(float a_value);                                                                            //
+		virtual void                        AddControllerRollInput(float a_value);                                                                           //
+		virtual bool                        IsMoveInputIgnored();                                                                                            //
 
 		// members
 		std::uint32_t                   useControllerRotationPitch: 1;     // 2A0:0

@@ -20,7 +20,7 @@ namespace UE
 		UE_DEFINE_UOBJECT(APlayerController, AController, "Engine", "PlayerController");
 
 		// override
-		virtual ~APlayerController();
+		virtual ~APlayerController();  // 000
 
 		// members
 		TObjectPtr<UPlayer>                         player;                              // 338

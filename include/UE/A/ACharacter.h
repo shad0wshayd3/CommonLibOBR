@@ -29,7 +29,46 @@ namespace UE
 		UE_DEFINE_UOBJECT(ACharacter, APawn, "Engine", "Character");
 
 		// override
-		virtual ~ACharacter();  // 00
+		virtual ~ACharacter();  // 000
+
+		// add
+		virtual void    SetBase(UPrimitiveComponent* a_base, const FName a_bone, bool a_notify = true);                                                                 //
+		virtual void    CacheInitialMeshOffset(FVector a_relativeLocation, FRotator a_relativeRotation);                                                                //
+		virtual void    OnRep_ReplicatedBasedMovement();                                                                                                                //
+		virtual void    BaseChange();                                                                                                                                   //
+		virtual FQuat   GetBaseRotationOffset();                                                                                                                        //
+		virtual FVector GetReplicatedGravityDirection();                                                                                                                //
+		virtual void    OnRep_IsCrouched();                                                                                                                             //
+		virtual void    ApplyDamageMomentum(float a_damage, const FDamageEvent* a_event, APawn* a_instigator, AActor* a_cause);                                         //
+		virtual void    Jump();                                                                                                                                         //
+		virtual void    StopJumping();                                                                                                                                  //
+		virtual bool    CanJumpInternal_Implementation();                                                                                                               //
+		virtual void    ResetJumpState();                                                                                                                               //
+		virtual bool    IsJumpProvidingForce();                                                                                                                         //
+		virtual float   PlayAnimMontage(UAnimMontage* a_montage, float a_playRate = 1.0F, FName a_startSection = EName::None);                                          //
+		virtual void    StopAnimMontage(UAnimMontage* a_montage);                                                                                                       //
+		virtual void    LaunchCharacter(FVector a_velocity, bool a_overrideXY, bool a_overrideZ);                                                                       //
+		virtual void    OnJumped_Implementation();                                                                                                                      //
+		virtual void    Falling();                                                                                                                                      //
+		virtual void    NotifyJumpApex();                                                                                                                               //
+		virtual void    Landed(const FHitResult& a_hit);                                                                                                                //
+		virtual void    OnWalkingOffLedge_Implementation(const FVector& a_impactNormal, const FVector& a_contactNormal, const FVector& a_location, float a_deltaTime);  //
+		virtual void    MoveBlockedBy(const FHitResult& a_hit);                                                                                                         //
+		virtual void    Crouch(bool a_clientSimulation = false);                                                                                                        //
+		virtual void    UnCrouch(bool a_clientSimulation = false);                                                                                                      //
+		virtual bool    CanCrouch();                                                                                                                                    //
+		virtual void    OnEndCrouch(float a_adjustHalfHeight, float a_adjustScaledHalfHeight);                                                                          //
+		virtual void    OnStartCrouch(float a_adjustHalfHeight, float a_adjustScaledHalfHeight);                                                                        //
+		virtual void    OnMovementModeChanged(EMovementMode a_mode, std::uint8_t a_previous);                                                                           //
+		virtual bool    ShouldNotifyLanded(const FHitResult& a_hit);                                                                                                    //
+		virtual void    CheckJumpInput(float a_deltaTime);                                                                                                              //
+		virtual void    ClearJumpInput(float a_deltaTime);                                                                                                              //
+		virtual float   GetJumpMaxHoldTime();                                                                                                                           //
+		virtual void    ClientCheatWalk_Implementation();                                                                                                               //
+		virtual void    ClientCheatFly_Implementation();                                                                                                                //
+		virtual void    ClientCheatGhost_Implementation();                                                                                                              //
+		virtual void    RootMotionDebugClientPrintOnScreen_Implementation(const FString* a_string);                                                                     //
+		virtual void    OnUpdateSimulatedPosition(const FVector& a_location, const FQuat& a_rotation);                                                                  //
 
 		// members
 		TObjectPtr<USkeletalMeshComponent>         mesh;                                          // 320
