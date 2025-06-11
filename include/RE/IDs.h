@@ -9,7 +9,7 @@ namespace RE::ID
 
 	namespace FORM_ENUM_STRING
 	{
-		inline constexpr REL::Offset FormEnumString{ 0 };  // 0x8FDD6A0
+		inline constexpr REL::Offset FormEnumString{ 0x8F9FCE0 };
 	}
 
 	namespace GameSettingCollection
@@ -19,21 +19,21 @@ namespace RE::ID
 
 	namespace InterfaceManager
 	{
-		inline constexpr REL::Offset GetInstance{ 0 };  // 0x6603730
+		inline constexpr REL::Offset GetInstance{ 0x65D7AB0 };
 	}
 
 	namespace MapMenu
 	{
-		inline constexpr REL::Offset CenterMapAt{ 0 };               // 0x6587A30
-		inline constexpr REL::Offset SwitchTabs{ 0 };                //0x658CC90
-		inline constexpr REL::Offset SwitchTabsNotifyingAltar{ 0 };  // 0x658CE30
-		inline constexpr REL::Offset Update{ 0 };                    // 0x658D080
+		inline constexpr REL::Offset CenterMapAt{ 0x655B990 };
+		inline constexpr REL::Offset SwitchTabs{ 0x6560E30 };
+		inline constexpr REL::Offset SwitchTabsNotifyingAltar{ 0x6560FD0 };
+		inline constexpr REL::Offset Update{ 0x6561220 };
 	}
 
 	namespace MenuConsole
 	{
-		inline constexpr REL::Offset Instance{ 0 };   // 0x665C360
-		inline constexpr REL::Offset PrintLine{ 0 };  // 0x665C580
+		inline constexpr REL::Offset Instance{ 0x6630730 };
+		inline constexpr REL::Offset PrintLine{ 0x6630950 };
 	}
 
 	namespace PlayerCharacter
@@ -64,25 +64,25 @@ namespace RE::ID
 
 	namespace TESForm
 	{
-		inline constexpr REL::Offset AllForms{ 0 };            // 0x8FDDD30
-		inline constexpr REL::Offset AllFormsByEditorID{ 0 };  // 0x8FDDD70
+		inline constexpr REL::Offset AllForms{ 0x8FA0370 };
+		inline constexpr REL::Offset AllFormsByEditorID{ 0x8FA03B0 };
 	}
 
 	namespace TESFullName
 	{
-		inline constexpr REL::Offset GetFullName{ 0 };  // 0x65A8170
+		inline constexpr REL::Offset GetFullName{ 0x657C4B0 };
 	}
 
 	namespace TESObjectREFR
 	{
-		inline constexpr REL::Offset GetInterior{ 0 };    // 0x65A8400
-		inline constexpr REL::Offset GetWorldSpace{ 0 };  // 0x65A9F10
+		inline constexpr REL::Offset GetInterior{ 0x657C740 };
+		inline constexpr REL::Offset GetWorldSpace{ 0x657E270 };
 	}
 
 	namespace Tile
 	{
-		inline constexpr REL::Offset GetMenuByClass{ 0 };  // 0x671B0C0
-		inline constexpr REL::Offset GetMenu{ 0 };         // 0x671B070
+		inline constexpr REL::Offset GetMenuByClass{ 0x66EF410 };
+		inline constexpr REL::Offset GetMenu{ 0x66EF3C0 };
 	}
 
 	inline constexpr REL::Offset RTDynamicCast{ 0x6BF7A96 };
@@ -156,8 +156,8 @@ namespace UE::ID
 
 	namespace UAltarCheatManager
 	{
-		inline constexpr REL::Offset GetSelectedActor{ 0 };  // 0x2CE76F0
-		inline constexpr REL::Offset SetSelectedActor{ 0 };  // 0x479DAB0
+		inline constexpr REL::Offset GetSelectedActor{ 0x2CDB4E0 };
+		inline constexpr REL::Offset SetSelectedActor{ 0x4771160 };
 	}
 
 	namespace UClass
@@ -168,7 +168,7 @@ namespace UE::ID
 	namespace UEngine
 	{
 		inline constexpr REL::Offset GetSingleton{ 0x92734C0 };
-		inline constexpr REL::Offset GetCurrentPlayWorld{ 0 };  // 0x37F0A20
+		inline constexpr REL::Offset GetCurrentPlayWorld{ 0x37E3EB0 };
 	}
 
 	namespace UGameplayStatics
