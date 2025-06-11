@@ -134,12 +134,12 @@ namespace UE::ID
 
 	namespace FString
 	{
-		inline constexpr REL::Offset AppendChar{ 0 };    // 0x0DE7710
-		inline constexpr REL::Offset AppendChars1{ 0 };  // 0x0DE7790
-		inline constexpr REL::Offset AppendChars2{ 0 };  // 0x0DE77A0
-		inline constexpr REL::Offset Ctor1{ 0 };         // 0x0DE4F20
-		inline constexpr REL::Offset Ctor2{ 0 };         // 0x0DE50B0
-		inline constexpr REL::Offset Reset{ 0 };         // 0x0DF0110
+		inline constexpr REL::Offset AppendChar{ 0x0DDB660 };
+		inline constexpr REL::Offset AppendChars1{ 0x0DDB6E0 };
+		inline constexpr REL::Offset AppendChars2{ 0x0DDB6F0 };
+		inline constexpr REL::Offset Ctor1{ 0x0DD8E70 };
+		inline constexpr REL::Offset Ctor2{ 0x0DD9000 };
+		inline constexpr REL::Offset Reset{ 0x0DE4060 };
 	}
 
 	namespace FText
@@ -173,7 +173,7 @@ namespace UE::ID
 
 	namespace UGameplayStatics
 	{
-		inline constexpr REL::Offset GetPlayerController{ 0 };  // 0x31B6B80
+		inline constexpr REL::Offset GetPlayerController{ 0x31AA560 };
 	}
 
 	namespace UObjectBaseUtility
@@ -184,12 +184,12 @@ namespace UE::ID
 
 	namespace UWorld
 	{
-		inline constexpr REL::Offset GetSingleton{ 0 };  // 0x92B3878
+		inline constexpr REL::Offset GetSingleton{ 0x9275EF8 };
 	}
 
 	namespace VOblivionUEPairingGate
 	{
-		inline constexpr REL::Offset GetSingleton{ 0 };  // 0x45C16F0
+		inline constexpr REL::Offset GetSingleton{ 0x4594D60 };
 	}
 
 	inline constexpr REL::Offset AsyncTask{ 0 };                       // 0x0DC48F0
