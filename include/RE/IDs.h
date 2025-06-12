@@ -192,7 +192,7 @@ namespace UE::ID
 		inline constexpr REL::Offset GetSingleton{ 0x4594D60 };
 	}
 
-	inline constexpr REL::Offset AsyncTask{ 0 };                       // 0x0DC48F0
+	inline constexpr REL::Offset AsyncTask{ 0x0DB8830 };
 	inline constexpr REL::Offset GetExecRegistry{ 0 };                 // 0x0EF7E60
 	inline constexpr REL::Offset GetExecRegistryLock{ 0 };             // 0x0EF7ED0
 	inline constexpr REL::Offset GetTransientPackage{ 0 };             // 0x109A510
