@@ -100,7 +100,7 @@ rule("commonlibob64.plugin")
         else
             conf.options = {
                 sig_scanning = false,
-                address_library = false,
+                address_library = true,
                 no_struct_use = false,
                 layout_dependent = true
             }
@@ -196,7 +196,7 @@ rule("commonlibob64.plugin")
 
         depend.on_changed(function()
             local srcfiles, dstfiles = target:installfiles()
-            if srcfiles and #srcfiles > 0 and dstfiles and #dstfiles > 0 then 
+            if srcfiles and #srcfiles > 0 and dstfiles and #dstfiles > 0 then
                 task.run("install")
             end
         end, { changed = target:is_rebuilt(), files = { target:targetfile() } })
