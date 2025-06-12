@@ -110,10 +110,10 @@ namespace UE::ID
 
 	namespace FName
 	{
-		inline constexpr REL::Offset Ctor1{ 0 };         // 0x0F45900
-		inline constexpr REL::Offset Ctor2{ 0 };         // 0x0F45A70
-		inline constexpr REL::Offset AppendString{ 0 };  // 0x0F4B710
-		inline constexpr REL::Offset ToString{ 0 };      // 0x0F61010
+		inline constexpr REL::Offset Ctor1{ 0x0F397B0 };
+		inline constexpr REL::Offset Ctor2{ 0x0F39920 };
+		inline constexpr REL::Offset AppendString{ 0x0F3F5C0 };
+		inline constexpr REL::Offset ToString{ 0x0F54EC0 };
 	}
 
 	namespace FNamePool
