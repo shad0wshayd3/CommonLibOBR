@@ -5,10 +5,10 @@ OBSE_EXPORT constinit auto OBSEPlugin_Version = []() noexcept {
     v.PluginVersion({ ${PLUGIN_VERSION_MAJOR}, ${PLUGIN_VERSION_MINOR}, ${PLUGIN_VERSION_PATCH}, 0 });
     v.PluginName("${PLUGIN_NAME}");
     v.AuthorName("${PLUGIN_AUTHOR}");
-    v.UsesAddressLibrary(false);
-    v.UsesSigScanning(false);
-    v.IsLayoutDependent(true);
-    v.HasNoStructUse(false);
+    v.UsesAddressLibrary(${OPTION_ADDRESS_LIBRARY});
+    v.UsesSigScanning(${OPTION_SIG_SCANNING});
+    v.IsLayoutDependent(${OPTION_LAYOUT_DEPENDENT});
+    v.HasNoStructUse(${OPTION_NO_STRUCT_USE});
     v.CompatibleVersions({ OBSE::RUNTIME_LATEST });
     return v;
 }();
@@ -80,20 +80,50 @@ rule("commonlibob64.plugin")
         local conf = target:extraconf("rules", "commonlibob64.plugin")
         local conf_dir = path.join(target:autogendir(), "rules", "commonlibob64", "plugin")
 
+        if conf.options then
+            if conf.options.sig_scanning then
+                conf.options.address_library = false
+            else
+                conf.options.sig_scanning = false
+                if conf.options.address_library == nil then
+                    conf.options.address_library = true
+                end
+            end
+            if conf.options.no_struct_use then
+                conf.options.layout_dependent = false
+            else
+                conf.options.no_struct_use = false
+                if conf.options.layout_dependent == nil then
+                    conf.options.layout_dependent = true
+                end
+            end
+        else
+            conf.options = {
+                sig_scanning = false,
+                address_library = false,
+                no_struct_use = false,
+                layout_dependent = true
+            }
+        end
+
         local conf_map = {
-            PLUGIN_AUTHOR                = conf.author or "",
-            PLUGIN_DESCRIPTION           = conf.description or "",
-            PLUGIN_LICENSE               = (target:license() or "Unknown") .. " License",
-            PLUGIN_NAME                  = conf.name or target:name(),
-            PLUGIN_VERSION               = target:version() or "0.0.0",
-            PLUGIN_VERSION_MAJOR         = semver.new(target:version() or "0.0.0"):major(),
-            PLUGIN_VERSION_MINOR         = semver.new(target:version() or "0.0.0"):minor(),
-            PLUGIN_VERSION_PATCH         = semver.new(target:version() or "0.0.0"):patch(),
-            PROJECT_NAME                 = project.name() or "",
-            PROJECT_VERSION              = project.version() or "0.0.0",
-            PROJECT_VERSION_MAJOR        = semver.new(project.version() or "0.0.0"):major(),
-            PROJECT_VERSION_MINOR        = semver.new(project.version() or "0.0.0"):minor(),
-            PROJECT_VERSION_PATCH        = semver.new(project.version() or "0.0.0"):patch(),
+            PLUGIN_AUTHOR           = conf.author or "",
+            PLUGIN_DESCRIPTION      = conf.description or "",
+            PLUGIN_LICENSE          = (target:license() or "Unknown") .. " License",
+            PLUGIN_NAME             = conf.name or target:name(),
+            PLUGIN_VERSION          = target:version() or "0.0.0",
+            PLUGIN_VERSION_MAJOR    = semver.new(target:version() or "0.0.0"):major(),
+            PLUGIN_VERSION_MINOR    = semver.new(target:version() or "0.0.0"):minor(),
+            PLUGIN_VERSION_PATCH    = semver.new(target:version() or "0.0.0"):patch(),
+            PROJECT_NAME            = project.name() or "",
+            PROJECT_VERSION         = project.version() or "0.0.0",
+            PROJECT_VERSION_MAJOR   = semver.new(project.version() or "0.0.0"):major(),
+            PROJECT_VERSION_MINOR   = semver.new(project.version() or "0.0.0"):minor(),
+            PROJECT_VERSION_PATCH   = semver.new(project.version() or "0.0.0"):patch(),
+            OPTION_ADDRESS_LIBRARY  = conf.options.address_library,
+            OPTION_LAYOUT_DEPENDENT = conf.options.layout_dependent,
+            OPTION_NO_STRUCT_USE    = conf.options.no_struct_use,
+            OPTION_SIG_SCANNING     = conf.options.sig_scanning,
         }
 
         local conf_parse = function(a_str)
