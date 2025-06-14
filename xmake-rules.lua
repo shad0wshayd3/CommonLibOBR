@@ -68,8 +68,8 @@ rule("commonlibob64.plugin")
         target:set("arch", "x64")
         target:set("kind", "shared")
 
-        target:add("installfiles", target:targetfile(), { prefixdir = "OBSE/Plugins" })
-        target:add("installfiles", target:symbolfile(), { prefixdir = "OBSE/Plugins" })
+        target:add("installfiles", target:targetfile(), { prefixdir = "OblivionRemastered/Binaries/Win64/OBSE/Plugins" })
+        target:add("installfiles", target:symbolfile(), { prefixdir = "OblivionRemastered/Binaries/Win64/OBSE/Plugins" })
 
         if os.getenv("XSE_TES4_MODS_PATH") then
             target:set("installdir", path.join(os.getenv("XSE_TES4_MODS_PATH"), target:name()))
@@ -173,7 +173,7 @@ rule("commonlibob64.plugin")
         local root_dir = path.join(os.tmpdir(), "packages", project.name() or "", target:name())
         os.tryrm(root_dir)
 
-        local srcfiles, dstfiles = target:installfiles(path.join(root_dir, "OblivionRemastered/Binaries/Win64/"))
+        local srcfiles, dstfiles = target:installfiles(root_dir)
         if srcfiles and #srcfiles > 0 and dstfiles and #dstfiles > 0 then
             for idx, srcfile in ipairs(srcfiles) do
                 os.trycp(srcfile, dstfiles[idx])
