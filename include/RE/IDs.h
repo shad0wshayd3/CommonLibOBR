@@ -17,6 +17,11 @@ namespace RE::ID
 		inline constexpr REL::ID Singleton{ 1464798 };
 	}
 
+	namespace INISettingCollection
+	{
+		inline constexpr REL::ID Singleton{ 1464496 };
+	}
+
 	namespace InterfaceManager
 	{
 		inline constexpr REL::ID GetInstance{ 406444 };
@@ -60,6 +65,16 @@ namespace RE::ID
 	namespace TESDataHandler
 	{
 		inline constexpr REL::ID Singleton{ 1667969 };
+	}
+
+	namespace TESFile
+	{
+		inline constexpr REL::ID CloseTES{ 411591 };
+		inline constexpr REL::ID GetTESChunk{ 411609 };
+		inline constexpr REL::ID GetChunkData{ 411601 };
+		inline constexpr REL::ID NextChunk{ 411618 };
+		inline constexpr REL::ID NextForm{ 411619 };
+		inline constexpr REL::ID OpenTES{ 411622 };
 	}
 
 	namespace TESForm

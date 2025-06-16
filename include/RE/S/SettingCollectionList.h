@@ -1,17 +1,17 @@
 #pragma once
 
-#include "RE/B/BSTCaseInsensitiveStringMap.h"
+#include "RE/B/BSTList.h"
 #include "RE/S/Setting.h"
 #include "RE/S/SettingCollection.h"
 
 namespace RE
 {
 	template <class T>
-	class SettingCollectionMap :
+	class SettingCollectionList :
 		public SettingCollection<T>
 	{
 	public:
-		~SettingCollectionMap() override;  // 00
+		~SettingCollectionList() override;  // 00
 
 		// override
 		virtual void          Add(T* a_setting) override;                             // 01
@@ -21,7 +21,7 @@ namespace RE
 		virtual bool          ReadSettings() override;                                // 09
 
 		// members
-		BSTCaseInsensitiveStringMap<T*> settings;  // 118
+		BSSimpleList<T*> settings;  // 118
 	};
-	static_assert(sizeof(SettingCollectionMap<Setting>) == 0x140);
+	static_assert(sizeof(SettingCollectionList<Setting>) == 0x128);
 }

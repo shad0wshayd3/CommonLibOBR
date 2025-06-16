@@ -5,7 +5,8 @@
 
 namespace RE
 {
-	class GameSettingCollection : public SettingCollectionMap<Setting>
+	class GameSettingCollection :
+		public SettingCollectionMap<Setting>
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI::GameSettingCollection;
@@ -13,14 +14,12 @@ namespace RE
 
 		~GameSettingCollection() override;  // 00
 
-		// override (SettingCollectionMap<Setting>)
-		bool WriteSetting(Setting* a_setting) override;  // 03 - { return false; }
-		bool ReadSetting(Setting* a_setting) override;   // 04
-		bool OpenHandle(bool a_create) override;         // 05 - { return handle != 0; }
-		bool CloseHandle() override;                     // 06 - { handle = 0; return true; }
+		// override
+		virtual std::uint32_t GetViewerStrings(NiTArray<char*>* a_strings) override;  // 03
+		virtual bool          ReadSetting(Setting& a_setting) override;               // 05
 
 		// add
-		virtual void Unk_0A(void);  // 0A
+		virtual bool ReadSetting(TESFile* a_file, const char* a_key);  // 0A
 
 		static GameSettingCollection* GetSingleton()
 		{
