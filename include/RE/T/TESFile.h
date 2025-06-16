@@ -34,7 +34,7 @@ namespace RE
 		[[nodiscard]] std::uint8_t     GetCompileIndex() const noexcept { return compileIndex; }
 		[[nodiscard]] std::string_view GetFilename() const noexcept { return { filename }; }
 		[[nodiscard]] bool             IsActive() const noexcept { return GetCompileIndex() != 0xFF; }
-		
+
 		bool CloseTES()
 		{
 			using func_t = decltype(&TESFile::CloseTES);

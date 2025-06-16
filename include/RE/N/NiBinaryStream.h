@@ -5,8 +5,8 @@ namespace RE
 	class NiBinaryStream
 	{
 	public:
-		using read_t = std::uint32_t (NiBinaryStream*, void*, std::uint32_t, std::uint32_t*, std::uint32_t);
-		using write_t = std::uint32_t (NiBinaryStream*, const void*, std::uint32_t, std::uint32_t*, std::uint32_t);
+		using read_t = std::uint32_t(NiBinaryStream*, void*, std::uint32_t, std::uint32_t*, std::uint32_t);
+		using write_t = std::uint32_t(NiBinaryStream*, const void*, std::uint32_t, std::uint32_t*, std::uint32_t);
 
 		// add
 		virtual ~NiBinaryStream();                // 00
