@@ -42,6 +42,7 @@
 #include "RE/E/ExtraCharge.h"
 #include "RE/E/ExtraContainerChanges.h"
 #include "RE/E/ExtraDataList.h"
+#include "RE/E/ExtraDataType.h"
 #include "RE/F/FACTION_DATA.h"
 #include "RE/F/FILE_HEADER.h"
 #include "RE/F/FORM.h"
