@@ -13,6 +13,7 @@
 #include "RE/M/MobileObject.h"
 #include "RE/M/ModifierList.h"
 #include "RE/S/SKILL_ACTION.h"
+#include "RE/T/TESActorBase.h"
 #include "RE/V/VAnimationPairingComponentHandlers.h"
 #include "RE/V/VPreloadAssetsHandlers.h"
 #include "RE/W/WEAPON_TYPE.h"
@@ -259,6 +260,8 @@ namespace RE
 			static REL::Relocation<func_t> func{ ID::Actor::GetItemCountInContainer };
 			return func(this, a_object);
 		}
+
+		[[nodiscard]] std::int16_t GetLevel() const { return static_cast<TESActorBase*>(const_cast<Actor*>(this)->GetObjectReference())->GetLevel(); }
 
 		// members
 		ActorDeathInfos                                       actorKilledInfos;                // 178

@@ -63,8 +63,8 @@ namespace RE
 		iterator				end()			{ return iterator{ nullptr }; }
 		const_iterator			begin() const	{ return const_iterator{ head }; }
 		const_iterator			end() const		{ return const_iterator{ nullptr }; }
-		const_iterator			cbegin() const	{ return const_iterator{ head }; }
-		const_iterator			cend() const	{ return const_iterator{ nullptr }; }
+		const_iterator          cbegin() const	{ return begin(); }
+		const_iterator			cend() const	{ return end(); }
 		reverse_iterator		rbegin()		{ return reverse_iterator{ tail }; }
 		reverse_iterator		rend()			{ return reverse_iterator{ nullptr }; }
 		const_reverse_iterator	crbegin() const { return const_reverse_iterator{ tail }; }
