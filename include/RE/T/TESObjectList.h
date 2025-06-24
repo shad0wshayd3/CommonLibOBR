@@ -59,16 +59,16 @@ namespace RE
 		using reverse_iterator = iterator_base<TESObject, false>;
 		using const_reverse_iterator = iterator_base<const TESObject, false>;
 
-		iterator				begin()			{ return iterator{ head }; }
-		iterator				end()			{ return iterator{ nullptr }; }
-		const_iterator			begin() const	{ return const_iterator{ head }; }
-		const_iterator			end() const		{ return const_iterator{ nullptr }; }
-		const_iterator          cbegin() const	{ return begin(); }
-		const_iterator			cend() const	{ return end(); }
-		reverse_iterator		rbegin()		{ return reverse_iterator{ tail }; }
-		reverse_iterator		rend()			{ return reverse_iterator{ nullptr }; }
-		const_reverse_iterator	crbegin() const { return const_reverse_iterator{ tail }; }
-		const_reverse_iterator	crend() const	{ return const_reverse_iterator{ nullptr }; }
+		iterator                begin() { return iterator{ head }; }
+		iterator                end() { return iterator{ nullptr }; }
+		const_iterator          begin() const { return const_iterator{ head }; }
+		const_iterator          end() const { return const_iterator{ nullptr }; }
+		const_iterator          cbegin() const { return begin(); }
+		const_iterator          cend() const { return end(); }
+		reverse_iterator        rbegin() { return reverse_iterator{ tail }; }
+		reverse_iterator        rend() { return reverse_iterator{ nullptr }; }
+		const_reverse_iterator  crbegin() const { return const_reverse_iterator{ tail }; }
+		const_reverse_iterator  crend() const { return const_reverse_iterator{ nullptr }; }
 	};
 	static_assert(sizeof(TESObjectList) == 0x20);
 }
