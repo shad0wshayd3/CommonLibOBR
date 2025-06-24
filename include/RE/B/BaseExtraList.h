@@ -13,8 +13,12 @@ namespace RE
 		// add
 		virtual ~BaseExtraList();  // 00
 
-		[[nodiscard]] BSExtraData* Get(ExtraDataType type) const;
-		[[nodiscard]] bool Contains(ExtraDataType type) const;
+		[[nodiscard]] BSExtraData* GetExtraData(ExtraDataType a_type) const;
+		[[nodiscard]] bool         HasExtraData(ExtraDataType a_type) const;
+		void                       RemoveAll();
+		[[nodiscard]] std::int32_t ItemsInList() const;
+		void                       AddExtra(BSExtraData* a_extra);
+		void                       RemoveExtra(ExtraDataType a_type);
 
 		template<class T>
 		[[nodiscard]] inline T* Get() const

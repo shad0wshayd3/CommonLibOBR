@@ -13,6 +13,13 @@ namespace RE
 
 		// override
 		virtual ~ExtraDataList() override;  // 00
+
+		void RemoveAllCopyableExtra();
+		void RemoveNonPersistentCellData();
+		void CopyListForContainer(ExtraDataList* a_other);
+		void DuplicateExtraListForContainer(ExtraDataList* a_other);
+		void CopyListForReference(ExtraDataList* a_other);
+		bool CompareListForContainer(ExtraDataList* a_other);
 	};
 	static_assert(sizeof(ExtraDataList) == 0x20);
 }
