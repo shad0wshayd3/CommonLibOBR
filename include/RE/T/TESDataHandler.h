@@ -91,13 +91,6 @@ namespace RE
 		TESRegionDataManager*          regionDataManager;     // 1848
 		InventoryChanges*              barterContainer;       // 1850
 		bool                           enableLeveledRegion;   // 1858
-
-		template<typename FN>
-		void ForEachObject(FN fn)
-		{
-			for (auto& object : *objectList)
-				fn(object);
-		}
 	};
 	static_assert(sizeof(TESDataHandler) == 0x1860);
 }
