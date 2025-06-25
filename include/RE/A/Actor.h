@@ -254,6 +254,8 @@ namespace RE
 		virtual void                   HandleBlockedAttack(float a_fullDamage, float a_percentageBlocked, Actor* a_blockingActor, ArrowProjectile* a_arrow);                                                                                  // 110
 		virtual void                   HandleHealthDamage(Actor* a_attacker, float a_damage);                                                                                                                                                 // 111
 
+		[[nodiscard]] std::int16_t GetLevel() const { return static_cast<TESActorBase*>(const_cast<Actor*>(this)->GetObjectReference())->GetLevel(); }
+
 		std::int32_t GetItemCountInContainer(TESBoundObject* a_object)
 		{
 			using func_t = decltype(&Actor::GetItemCountInContainer);
@@ -261,7 +263,18 @@ namespace RE
 			return func(this, a_object);
 		}
 
-		[[nodiscard]] std::int16_t GetLevel() const { return static_cast<TESActorBase*>(const_cast<Actor*>(this)->GetObjectReference())->GetLevel(); }
+		void EquipObject(TESBoundObject* a_obj, int a_count, ExtraDataList* a_extra, bool a_noEnchantmentUpdate = false, bool a_preventUnequip = false)
+		{
+			static REL::Relocation<decltype(&Actor::EquipObject)> func{ REL::ID(405993) };
+			func(this, a_obj, a_count, a_extra, a_noEnchantmentUpdate, a_preventUnequip);
+		}
+
+		void UnequipObject(TESBoundObject* a_obj, int a_count, ExtraDataList* a_extra, bool a_left = false, bool a_preventEquipNpcOnly = true)
+		{
+			using func_t = void(Actor::*)(TESBoundObject*, int, ExtraDataList*, bool, bool, bool);
+			static REL::Relocation<func_t> func{ REL::ID(406356) };
+			func(this, a_obj, a_count, a_extra, false /* NOT USED */, a_left, a_preventEquipNpcOnly);
+		}
 
 		// members
 		ActorDeathInfos                                       actorKilledInfos;                // 178
