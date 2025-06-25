@@ -14,6 +14,8 @@ namespace RE
 		func(this);
 	}
 
+	#if 0 // Not sure exactly what each one of these do or what differentiates them yet.
+
 	void ExtraDataList::CopyListForContainer(ExtraDataList* a_other)
 	{
 		static REL::Relocation<decltype(&ExtraDataList::CopyListForContainer)> func{ REL::ID(407192) };
@@ -37,4 +39,6 @@ namespace RE
 		static REL::Relocation<decltype(&ExtraDataList::CompareListForContainer)> func{ REL::ID(407190) };
 		return func(this, a_other);
 	}
+
+	#endif
 }
