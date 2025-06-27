@@ -21,7 +21,7 @@ namespace RE
 		void                       RemoveExtra(ExtraDataType a_type);
 
 		template<class T>
-		[[nodiscard]] inline T* Get() const
+		[[nodiscard]] inline T* Get()
 		{
 			return static_cast<T*>(Get(T::EXTRADATATYPE));
 		}
