@@ -64,6 +64,7 @@
 #include "RE/I/Interface.h"
 #include "RE/I/InterfaceManager.h"
 #include "RE/I/InventoryEntryData.h"
+#include "RE/L/LEVELED_OBJECT.h"
 #include "RE/M/MATERIAL_TYPE.h"
 #include "RE/M/MENU_CLASS.h"
 #include "RE/M/MagicCaster.h"
