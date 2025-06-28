@@ -20,7 +20,9 @@ namespace RE
 		void CopyListForContainer(ExtraDataList* a_other);
 		void DuplicateExtraListForContainer(ExtraDataList* a_other);
 		void CopyListForReference(ExtraDataList* a_other);
-		bool CompareListForContainer(ExtraDataList* a_other);
+		bool CompareList(ExtraDataList* a_other) const;
+		bool CompareListForContainer(ExtraDataList* a_other) const;
+		void Save();
 		#endif
 	};
 	static_assert(sizeof(ExtraDataList) == 0x20);

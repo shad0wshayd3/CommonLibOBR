@@ -34,10 +34,22 @@ namespace RE
 		func(this, a_other);
 	}
 
-	bool ExtraDataList::CompareListForContainer(ExtraDataList* a_other)
+	bool ExtraDataList::CompareList(ExtraDataList* a_other) const
+	{
+		static REL::Relocation<decltype(&ExtraDataList::CompareList)> func{ REL::ID(407189) };
+		return func(this, a_other);
+	}
+
+	bool ExtraDataList::CompareListForContainer(ExtraDataList* a_other) const
 	{
 		static REL::Relocation<decltype(&ExtraDataList::CompareListForContainer)> func{ REL::ID(407190) };
 		return func(this, a_other);
+	}
+
+	void ExtraDataList::Save()
+	{
+		static REL::Relocation<decltype(&ExtraDataList::Save)> func{ REL::ID(407337) };
+		func(this);
 	}
 
 	#endif
