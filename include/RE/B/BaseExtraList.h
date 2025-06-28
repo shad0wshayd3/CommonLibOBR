@@ -21,9 +21,9 @@ namespace RE
 		void                       RemoveExtra(ExtraDataType a_type);
 
 		template<class T>
-		[[nodiscard]] inline T* Get()
+		[[nodiscard]] inline T* GetExtraData()
 		{
-			return static_cast<T*>(Get(T::EXTRADATATYPE));
+			return static_cast<T*>(GetExtraData(T::EXTRADATATYPE));
 		}
 
 		// members
